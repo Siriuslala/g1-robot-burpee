@@ -37,12 +37,6 @@ python3 -m http.server 8080
 
 浏览器访问 `http://localhost:8080`。也可直接打开 `index.html`。
 
-## GitHub Pages
-
-远程仓库为 `git@github.com:Siriuslala/g1-robot-burpee.git`，目标网址为 <https://siriuslala.github.io/g1-robot-burpee/>。全部页面资源使用相对路径，可部署在此项目子路径下。
-
-仓库内容上传后，在 GitHub 仓库的 **Settings → Pages → Build and deployment** 中选择 **Deploy from a branch**，分支选择 `main`，目录选择 `/ (root)`。根目录的 `.nojekyll` 保证静态文件直接发布。
-
 ## 验证
 
 浏览器检查需要可用的 `playwright` 包与 Chromium；网站运行本身不依赖它们。设置 `PLAYWRIGHT_MODULE` 为 Playwright 模块的绝对路径，设置 `CHROMIUM_PATH` 为浏览器路径，然后运行：
