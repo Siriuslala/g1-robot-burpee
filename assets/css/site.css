@@ -148,19 +148,20 @@ h1 strong {
 }
 
 .intro-copy {
-  font-size:13px;
+  font-size:16px;
   line-height:1.8;
   color:#6b746e;
-  max-width:760px;
+  max-width:860px;
   margin:22px auto 19px;
 }
 
 .tags {
   display:flex;
+  flex-wrap:wrap;
   justify-content:center;
   align-items:center;
   gap:13px;
-  font-size:10px;
+  font-size:13px;
   color:#67736a;
 }
 
@@ -198,7 +199,7 @@ h1 strong {
 }
 
 .control-label {
-  font-size:11px;
+  font-size:14px;
   color:var(--muted);
 }
 
@@ -217,9 +218,9 @@ h1 strong {
   color:#6a756d;
   border-radius:4px;
   padding:8px 14px;
-  font-size:11px;
+  font-size:14px;
   line-height:1.1;
-  min-height:31px;
+  min-height:38px;
   white-space:nowrap;
 }
 
@@ -266,7 +267,7 @@ video {
   gap:9px;
   background:#203a30e8;
   color:#fff;
-  font-size:12px;
+  font-size:16px;
   box-shadow:0 5px 30px #172f3326;
   backdrop-filter:blur(10px);
 }
@@ -277,11 +278,12 @@ video {
 
 .playback-info {
   display:flex;
+  flex-wrap:wrap;
   justify-content:space-between;
   align-items:center;
   gap:10px;
   padding:17px 22px;
-  font-size:11px;
+  font-size:14px;
 }
 
 .current-action {
@@ -306,7 +308,7 @@ video {
 
 .time-display {
   white-space:nowrap;
-  font:11px ui-monospace,SFMono-Regular,Consolas,monospace;
+  font:13px ui-monospace,SFMono-Regular,Consolas,monospace;
   font-variant-numeric:tabular-nums;
 }
 
@@ -346,11 +348,13 @@ video {
 
 .player-caption {
   display:flex;
+  align-items:center;
+  flex-wrap:wrap;
   justify-content:space-between;
   gap:15px;
   padding:12px 2px;
   color:#7f877e;
-  font-size:10px;
+  font-size:13px;
   line-height:1.7;
 }
 
@@ -392,7 +396,7 @@ h2 {
   align-items:center;
   gap:6px;
   margin:0 0 3px;
-  font-size:10px;
+  font-size:13px;
   color:#80897e;
 }
 
@@ -434,13 +438,15 @@ h2 {
 
 .phase-topline {
   display:flex;
+  flex-wrap:wrap;
+  gap:8px;
   justify-content:space-between;
   align-items:center;
   margin-bottom:17px;
 }
 
 .phase-number {
-  font:12px ui-monospace,monospace;
+  font:14px ui-monospace,monospace;
   color:#8a9787;
 }
 
@@ -449,18 +455,18 @@ h2 {
 }
 
 .phase-range {
-  font:9px ui-monospace,monospace;
+  font:11px ui-monospace,monospace;
   color:#909a8c;
 }
 
 .phase h3 {
-  font-size:14px;
+  font-size:17px;
   font-weight:600;
   margin:0 0 7px;
 }
 
 .phase-subtitle {
-  font-size:9px;
+  font-size:11px;
   letter-spacing:1.3px;
   color:#8c9687;
   margin:0;
@@ -476,7 +482,7 @@ h2 {
 
 .action-button {
   width:100%;
-  min-height:38px;
+  min-height:44px;
   text-align:left;
   border:1px solid transparent;
   background:transparent;
@@ -485,7 +491,7 @@ h2 {
   align-items:center;
   gap:7px;
   padding:9px 8px;
-  font-size:11px;
+  font-size:14px;
   color:#6c7868;
   line-height:1.5;
 }
@@ -519,7 +525,7 @@ h2 {
 .action-button time {
   margin-left:auto;
   color:#939f8b;
-  font:9px ui-monospace,monospace;
+  font:11px ui-monospace,monospace;
   white-space:nowrap;
 }
 
@@ -635,12 +641,12 @@ footer a:hover {
     margin-top:10px;
   }
   .intro-copy {
-    font-size:12px;
+    font-size:15px;
     margin:18px auto;
   }
   .tags {
     gap:5px;
-    font-size:8px;
+    font-size:11px;
   }
   .tags span {
     padding:5px 6px;
@@ -654,10 +660,10 @@ footer a:hover {
     gap:8px;
   }
   .control-label {
-    font-size:10px;
+    font-size:13px;
   }
   .segmented button {
-    font-size:10px;
+    font-size:14px;
     padding:8px 10px;
   }
   .speeds button {
@@ -669,13 +675,13 @@ footer a:hover {
   }
   .playback-info {
     padding:13px 12px;
-    font-size:10px;
+    font-size:13px;
   }
   .current-action {
     gap:6px;
   }
   .time-display {
-    font-size:10px;
+    font-size:12px;
   }
   .chapter-progress {
     padding:0 12px 13px;
@@ -683,10 +689,10 @@ footer a:hover {
   .start-button {
     width:120px;
     height:40px;
-    font-size:11px;
+    font-size:15px;
   }
   .player-caption {
-    font-size:9px;
+    font-size:13px;
   }
   .player-caption>span {
     display:none;
@@ -700,7 +706,7 @@ footer a:hover {
   }
   .section-heading>p {
     padding-top:13px;
-    font-size:9px;
+    font-size:12px;
   }
   h2 {
     font-size:22px;
@@ -715,26 +721,26 @@ footer a:hover {
     margin-bottom:12px;
   }
   .phase h3 {
-    font-size:12px;
+    font-size:16px;
   }
   .phase-subtitle {
-    font-size:8px;
+    font-size:10px;
     letter-spacing:.7px;
   }
   .phase-range {
-    font-size:8px;
+    font-size:10px;
   }
   .action-list {
     padding:5px;
     gap:3px;
   }
   .action-button {
-    font-size:10px;
+    font-size:14px;
     padding:8px 5px;
     gap:6px;
   }
   .action-button time {
-    font-size:8px;
+    font-size:11px;
   }
   footer {
     margin:0 16px;
@@ -751,5 +757,41 @@ footer a:hover {
   *,*:before,*:after {
     transition:none!important;
     scroll-behavior:auto!important;
+  }
+}
+
+.download-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  flex-shrink:0;
+  min-height:44px;
+  padding:10px 18px;
+  border:1px solid var(--green);
+  border-radius:7px;
+  background:var(--green);
+  color:#fff;
+  font-size:14px;
+  font-weight:600;
+}
+.download-button:hover {
+  background:#184f3d;
+}
+.action-button > span {
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+@media(max-width:540px) {
+  .player-caption {
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .current-action {
+    flex-wrap:wrap;
+  }
+  .start-button {
+    width:144px;
+    height:46px;
   }
 }

@@ -137,6 +137,10 @@
     video.playbackRate = rate;
     viewButtons.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
     document.querySelector('#view-note').textContent = notes[view];
+    const download = document.querySelector('#download-video');
+    download.href = `assets/media/${view}.mp4`;
+    download.download = `g1-performance-${view}.mp4`;
+    document.querySelector('#download-label').textContent = `下载到本地 · ${view === 'transition' ? '运镜衔接' : '统一视角'}`;
     update();
   });
 
