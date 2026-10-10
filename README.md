@@ -1,6 +1,8 @@
 # G1 Robot Performance
 
-Unitree G1 舞台波比跳的静态展示网站：https://siriuslala.github.io/g1-robot-burpee。开发者用自然语言描述动作要求，GPT-6-Astra 在 Codex 中编写控制程序、运行 MuJoCo 仿真并依据实验反馈迭代。表演由本地控制程序结合预训练行走策略与全身控制执行。完整视频约 156.35 秒，覆盖登台与搬运、放置与展示、支架俯卧撑、跳跃与谢幕四个阶段。
+Unitree G1 舞台波比跳的静态展示网站：https://siriuslala.github.io/g1-robot-burpee。
+
+开发者用自然语言描述动作要求，GPT-6-Astra 在 Codex 中编写控制程序、运行 MuJoCo 仿真并依据实验反馈迭代。表演由本地控制程序结合预训练行走策略与全身控制执行。完整视频约 156.35 秒，覆盖登台与搬运、放置与展示、支架俯卧撑、跳跃与谢幕四个阶段。
 
 ## 播放功能
 
