@@ -1,0 +1,11 @@
+{
+  "source_directory": "artifacts/stage_performance/sequence_001",
+  "video_time_origin_s": 0.002,
+  "timestamp_precision_note": "Event timestamps shifted by the first recorded sample; video sampling is 20 fps. Labels group neighboring controller events. Jump subdivisions follow controller timing and measured foot contact.",
+  "sha256": {
+    "transition.mp4": "18027e84c8f1a573d7a373d6d352af2ba92722fac3839b986c601234714d9d96",
+    "fixed_poster.png": "7b1e0fb18a91ffacdbb0b3b3943a6109863fcc699b5c204693b92bd3fc00c7df",
+    "fixed.mp4": "b759c4cf5130949ff2eaf9bd6b598d789b6fa8175ff63073ebcfc03ec44e1905",
+    "transition_poster.png": "b212576f3ac2dba0731091908bc688150e59ccc30faae73dd9729d5ad122119f"
+  }
+}
