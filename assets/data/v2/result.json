@@ -1,0 +1,9 @@
+{
+  "full_sequence_executed": true,
+  "strict_physics_pass": false,
+  "transport": "/home/liyueyan/robot/artifacts/stage_transport/codex_full_001",
+  "burpee": "/home/liyueyan/robot/artifacts/stage_burpee/codex_full_001",
+  "decisions": 53,
+  "total_sim_seconds": 155.90800000292853,
+  "backend": "codex"
+}

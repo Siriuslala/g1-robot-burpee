@@ -2,7 +2,13 @@
 
 Unitree G1 舞台波比跳的静态展示网站：https://siriuslala.github.io/g1-robot-burpee
 
-开发者用自然语言描述动作要求，GPT-6-Astra 在 Codex 中编写控制程序、运行 MuJoCo 仿真并依据实验反馈迭代。表演由本地控制程序结合预训练行走策略与全身控制执行。完整视频约 156.35 秒，覆盖登台与搬运、放置与展示、支架俯卧撑、跳跃与谢幕四个阶段。
+网站提供 Unitree G1 舞台表演的两个版本：v2 展示 GPT 在线监督与已有运动控制结合的连续仿真，v1 展示状态机控制的原有表演。两版均覆盖登台与搬运、放置与展示、支架俯卧撑、跳跃与谢幕四个阶段。
+
+## 版本
+
+首页默认展示 v2，左侧为第三人称视频，右侧为第一人称视频，支持同步播放、暂停、进度跳转与倍速。v2 采用 GPT 在线监督、任务顺序辅助和已有运动控制，共 53 次决策、155.908 s 连续仿真；模型决策期间暂停物理时间。视频按 15 fps 渲染，资源与审计分别位于 `assets/media/v2/` 和 `assets/data/v2/`，技术方案位于 `technical.html`。完整阶段执行及状态衔接审计通过，严格物理和部分动作质量检查未通过，详见技术方案。
+
+v1 保存在 `v1/index.html`，保留原有播放器、视频、时间轴与说明，技术方案保存在 `technical_v1.html`。下述原视频参数与来源均属于 v1。
 
 ## 播放功能
 
@@ -46,6 +52,7 @@ python3 -m http.server 8080
 浏览器检查需要可用的 `playwright` 包与 Chromium；网站运行本身不依赖它们。设置 `PLAYWRIGHT_MODULE` 为 Playwright 模块的绝对路径，设置 `CHROMIUM_PATH` 为浏览器路径，然后运行：
 
 ```bash
+node tests/versions.mjs
 node tests/player.mjs
 ```
 

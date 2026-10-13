@@ -45,7 +45,7 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(String(error)));
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
-  await page.goto(`http://127.0.0.1:${server.address().port}${prefix}`);
+  await page.goto(`http://127.0.0.1:${server.address().port}${prefix}v1/index.html`);
   await page.waitForFunction(() => document.querySelector('video').readyState >= 2);
   assert.equal(await page.title(), 'G1 Robot Performance created by GPT-6-Astra');
   assert.equal(await page.locator('[data-view="transition"]').getAttribute('aria-pressed'), 'true');

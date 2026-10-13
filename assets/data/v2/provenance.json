@@ -1,0 +1,11 @@
+{
+  "run": "codex_full_001",
+  "media_sha256": {
+    "transition.mp4": "3c1dca687dc309be740117fc853888056120823751e72447896fbee906454bfd",
+    "fixed_poster.png": "ebf5eca8a2ee14528e0327df1b2c89fe273017b1dc8be46309d21774e4357e24",
+    "fixed.mp4": "547f37674aea1aa71b0d0f7cf7712a6e06e8bc2064a8d5d8f0ef41268c7d6d0e",
+    "transition_poster.png": "6caf6fd12dcc7c89ceab3b3bfb31a60af7e79e5e213d476bcffbb20ccf0457b5",
+    "first_person_poster.png": "c8588fe96f0cdc07a92ed4a7054547836ed147c241799e0d8e136c9bff5ff921",
+    "first_person.mp4": "637331c79d9edeb9c4870bfe9ffd04fd7248b93ef5417397a951eb9afed6d378"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "mode": "saved_state_sequence_replay",
+  "sources": [
+    "artifacts/stage_transport/codex_full_001",
+    "artifacts/stage_burpee/codex_full_001"
+  ],
+  "source_sha256": {
+    "artifacts/stage_transport/codex_full_001": "5468fb804f81405c2c8533fab3cef3d24c8c8d299ce000a4ac571578ed08c129",
+    "artifacts/stage_burpee/codex_full_001": "6d1cd47593363f829f7be57cda19d2ecad5598fe2e7d5112ac5f4e4232e51699"
+  },
+  "fps": 15,
+  "frames": 2339,
+  "duration_seconds": 155.93333333333334,
+  "resolution": [
+    848,
+    480
+  ],
+  "handoff_time_s": 98.26000000213836,
+  "initial_qpos_max_error": 0.0,
+  "editorial_handoff": false,
+  "crossfade_s": 0.0,
+  "burpee_time_offset_s": 98.26000000213836,
+  "continuous_physics_handoff": true,
+  "source_initial_qpos_exact": true,
+  "source_solver_warmstart_available": true,
+  "camera_start": [
+    1.9,
+    0.0,
+    0.45,
+    6.0,
+    135.0,
+    -30.0
+  ],
+  "camera_end": [
+    2.08,
+    0.12,
+    0.7,
+    2.9,
+    35.0,
+    -20.0
+  ],
+  "camera_vector_fields": [
+    "lookat_x",
+    "lookat_y",
+    "lookat_z",
+    "distance",
+    "azimuth",
+    "elevation"
+  ],
+  "transition_interval_s": [
+    95.26000000203877,
+    98.26000000213836
+  ],
+  "transition_easing": "cosine",
+  "inserted_freeze_frames": 0,
+  "videos": [
+    "fixed.mp4",
+    "transition.mp4"
+  ],
+  "burpee_frames": 865,
+  "burpee_duration_seconds": 57.666666666666664,
+  "playback_speed": 1.0,
+  "appearance_changes": "camera and sky only",
+  "strict_physics_audit_passed": false
+}

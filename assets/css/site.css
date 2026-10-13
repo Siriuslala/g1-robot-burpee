@@ -803,3 +803,13 @@ footer a:hover {
 @media(max-width:540px) {
   .method-entry {margin-top:-8px}
 }
+
+/* Version navigation and paired views share the original visual palette. */
+.version-switch {display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:0 0 28px}
+.version-button {display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 22px;border:1px solid #20684f;border-radius:7px;background:#20684f;color:#fff;font-size:14px;font-weight:600}
+.version-button:hover {background:#184f3d}
+.version-button[aria-current="page"] {background:#154b38;box-shadow:0 0 0 3px #cbded1}
+.dual-video {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line)}
+.video-pane {min-width:0;background:var(--paper)}
+.video-heading {font-size:14px;font-weight:500;letter-spacing:0;padding:11px 20px;border-top:1px solid var(--line);color:var(--green)}
+@media(max-width:650px) {.dual-video{grid-template-columns:1fr}.version-switch{gap:10px;margin-bottom:22px}.version-button{padding:10px 14px}}
