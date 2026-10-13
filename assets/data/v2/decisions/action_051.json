@@ -1,0 +1,1 @@
+{"observation_id": 51, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "双臂已收回，双足各约172N，身体速度约1毫米每秒，已恢复自然稳定站立；允许完成稳定判定并进入最终定姿。"}

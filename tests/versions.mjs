@@ -44,8 +44,15 @@ try {
  const page=await browser.newPage({viewport:{width:1440,height:1100}});const errors=[];
  page.on('pageerror',e=>errors.push(String(e)));page.on('response',r=>{if(r.status()>=400)errors.push(r.url());});
  const url=`http://127.0.0.1:${server.address().port}${prefix}`;
+ // Reproduce stale unversioned CSS, then verify fingerprinted URLs bypass it.
+ const oldCSS=fs.readFileSync(path.join(root,'assets/css/site.css'),'utf8').split('/* Version navigation')[0];
+ await page.route(/\/assets\/css\/site\.css$/,route=>route.fulfill({contentType:'text/css',body:oldCSS}));
+ await page.route('**/cache-repro.html',route=>route.fulfill({contentType:'text/html',body:fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/\?v=[a-f0-9]+/g,'')}));
+ await page.goto(url+'cache-repro.html');
+ assert.equal(await page.locator('.dual-video').evaluate(e=>getComputedStyle(e).display),'block');
+ assert.equal(await page.locator('.version-button').first().evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
  await page.goto(url);await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.readyState>=2));
- assert.equal(await page.locator('video').count(),2);assert.equal(await page.locator('.version-button[aria-current]').textContent(),'v2（GPT 在线控制）');
+ assert.equal(await page.locator('.dual-video').evaluate(e=>getComputedStyle(e).display),'grid');assert.equal(await page.locator('.version-button').first().evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 75, 56)');assert.equal(await page.locator('video').count(),2);assert.equal(await page.locator('.version-button[aria-current]').textContent(),'v2（GPT 在线控制）');
  const bounds=await page.locator('video').evaluateAll(v=>v.map(x=>x.getBoundingClientRect().toJSON()));assert(bounds[1].x>bounds[0].x && bounds[1].y===bounds[0].y);
  await page.screenshot({path:path.join(output,'v2-desktop.png'),fullPage:true});
  await page.locator('#start').click();await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>!v.paused && v.currentTime>.4));

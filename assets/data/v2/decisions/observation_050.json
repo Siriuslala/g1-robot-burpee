@@ -1,0 +1,69 @@
+{
+  "observation_id": 50,
+  "part": "burpee",
+  "proposed_skill": "jump",
+  "sim_time": 147.21200000263985,
+  "image": "ego_050.png",
+  "gravity_body": [
+    -0.009148459523159505,
+    0.000718144918998422,
+    -0.9999578940916598
+  ],
+  "body_velocity": [
+    -0.023750702199791748,
+    -0.0071270675656430835,
+    -0.13022131620555125
+  ],
+  "contact_force_n": [
+    0.0,
+    0.0,
+    217.74372047256134,
+    212.63986474073675
+  ],
+  "gripper_m": [
+    0.05969837704279181,
+    0.059698846465069406
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.28396129622855465,
+    "left_hip_roll_joint": -0.0024251741390425223,
+    "left_hip_yaw_joint": 0.0009208972438005466,
+    "left_knee_joint": 0.6543958723246912,
+    "left_ankle_pitch_joint": -0.3632786087771452,
+    "left_ankle_roll_joint": 0.0012002270718539292,
+    "right_hip_pitch_joint": -0.2828855412911191,
+    "right_hip_roll_joint": 0.0008901288557591435,
+    "right_hip_yaw_joint": -0.00016722469200691387,
+    "right_knee_joint": 0.652827339013409,
+    "right_ankle_pitch_joint": -0.362805889365726,
+    "right_ankle_roll_joint": -0.0002584580942625456,
+    "waist_yaw_joint": 0.00021362168937819263,
+    "waist_roll_joint": -0.0009745853372633412,
+    "waist_pitch_joint": -0.048541795500199894,
+    "left_shoulder_pitch_joint": -1.9378619280467484,
+    "left_shoulder_roll_joint": 0.3693637461167256,
+    "left_shoulder_yaw_joint": -0.006362828327868233,
+    "left_elbow_joint": 1.4109704204182003,
+    "left_wrist_roll_joint": -0.00039171179700495654,
+    "left_wrist_pitch_joint": 0.028315711130917045,
+    "left_wrist_yaw_joint": -0.014721590344742096,
+    "right_shoulder_pitch_joint": -1.9389423037922568,
+    "right_shoulder_roll_joint": -0.3681429006061542,
+    "right_shoulder_yaw_joint": 0.006488913935916285,
+    "right_elbow_joint": 1.4105276968652833,
+    "right_wrist_roll_joint": 0.0004123991667092374,
+    "right_wrist_pitch_joint": 0.027517254712028993,
+    "right_wrist_yaw_joint": 0.015027340149380395
+  },
+  "previous_decision": {
+    "observation_id": 49,
+    "execute": true,
+    "horizon_s": 0.2,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双臂已前摆，当前双足有明显接触力而身体仍向下运动，处于落地缓冲附近；只推进0.2秒检查冲击衰减。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

@@ -4,27 +4,43 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f7f8f5">
 <meta name="description" content="G1 舞台波比跳 v2：GPT 第一视角在线监督、已有运动控制、连续 MuJoCo 动力学及实测审计。">
 <title>v2 技术方案 · G1 Robot Performance</title>
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/site.css"><link rel="stylesheet" href="assets/css/method.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/css/site.css?v=26d80d83df41"><link rel="stylesheet" href="assets/css/method.css?v=a704408345a2"><link rel="stylesheet" href="assets/css/method-v2.css?v=5fdeaf86996d">
 </head>
 <body class="method-page">
 <header class="site-header"><a class="wordmark" href="./"><span class="brand-symbol">G1</span> PERFORMANCE</a><a class="back-link" href="./">← 返回 v2 表演</a></header>
 <main>
-<div class="method-intro"><p class="eyebrow">METHOD / V2 / UNITREE G1</p><h1>GPT 在线混合控制</h1><p>通过第一视角观测与本体感知监督运动执行，结合已有 locomotion、IK 和接触控制完成连续舞台表演。</p></div>
-<nav class="method-toc" aria-label="技术方案目录"><a href="#overview">1. 系统与任务</a><a href="#loop">2. 在线观测与决策</a><a href="#execution">3. 运动执行</a><a href="#continuity">4. 动力学与时钟</a><a href="#results">5. 实验结果</a><a href="#sonic">6. SONIC 适配</a><a href="#recording">7. 记录与可视化</a><a href="technical_v1.html">v1 技术方案</a></nav>
+<div class="method-intro"><p class="eyebrow">METHOD / V2 / UNITREE G1</p><h1>GPT 在线混合控制</h1><p>机器人运动过程中，GPT 持续在控制检查点接收当前第一视角与本体状态，依据新观测作出下一段执行决策；已有运动控制器将决策落实为机器人运动，再反馈新的观测。</p></div>
+<nav class="method-toc" aria-label="技术方案目录"><a href="#overview">1. 系统与任务</a><a href="#loop">2. GPT 运行时闭环</a><a href="#decision-example">在线决策实例</a><a href="#execution">3. 运动执行</a><a href="#continuity">4. 动力学与时钟</a><a href="#results">5. 实验结果</a><a href="#sonic">6. SONIC 适配</a><a href="#recording">7. 记录与可视化</a><a href="technical_v1.html">v1 技术方案</a></nav>
 <article class="method-content" aria-label="v2 技术方案">
 <h2 id="overview">1. 系统与任务</h2>
-<p>系统采用 GPT 在线监督与已有运动控制结合的分层架构。GPT-6-Astra 在当前 Codex 会话中读取新生成的机器人第一视角图像和本体状态，批准下一段动作、选择执行窗口与可用控制参数。阶段程序负责提出动作顺序，运动执行层负责生成关节目标和接触力，由 MuJoCo 积分得到机器人与支架的实际运动。</p>
+<p><strong>GPT-6-Astra 参与机器人表演运行期间的反馈决策。</strong>机器人执行一段运动后，系统从当前 MuJoCo 状态生成第一视角 RGB 图像，并读取关节位置、机身速度、重力方向、夹爪位移及手足接触力。当前 Codex 会话中的 GPT 接收这些新观测，结合完整表演任务和此前执行结果，判断是否继续当前阶段程序提出的动作、执行多长时间以及何时再次观察。有效决策到达后，仿真继续推进，形成反复更新的观测—决策—执行闭环。</p>
+<p>该闭环贯穿登台、拾架、搬运、放架、俯卧撑和跳跃等阶段。本轮连续运行保存了 53 组观测编号对应的 GPT 决策，包含对新图像与本体状态的判断，以及实际采用的执行窗口。任务顺序由阶段程序辅助，关节参考和电机输入由已有 locomotion、IK、支撑控制与 PD 产生。</p>
+<div class="runtime-summary"><strong>在线控制的时间语义</strong><p>第一视角和本体状态取自每个检查点的当前物理状态。GPT 决策期间暂停仿真，收到有效动作后继续运动；下一次检查点再提供新的反馈。因此，本系统实现的是事件触发的在线暂停步进控制，尚未验证物理持续运动时的墙钟实时推理。</p></div>
+<figure class="runtime-diagram" aria-label="GPT 运行时反馈闭环">
+<ol class="runtime-flow"><li><strong>① 当前观测</strong><span>机器人第一视角<br>本体状态与手足接触</span></li><li><strong>② GPT 在线决策</strong><span>执行或终止<br>执行窗口与可用参数</span></li><li><strong>③ 运动控制</strong><span>locomotion / IK<br>接触支撑与 PD</span></li><li><strong>④ MuJoCo 推进</strong><span>电机驱动与物理积分<br>产生新的机器人状态</span></li></ol>
+<figcaption>④ 的新状态在下一个检查点返回 ①；阶段转换或执行窗口到期触发下一轮。GPT 位于机器人运动执行期间的反馈链中。</figcaption></figure>
 <p>场景采用 Unitree G1，包含 29 个身体转动关节、2 个滑台夹爪以及可自由运动的两只支架。模型具有 52 维广义位置、49 维广义速度和 31 维执行器输入；身体关节使用力矩驱动，夹爪使用直线驱动力。</p>
 <ol><li><strong>登台与搬运：</strong>机器人登上舞台，走到支架前，停稳后弯腰握架并起身，再原地转向舞台中心并搬运。</li><li><strong>放置与展示：</strong>在中心停下，将支架放到面前，松手并起身，完成第一次秀肌肉后恢复自然站立。</li><li><strong>支架俯卧撑：</strong>下蹲并前伸双臂握架，逐腿后伸并稳定支撑，曲臂下降、推起，逐腿收回，松手并起身。</li><li><strong>跳跃与谢幕：</strong>双臂后摆并屈膝，前摆双臂并起跳，落地站稳后完成最终秀肌肉。</li></ol>
-<h2 id="loop">2. 在线观测与决策</h2>
-<p>每当阶段发生转换，或当前执行窗口到期，常驻仿真进程生成一次新观测并等待相同编号的动作。当前实验采用文件接口，由 Codex 逐次读图和提交决策；未调用独立的模型 API 服务。</p>
-<h3>2.1 观测</h3>
+<h2 id="loop">2. GPT 运行时闭环</h2>
+<p>完整任务要求保留在 Codex 会话上下文中。仿真进程保持机器人、控制器和物理状态常驻，在检查点通过文件发布观测，Codex 使用工具读取图像与状态并提交决策。每一轮按以下顺序执行：</p>
+<ol class="runtime-steps"><li><strong>运动执行与触发。</strong>已有控制器根据上一次有效决策推进运动。在阶段转换检查点或指定窗口到期时，程序进入观测流程；底层动力学失败会单独触发终止。</li><li><strong>获取当前第一视角和本体状态。</strong>程序复制当前关节位置与速度到渲染场景，生成相机图像，同时读取该检查点的本体与接触摘要。图像、仿真时间和状态使用同一观测编号保存。</li><li><strong>将新观测交给 GPT。</strong>仿真发布 observation_NNN.json 和 ego_NNN.png，并等待动作。当前 Codex 会话读取 JSON 与对应图像；GPT 综合任务要求、视觉、接触状态、身体稳定性及上一轮决策作出判断。</li><li><strong>生成下一段执行决策。</strong>GPT 输出当前观测编号、是否执行、执行窗口、速度比例、控制后端和判断理由。窗口决定下一次反馈的最晚检查时刻，阶段转换可提前触发反馈。</li><li><strong>校验与执行。</strong>程序检查编号、参数范围和阶段允许的后端。有效动作允许继续物理推进；明确拒绝执行、无效动作或等待超时会终止本次运行。未收到决策时不推进物理时间。</li><li><strong>反馈更新。</strong>运动产生的新状态用于下一轮读图与判断。观测、决策、控制输入和实际轨迹均分别保存，可按观测编号追溯。</li></ol>
+<p>本轮由 Codex 会话通过工具完成逐次文件交互，未调用独立模型 API 服务。校准模式会由程序生成固定参数并标记为 calibration；本页展示的 codex_full_001 使用 codex 来源记录。</p>
+<h3>2.1 GPT 接收的观测</h3>
 <p>虚拟相机固定于 torso_link，局部位置为前向 0.095 m、上方 0.40 m，朝前下倾 25°，垂直视场为 90°。原始 RGB 图像分辨率为 640 × 360。相机未经真实传感器标定。</p>
 <ul><li>图像与观测编号、全局仿真时刻及阶段程序提出的下一动作。</li><li>29 个身体关节的位置、机身坐标系下的重力方向和线速度。</li><li>双手、双脚的接触力摘要，以及两个夹爪的位移。</li><li>上一次决策及当前阶段允许使用的控制后端。</li></ul>
+<div class="method-table" tabindex="0" role="region" aria-label="每轮观测的维度与决策作用"><table><thead><tr><th>观测量</th><th>维度</th><th>用于运行时判断</th></tr></thead><tbody><tr><td>第一视角 RGB</td><td>360 × 640 × 3</td><td>支架与台面的相对位置、手与杆的关系，以及运动前后视野变化。</td></tr><tr><td>身体关节位置</td><td>29 个角度</td><td>辅助确认站立、下蹲、伸腿与定姿状态。</td></tr><tr><td>机身速度与重力方向</td><td>各 3 维</td><td>辅助判断身体运动、倾斜与稳定程度。</td></tr><tr><td>手足接触力摘要</td><td>4 个数值，依次为左手、右手、左脚、右脚</td><td>判断手部承重、单腿离地及重新落脚。</td></tr><tr><td>夹爪位移</td><td>2 个数值</td><td>辅助确认闭合与释放状态。</td></tr><tr><td>任务与阶段信息</td><td>文本及结构化字段</td><td>结合完整任务、建议阶段、上一决策与可用控制后端确定执行意图。</td></tr></tbody></table></div>
 <p>观测 JSON 不直接提供舞台或支架的世界坐标。底层 IK 使用仿真几何信息，开发会话也可接触运行日志中的世界坐标，因此本实验不构成特权信息隔离的纯视觉盲测。</p>
-<h3>2.2 动作</h3>
+<h3>2.2 GPT 输出与控制作用</h3>
 <div class="method-table" tabindex="0" role="region" aria-label="GPT 动作接口"><table><thead><tr><th>字段</th><th>含义与约束</th></tr></thead><tbody><tr><td>observation_id</td><td>必须对应当前观测编号，过期动作被拒绝。</td></tr><tr><td>execute</td><td>批准执行或显式终止；终止不能记作任务完成。</td></tr><tr><td>horizon_s</td><td>0.1–8 s 的仿真执行窗口；阶段转换可以提前触发下一观测。</td></tr><tr><td>speed_scale</td><td>0.8–1.2 的行走速度比例；波比跳接触动作固定为 1，保持内部时序。</td></tr><tr><td>controller</td><td>选择当前阶段可用的控制后端；本轮完整实验均使用已有运动后端。</td></tr><tr><td>reason</td><td>保存依据当前图像与本体状态作出的执行判断。</td></tr></tbody></table></div>
 <p>动作先写入临时文件，再原子重命名，避免仿真读取不完整数据。缺失决策、超时、无效参数或动力学失败均显式记录并终止。本轮 GPT 共提交 53 次决策，在落地附近将执行窗口缩短至 0.2 s。</p>
+<p>执行窗口控制两次 GPT 观测之间允许推进的仿真时长，窗口缩短会提高观察密度。execute 为真时继续建议阶段，为假时终止整次运行；该接口未提供任意阶段重排或替换动作路径。窗口到期发生在下一个控制检查点，时间精度受底层控制步长限制。</p>
+<p><strong>本轮实际使用情况：</strong>53 次决策均批准执行，速度比例均为 1.0，控制后端均为 legacy；GPT 根据执行进展选择了不同的观察窗口，并记录了观测判断。速度调整、后端切换和主动终止属于接口支持的能力，本轮未实际触发。接触动作内部的参考路径、支撑条件及动作顺序由已有程序执行。</p>
+<h3 id="decision-example">2.3 实例：根据落地反馈调整观察窗口</h3>
+<p>以下三次连续决策来自本轮真实运行。图像和状态取自各自检查点，文字为动作文件中保存的 GPT 判断；仿真时刻不包含模型等待的墙钟时间。</p>
+<div class="decision-examples"><section class="decision-example"><h4>观测 49 · 147.012 s</h4><img loading="lazy" width="640" height="360" src="assets/data/v2/decisions/ego_049.png" alt="观测 49 的原始机器人第一视角"><p>左、右足接触力：280.6 / 271.9 N。机身坐标系线速度：(-0.4851, -0.0050, -0.3517) m/s。</p><p><strong>GPT 记录的判断：</strong>双臂已前摆，当前双足有明显接触力而身体仍向下运动，处于落地缓冲附近；只推进0.2秒检查冲击衰减。</p><p><strong>下发动作：</strong>继续执行，窗口 0.2 s，速度比例 1.0，后端 legacy。</p><p><a href="assets/data/v2/decisions/observation_049.json">原始观测</a> · <a href="assets/data/v2/decisions/action_049.json">原始动作</a></p></section><section class="decision-example"><h4>观测 50 · 147.212 s</h4><img loading="lazy" width="640" height="360" src="assets/data/v2/decisions/ego_050.png" alt="观测 50 的原始机器人第一视角"><p>左、右足接触力：217.7 / 212.6 N。机身坐标系线速度：(-0.0238, -0.0071, -0.1302) m/s。</p><p><strong>GPT 记录的判断：</strong>姿态已回到近竖直，双足均衡接触但仍有下降速度；继续落地缓冲与回臂，暂不提前定姿。</p><p><strong>下发动作：</strong>继续执行，窗口 2 s，速度比例 1.0，后端 legacy。</p><p><a href="assets/data/v2/decisions/observation_050.json">原始观测</a> · <a href="assets/data/v2/decisions/action_050.json">原始动作</a></p></section><section class="decision-example"><h4>观测 51 · 149.212 s</h4><img loading="lazy" width="640" height="360" src="assets/data/v2/decisions/ego_051.png" alt="观测 51 的原始机器人第一视角"><p>左、右足接触力：172.9 / 171.3 N。机身坐标系线速度：(0.0010, 0.0000, -0.0001) m/s。</p><p><strong>GPT 记录的判断：</strong>双臂已收回，双足各约172N，身体速度约1毫米每秒，已恢复自然稳定站立；允许完成稳定判定并进入最终定姿。</p><p><strong>下发动作：</strong>继续执行，窗口 2 s，速度比例 1.0，后端 legacy。</p><p><a href="assets/data/v2/decisions/observation_051.json">原始观测</a> · <a href="assets/data/v2/decisions/action_051.json">原始动作</a></p></section></div>
+<p>在 147.012 s 的检查点，GPT 结合双足载荷与身体仍在下降的状态，将窗口缩短为 0.2 s。程序推进到 147.212 s 后再次提供观测，GPT 继续允许落地控制运行 2 s。149.212 s 的反馈显示身体速度已很低，GPT 批准继续完成稳定判定；后续阶段程序满足稳定条件后提出最终定姿，并再次请求 GPT 决策。这一过程对应观测更新、模型判断和继续执行的连续闭环。</p>
+<p>全部 53 次决策保存在<a href="assets/data/v2/decisions.jsonl">原始决策日志</a>中。实例说明本轮实际采用的在线监督方式，动作完成程度与物理质量仍按第 5 节的独立审计结果报告。</p>
+
 <h2 id="execution">3. 运动执行</h2>
 <p>GPT 的输出作用于运动段的执行许可和参数。任务顺序由已有阶段程序辅助，GPT 尚未独立生成全部阶段或高频电机命令。</p>
 <ol><li><strong>行走与转向：</strong>已有预训练 locomotion policy 根据局部运动命令产生腿部关节目标；停止、落脚调整和负载搬运采用已验证的控制参数。</li><li><strong>拾取与放置：</strong>IK 根据手腕、握杆、足底及身体姿态约束生成运动参考，夹爪通过真实接触夹持支架。放置时保持夹持并等待底座稳定，再松手与撤手。</li><li><strong>支撑转换与俯卧撑：</strong>复用已有全身参考、IK 与接触力控制。逐腿后伸和收回分别具有落脚稳定阶段，手足接触力和机身速度用于检查支撑条件。</li><li><strong>跳跃与定姿：</strong>已有摆臂、屈膝、伸腿和落地控制器产生关节目标；落地后的双足接触与身体速度满足稳定条件后进入最终定姿。</li><li><strong>电机执行：</strong>关节位置与速度误差经 PD、必要的支撑补偿及力矩限幅转换为执行器输入。夹爪保留独立位置控制与驱动力限幅。</li></ol>

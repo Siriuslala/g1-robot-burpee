@@ -1,0 +1,17 @@
+/* Runtime feedback and recorded observations for the v2 method page. */
+.runtime-summary {padding:18px 22px;background:var(--mint);border-left:4px solid var(--green);border-radius:6px;margin:24px 0}
+.runtime-summary p {margin:8px 0 0}
+.runtime-diagram {margin:26px 0}
+.method-content .runtime-flow {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;padding:0;list-style:none}
+.method-content .runtime-flow li {padding:16px 12px;margin:0;border:1px solid var(--line);border-radius:8px;background:#f5f7f2;font-size:14px}
+.runtime-flow strong,.runtime-flow span {display:block}
+.runtime-flow strong {color:var(--green);margin-bottom:8px}
+.runtime-diagram figcaption {font-size:14px;color:#657268;line-height:1.8}
+.decision-examples {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.decision-example {min-width:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fafbf8}
+.decision-example h4 {font-size:16px;margin:14px}
+.decision-example img {display:block;width:100%;height:auto}
+.decision-example p {font-size:14px;line-height:1.85;margin:14px}
+#decision-example {scroll-margin-top:24px}
+@media(max-width:850px) {.decision-examples{grid-template-columns:1fr}.method-content .runtime-flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px) {.method-content .runtime-flow{grid-template-columns:1fr}.runtime-summary{padding:15px}}

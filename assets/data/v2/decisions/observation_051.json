@@ -1,0 +1,69 @@
+{
+  "observation_id": 51,
+  "part": "burpee",
+  "proposed_skill": "jump",
+  "sim_time": 149.21200000270625,
+  "image": "ego_051.png",
+  "gravity_body": [
+    0.01846799670500528,
+    6.024176934609632e-05,
+    -0.9998294501906984
+  ],
+  "body_velocity": [
+    0.000996174438592197,
+    2.1527178004369022e-05,
+    -8.104214839379561e-05
+  ],
+  "contact_force_n": [
+    0.0,
+    0.0,
+    172.89892430272934,
+    171.29245998679085
+  ],
+  "gripper_m": [
+    0.06031868655371228,
+    0.06031848400370799
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.15466983254769573,
+    "left_hip_roll_joint": -0.0009076371924624711,
+    "left_hip_yaw_joint": 0.0003433836820993305,
+    "left_knee_joint": 0.3138231552802583,
+    "left_ankle_pitch_joint": -0.17796410573869248,
+    "left_ankle_roll_joint": 0.0004528819705686471,
+    "right_hip_pitch_joint": -0.1545161381985747,
+    "right_hip_roll_joint": 0.000544064991764533,
+    "right_hip_yaw_joint": -0.00018719498730530623,
+    "right_knee_joint": 0.313608903295672,
+    "right_ankle_pitch_joint": -0.1778894901668062,
+    "right_ankle_roll_joint": -0.00024677910390446476,
+    "waist_yaw_joint": 2.778296984115891e-06,
+    "waist_roll_joint": -0.00021979400824906237,
+    "waist_pitch_joint": 0.027551266001015113,
+    "left_shoulder_pitch_joint": 0.0024698912254650556,
+    "left_shoulder_roll_joint": 0.1979877663346385,
+    "left_shoulder_yaw_joint": -0.0034079851418480685,
+    "left_elbow_joint": 1.4013116855889003,
+    "left_wrist_roll_joint": -0.00025740969715029913,
+    "left_wrist_pitch_joint": 0.022435121364711225,
+    "left_wrist_yaw_joint": -0.004517536873258827,
+    "right_shoulder_pitch_joint": 0.0024649672482674047,
+    "right_shoulder_roll_joint": -0.19778502665539488,
+    "right_shoulder_yaw_joint": 0.0034374203762398328,
+    "right_elbow_joint": 1.4013103274065615,
+    "right_wrist_roll_joint": 0.00026253635199430936,
+    "right_wrist_pitch_joint": 0.02243090401121148,
+    "right_wrist_yaw_joint": 0.004561525626230094
+  },
+  "previous_decision": {
+    "observation_id": 50,
+    "execute": true,
+    "horizon_s": 2.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "姿态已回到近竖直，双足均衡接触但仍有下降速度；继续落地缓冲与回臂，暂不提前定姿。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

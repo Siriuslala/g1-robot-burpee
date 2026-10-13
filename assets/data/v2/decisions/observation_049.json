@@ -1,0 +1,69 @@
+{
+  "observation_id": 49,
+  "part": "burpee",
+  "proposed_skill": "jump",
+  "sim_time": 147.01200000263321,
+  "image": "ego_049.png",
+  "gravity_body": [
+    0.06788679362646505,
+    0.002049786774973736,
+    -0.997690924898736
+  ],
+  "body_velocity": [
+    -0.4851226613000643,
+    -0.004957505969696194,
+    -0.3516612289490189
+  ],
+  "contact_force_n": [
+    0.0,
+    0.0,
+    280.5938339025346,
+    271.8523161233905
+  ],
+  "gripper_m": [
+    0.061430778181848146,
+    0.06143761469520983
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.11182577098353173,
+    "left_hip_roll_joint": -0.002320597105559491,
+    "left_hip_yaw_joint": 0.001746514510672293,
+    "left_knee_joint": 0.10650393261817727,
+    "left_ankle_pitch_joint": 0.14634484851397958,
+    "left_ankle_roll_joint": 0.012827136740754261,
+    "right_hip_pitch_joint": -0.11206487152113186,
+    "right_hip_roll_joint": 0.0019801937672061197,
+    "right_hip_yaw_joint": -0.002387790267958228,
+    "right_knee_joint": 0.10709913583832174,
+    "right_ankle_pitch_joint": 0.1479169543337444,
+    "right_ankle_roll_joint": -0.017700290248407493,
+    "waist_yaw_joint": 0.00034926878967019665,
+    "waist_roll_joint": -0.0004398935200257623,
+    "waist_pitch_joint": 0.025149374143094285,
+    "left_shoulder_pitch_joint": -1.528875348729202,
+    "left_shoulder_roll_joint": 0.45470634612176825,
+    "left_shoulder_yaw_joint": 0.0009408581229908552,
+    "left_elbow_joint": 1.3973007020527648,
+    "left_wrist_roll_joint": 0.003477204953135954,
+    "left_wrist_pitch_joint": 0.01590323553899716,
+    "left_wrist_yaw_joint": 0.013406825294042855,
+    "right_shoulder_pitch_joint": -1.5290556474501247,
+    "right_shoulder_roll_joint": -0.4541588040764644,
+    "right_shoulder_yaw_joint": -0.000907581694793837,
+    "right_elbow_joint": 1.397220651322638,
+    "right_wrist_roll_joint": -0.0034402770865316584,
+    "right_wrist_pitch_joint": 0.015741113998596075,
+    "right_wrist_yaw_joint": -0.013411337055991785
+  },
+  "previous_decision": {
+    "observation_id": 48,
+    "execute": true,
+    "horizon_s": 3.1,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "起身完成，支架留在前方且双手已脱离；执行后摆臂屈膝和前摆臂起跳，在起跳附近提前复查。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

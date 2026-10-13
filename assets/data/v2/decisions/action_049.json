@@ -1,0 +1,1 @@
+{"observation_id": 49, "execute": true, "horizon_s": 0.2, "speed_scale": 1.0, "controller": "legacy", "reason": "双臂已前摆，当前双足有明显接触力而身体仍向下运动，处于落地缓冲附近；只推进0.2秒检查冲击衰减。"}

@@ -1,0 +1,1 @@
+{"observation_id": 50, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "姿态已回到近竖直，双足均衡接触但仍有下降速度；继续落地缓冲与回臂，暂不提前定姿。"}
