@@ -257,23 +257,28 @@ video {
   position:absolute;
   inset:0;
   margin:auto;
-  width:144px;
-  height:48px;
-  border:1px solid #ffffff70;
-  border-radius:50px;
+  width:64px;
+  height:64px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:9px;
-  background:#203a30e8;
+  background:rgba(75,75,75,.55);
   color:#fff;
-  font-size:16px;
-  box-shadow:0 5px 30px #172f3326;
-  backdrop-filter:blur(10px);
+  box-shadow:0 3px 14px rgba(0,0,0,.15);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
 }
 
 .start-button:hover {
-  background:#20684f;
+  background:rgba(75,75,75,.72);
+}
+.start-button svg {
+  width:28px;
+  height:28px;
+  transform:translateX(2px);
 }
 
 .playback-info {
@@ -687,9 +692,8 @@ footer a:hover {
     padding:0 12px 13px;
   }
   .start-button {
-    width:120px;
-    height:40px;
-    font-size:15px;
+    width:56px;
+    height:56px;
   }
   .player-caption {
     font-size:13px;
@@ -791,8 +795,8 @@ footer a:hover {
     flex-wrap:wrap;
   }
   .start-button {
-    width:144px;
-    height:46px;
+    width:56px;
+    height:56px;
   }
 }
 
