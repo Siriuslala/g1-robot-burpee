@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f5">
+  <meta name="description" content="Unitree G1 舞台表演的技术方案：GPT 开发闭环、状态机、行走策略、IK、接触支撑与 MuJoCo 仿真。">
+  <title>技术方案 · G1 Robot Performance</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/method.css">
+</head>
+<body class="method-page">
+  <header class="site-header"><a class="wordmark" href="./" aria-label="返回 G1 Performance 首页"><span class="brand-symbol" aria-hidden="true">G1</span> PERFORMANCE</a><a class="back-link" href="./">← 返回表演</a></header>
+  <main>
+    <div class="method-intro"><p class="eyebrow">METHOD / UNITREE G1</p><h1>技术方案</h1><p>从自然语言任务与控制程序开发，到机器人运动控制与物理仿真。</p></div>
+    <nav class="method-toc" aria-label="技术方案目录"><a href="#section-1">1. 系统定位</a>
+<a href="#section-2">2. 总体 pipeline</a>
+<a href="#section-3">3. 基本量与时钟</a>
+<a href="#section-4">4. GPT 层的输入与输出</a>
+<a href="#section-5">5. 状态读取与状态机</a>
+<a href="#section-6">6. 行走分支：目标位置到 12 个腿部目标</a>
+<a href="#section-7">7. 操作分支：姿态、IK 与接触支撑</a>
+<a href="#section-8">8. 电机控制与物理输出</a>
+<a href="#section-9">9. 保存、恢复与画面</a>
+<a href="#section-10">10. 指标与可测量边界</a></nav>
+    <article class="method-content" aria-label="G1 仿真控制流程">
+
+<h2 id="section-1">1. 系统定位</h2>
+<p>本项目的舞台表演采用 <strong>GPT-6 / Codex 辅助构建与迭代的分层机器人控制系统</strong>。自然语言描述提供任务顺序和动作要求；Codex 读取代码与实验结果，编写、修改并启动 Python 控制程序；运行中的程序读取 MuJoCo 状态，通过状态机、预训练 locomotion policy、inverse kinematics（IK，逆运动学）、接触力分配和关节控制产生电机输入，MuJoCo 再计算真实运动与接触。</p>
+<p>GPT 在开发与实验迭代中参与决策，当前完整表演运行时的动作选择由本地程序执行。系统结合预训练行走策略与显式控制程序，读取仿真状态真值生成动作，并通过视频展示与实验检查评估运动结果。</p>
+<p>仓库存在两种不同的运行模式：</p>
+<div class="method-table" tabindex="0" role="region" aria-label="技术参数表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>模式</th>
+<th>GPT 的实际输出</th>
+<th>本地执行方式</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>当前舞台表演</td>
+<td>控制代码、参数、运行命令及实验修改</td>
+<td>单次程序运行中的状态机闭环控制；必要时从检查点续算</td>
+<td><code>scripts/experiment_stage_transport.py</code>、<code>scripts/experiment_stage_burpee.py</code></td>
+</tr>
+<tr>
+<td>早期分段导航实验</td>
+<td><code>navigate</code>、<code>hold</code> 等结构化指令</td>
+<td>模拟器执行一段后暂停，返回状态，Codex 再决定下一段</td>
+<td><code>src/g1_sim/cli.py</code>、<code>artifacts/locomotion/codex_session_v1/segments.json</code></td>
+</tr>
+</tbody></table></div>
+<p>早期导航实验使用 12 DoF 身体模型；舞台表演使用 29 DoF 身体与两个滑台夹爪。两者的模型、时钟和统计结果必须分别解释。</p>
+<h2 id="section-2">2. 总体 pipeline</h2>
+<p>当前表演的输入输出链如下：</p>
+<ol>
+<li><strong>任务输入：</strong>自然语言动作顺序、机器人模型、舞台与器材配置、已有实验轨迹。</li>
+<li><strong>Codex 开发与实验决策：</strong>输出 Python 控制程序、配置参数和仿真启动命令，分析 JSON、轨迹与画面后修正程序。</li>
+<li><strong>场景初始化：</strong>加载 MuJoCo XML、机器人惯量与关节限制、支架、控制器参数、预训练权重和参考姿态。</li>
+<li><strong>状态读取与阶段选择：</strong>读取关节、机身、支架位置与接触，判定当前阶段是否完成，选择下一阶段。</li>
+<li><strong>运动参考生成：</strong>行走阶段输出腿部关节目标；拾取、支撑、俯卧撑等阶段输出全身或手臂目标；必要时估计接触支撑力。</li>
+<li><strong>电机控制：</strong>根据目标与实际关节状态的偏差计算力矩或夹爪驱动力，并施加限幅。</li>
+<li><strong>物理积分：</strong>MuJoCo 在接触、摩擦和惯性作用下推进状态，下一轮控制继续读取实际结果。</li>
+<li><strong>记录、审计与可视化：</strong>保存状态和事件，计算是否满足动作要求，再用保存的状态渲染视频。</li>
+</ol>
+<p>闭环发生在第 4–7 步。视频渲染属于第 8 步，不会反向驱动机器人。以下数学表达按实际模块组织；明确标注“概念表达”的公式用于解释软件关系，不表示代码中存在同名函数或训练过程。</p>
+<h2 id="section-3">3. 基本量与时钟</h2>
+<h3>3.1 自由度、位置和速度</h3>
+<p>DoF（degree of freedom，自由度）表示一个可以独立运动的方向。转动关节以 rad 表示角度，滑台关节以 m 表示位移。浮动基座表示机器人身体可以整体平移和转动，没有被固定在世界上。</p>
+<p>舞台模型具有以下维度：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>q</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>52</mn></msup><mo separator="true">,</mo><mspace width="2em"/><mi>v</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>49</mn></msup><mo separator="true">,</mo><mspace width="2em"/><mi>u</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>31</mn></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>其中，q 是 MuJoCo 的 <code>qpos</code>，包含机身和支架的位姿、身体关节角度及夹爪位移；v 是 <code>qvel</code>，包含相应的线速度、角速度和关节速度；u 是 <code>ctrl</code>，包含 29 个身体电机力矩和 2 个夹爪直线驱动力。u 的前 29 项单位为 N·m，最后两项为 N，不能把整个向量统一称为 31 个转动关节力矩。</p>
+<div class="method-table" tabindex="0" role="region" aria-label="技术参数表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>组成</th>
+<th align="right">q 中的维数</th>
+<th align="right">v 中的维数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机器人浮动基座</td>
+<td align="right">7</td>
+<td align="right">6</td>
+<td>3 个位置量和 4 个四元数分量；速度为 3 个线速度和 3 个角速度。</td>
+</tr>
+<tr>
+<td>身体关节</td>
+<td align="right">29</td>
+<td align="right">29</td>
+<td>左右腿共 12、腰部 3、左右臂共 14。</td>
+</tr>
+<tr>
+<td>两个滑台夹爪</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td>每侧 1 个平移自由度；该手部是简化夹爪。</td>
+</tr>
+<tr>
+<td>两只自由支架</td>
+<td align="right">14</td>
+<td align="right">12</td>
+<td>每只支架的自由位姿为 7 维，速度为 6 维。</td>
+</tr>
+<tr>
+<td>合计</td>
+<td align="right">52</td>
+<td align="right">49</td>
+<td>四元数以 4 个数表示 3 维转动，因此两个总维数不同。</td>
+</tr>
+</tbody></table></div>
+<p>代码利用 joint address 提取身体关节与夹爪，不能假设它们在 q 中始终按上述表格连续排列。四元数顺序在 MuJoCo 中为 w、x、y、z，范数为 1。</p>
+<p>定义身体关节角度 θ、身体关节速度 θ̇、夹爪位移 g 与夹爪速度 ġ：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>θ</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>29</mn></msup><mo separator="true">,</mo><mspace width="1em"/><mover accent="true"><mi>θ</mi><mo>˙</mo></mover><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>29</mn></msup><mo separator="true">,</mo><mspace width="1em"/><mi>g</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>2</mn></msup><mo separator="true">,</mo><mspace width="1em"/><mover accent="true"><mi>g</mi><mo>˙</mo></mover><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>θ 和 θ̇ 分别由 q、v 按身体关节地址选取；g 和 ġ 按滑台关节地址选取。粗体或上标不是程序变量名要求，本文直接用符号描述含义。</p>
+<h3>3.2 三种时间</h3>
+<p>仿真时间是物理世界中动作经过的时间；墙钟时间是计算机实际花费的时间；视频时间由帧数和帧率决定。三者不能混为一谈。</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>T</mi><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">m</mi></mrow></msub><mo>=</mo><msub><mi>N</mi><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">s</mi></mrow></msub><mi mathvariant="normal">Δ</mi><msub><mi>t</mi><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">h</mi><mi mathvariant="normal">y</mi><mi mathvariant="normal">s</mi></mrow></msub><mo separator="true">,</mo><mspace width="2em"/><msub><mi>T</mi><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">o</mi></mrow></msub><mo>=</mo><msub><mi>N</mi><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">r</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi></mrow></msub><mi mathvariant="normal">/</mi><msub><mi>f</mi><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">o</mi></mrow></msub><mo separator="true">,</mo><mspace width="2em"/><mi>ρ</mi><mo>=</mo><msub><mi>T</mi><mrow><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">m</mi></mrow></msub><mi mathvariant="normal">/</mi><msub><mi>T</mi><mrow><mi mathvariant="normal">w</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">l</mi><mi mathvariant="normal">l</mi></mrow></msub><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>这里，T 的三个下标分别表示仿真时长、视频时长和墙钟时长，单位均为 s；N_phys 是实际积分步数，为整数；Δt_phys 是每步仿真时间；N_frame 是视频帧数；f_video 是帧率，单位为帧/s；ρ 是无量纲仿真速度比。ρ 大于 1 表示计算快于被模拟的时间流逝。</p>
+<p>本项目舞台仿真的 Δt_phys 为 0.0001 s，即 10,000 Hz。频率属于仿真时钟，并不表示这台计算机可以实时控制真机。</p>
+<h2 id="section-4">4. GPT 层的输入与输出</h2>
+<h3>4.1 舞台表演中的开发闭环</h3>
+<p>用概念表达描述第 i 次开发决策：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>P</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>η</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>c</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="script">G</mi><mo stretchy="false">(</mo><mi>L</mi><mo separator="true">,</mo><msub><mi>P</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>η</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>E</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>L 为自然语言任务，属于字符串；P_i 为第 i 次版本的程序源码，属于程序文本；η_i 为参数配置，是包含标量、数组与路径的结构化字典，维数随配置变化；E_i 为实验证据，包括摘要、接触指标、轨迹和图像，属于异构记录；G 表示当前 Codex 任务中的语言模型与工具使用过程；c_i 为发给本地工具的命令字符串。下标 i 按开发决策计数。</p>
+<p>输出程序和命令启动本地仿真，得到下一批实验证据：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>E</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mi mathvariant="script">A</mi><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mi mathvariant="normal">Run</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>P</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>η</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>Run 表示执行程序，输出状态序列和日志；A 表示审计与渲染流程，将这些记录组织为可检查的证据。</p>
+<p>实际例子：拾取前接近优化修改了停止条件；运行命令传入 <code>--approach-foot-stagger .04 --approach-filtered-stop</code>。机器人运行时自行检查足端位置、承重和速度，满足条件后切换到站稳。</p>
+<h3>4.2 早期分段导航闭环</h3>
+<p>早期 CLI 模式可以抽象为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>r</mi><mi>i</mi></msub><mo>=</mo><mi mathvariant="script">G</mi><mo stretchy="false">(</mo><mi>L</mi><mo separator="true">,</mo><msub><mi>o</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>H</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"/><mo stretchy="false">(</mo><msub><mi>o</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>D</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mi mathvariant="normal">Execute</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>r_i 是一条结构化请求字典；o_i 是仿真返回的观测字典，含位置 3 维、yaw 标量、水平速度标量、倾角标量、失败状态和可用技能列表；H_i 是历史请求与结果的有序列表；D_i 是本次执行的轨迹和诊断记录。请求中的 goal 为 2 维世界平面坐标，duration 为正标量秒数。</p>
+<p>实际记录中的一条请求为：</p>
+<pre><code class="language-json">{&quot;skill&quot;:&quot;navigate&quot;,&quot;duration&quot;:4.0,&quot;goal&quot;:[1.5,0.0],&quot;label&quot;:&quot;codex_approach_A&quot;,&quot;decision_source&quot;:&quot;codex&quot;}
+</code></pre>
+<p>原始请求还包含 rationale。请求前的实际位置约为 (0.037, −0.016) m，机器人随后由本地导航控制器与行走策略执行 4 s，再返回结果。这里 GPT 输出的是“向某个位置走一段时间”，12 个腿部关节的高频目标仍由本地策略生成。等待下一条请求时，仿真暂停。</p>
+<h2 id="section-5">5. 状态读取与状态机</h2>
+<h3>5.1 状态真值</h3>
+<p>运行时控制输入可以写为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>z</mi><mi>k</mi></msub><mo>=</mo><mo stretchy="false">(</mo><msub><mi>q</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>v</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>X</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"/><msub><mi>X</mi><mi>k</mi></msub><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>B</mi><mo>×</mo><mn>3</mn></mrow></msup><mo separator="true">,</mo><mspace width="1em"/><msub><mi>F</mi><mi>k</mi></msub><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>C</mi><mo>×</mo><mn>3</mn></mrow></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>k 表示一次外层控制更新；q_k、v_k 的维度见第 3 节；B 为查询的刚体或几何点数量，X_k 存储它们的世界位置；C 为当前接触点数量，F_k 存储世界坐标中的三维接触力。B、C 是依场景和接触变化的整数。实际代码还读取旋转矩阵，形状为每个刚体 3×3，并把部分接触力汇总为左右手与左右脚的四个承重量。</p>
+<p>位置和旋转来自 <code>MjData</code> 的 <code>xpos</code>、<code>xmat</code>、<code>geom_xpos</code> 等字段，接触力由 <code>mj_contactForce</code> 得到。舞台控制使用直接状态访问；XML 中的 IMU 定义不意味着控制器只使用带噪声的 IMU。当前代码没有从 RGB 重建支架位置的视觉感知模块。</p>
+<h3>5.2 阶段转换</h3>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>s</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi mathvariant="normal">Next</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>s</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>b</mi><mo stretchy="false">(</mo><msub><mi>s</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>z</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>t</mi><mi>k</mi></msub><mo>−</mo><msub><mi>t</mi><mi>s</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo separator="true">,</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msub><mi>s</mi><mi>k</mi></msub><mo separator="true">,</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>b</mi><mo stretchy="false">(</mo><msub><mi>s</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>z</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>t</mi><mi>k</mi></msub><mo>−</mo><msub><mi>t</mi><mi>s</mi></msub><mo stretchy="false">)</mo><mo>=</mo><mn>0.</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow></semantics></math></span></div>
+
+
+<p>s_k 是离散阶段名称，例如 <code>approach</code>、<code>close_grasp</code>；t_k 是当前仿真时刻；t_s 是本阶段开始时刻；b 是返回 0 或 1 的完成条件函数；Next 给出动作顺序中的下一阶段。上述量均不是可训练神经网络权重。部分阶段要求条件连续满足一段时间，另有超时和失败退出逻辑。</p>
+<p>例如优化版退出接近阶段时，双足平均位置与目标的距离小于 0.04 m、双脚前后差小于 0.04 m、朝向误差小于 0.10 rad、双足各承重超过 80 N、基座速度小于 0.12 m/s；滤波转动速度小于 0.15 rad/s，并保留 0.4 rad/s 的瞬时上限。进入站立恢复后还需满足进一步稳定条件，才开始下蹲。</p>
+<h2 id="section-6">6. 行走分支：目标位置到 12 个腿部目标</h2>
+<h3>6.1 位置误差到速度命令</h3>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>δ</mi><mi>k</mi></msub><mo>=</mo><msup><mi>p</mi><mo>⋆</mo></msup><mo>−</mo><msub><mover accent="true"><mi>p</mi><mo>ˉ</mo></mover><mi>k</mi></msub><mo separator="true">,</mo><mspace width="2em"/><msubsup><mi>c</mi><mrow><mi>x</mi><mi>y</mi><mo separator="true">,</mo><mi>k</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mrow></msubsup><mo>=</mo><mi mathvariant="normal">clip</mi><mo>⁡</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mn>0.8</mn><msub><mi>R</mi><mi>z</mi></msub><mo stretchy="false">(</mo><mo>−</mo><msub><mi>ψ</mi><mi>k</mi></msub><mo stretchy="false">)</mo><msub><mi>δ</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi mathvariant="normal">ℓ</mi><mi>c</mi></msub><mo separator="true">,</mo><msub><mi>u</mi><mi>c</mi></msub><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>p★∈R² 为目标位置；p̄_k∈R² 为导航参考位置，登台阶段使用基座位置，接近支架阶段使用双足中心的平均位置；δ_k∈R² 为位置误差；ψ_k 为 yaw 朝向标量；R_z(−ψ_k)∈R²ˣ² 将世界平面误差转到机身前后、左右方向；c_des,xy∈R² 为期望平面速度，单位 m/s。clip 表示逐元素截断；ℓ_c、u_c∈R² 分别为速度命令下限和上限。接近支架阶段为 (−0.15, −0.10) 与 (0.20, 0.10) m/s，登台前向上限为 0.35 m/s。</p>
+<p>再加入朝向控制，形成包含前向速度、侧向速度和转动速度的三维命令。控制器对实际速度低通滤波，使用比例与积分修正得到最终命令 c_k∈R³：前两维单位 m/s，第三维单位 rad/s。滤波与修正的核心形式为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mover accent="true"><mi>w</mi><mo>ˉ</mo></mover><mi>k</mi></msub><mo>=</mo><mn>0.88</mn><msub><mover accent="true"><mi>w</mi><mo>ˉ</mo></mover><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mn>0.12</mn><msub><mi>w</mi><mi>k</mi></msub><mo separator="true">,</mo><mspace width="1em"/><msub><mi>e</mi><mi>k</mi></msub><mo>=</mo><msubsup><mi>c</mi><mi>k</mi><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi></mrow></msubsup><mo>−</mo><msub><mover accent="true"><mi>w</mi><mo>ˉ</mo></mover><mi>k</mi></msub><mo separator="true">,</mo><mspace width="1em"/><msub><mi>I</mi><mi>k</mi></msub><mo>=</mo><mi mathvariant="normal">clip</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>I</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>+</mo><mn>0.02</mn><msub><mi>e</mi><mi>k</mi></msub><mo separator="true">,</mo><mo>−</mo><mn>0.4</mn><mo separator="true">,</mo><mn>0.4</mn><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>w_k∈R³ 是实际机身平面速度和转动速度；w̄_k∈R³ 是滤波值；e_k∈R³ 是速度误差；I_k∈R³ 是积分修正状态，0.02 对应策略更新周期。命令主体采用期望值加 0.8 倍误差和积分项，随后限幅；yaw 通道另外使用朝向误差与转动阻尼。具体分量限幅见 <code>policy_update()</code>。这些增益含单位换算意义，属于固定工程参数。</p>
+<h3>6.2 47 维观测与预训练策略</h3>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>o</mi><mi>k</mi></msub><mo>=</mo><mi mathvariant="normal">concat</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mn>0.25</mn><msub><mi>ω</mi><mi>k</mi></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>γ</mi><mi>k</mi></msub><mo separator="true">,</mo><mtext> </mtext><msub><mi>D</mi><mi>c</mi></msub><msub><mi>c</mi><mi>k</mi></msub><mo separator="true">,</mo><mtext> </mtext><msubsup><mi>θ</mi><mi>k</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">g</mi></mrow></msubsup><mo>−</mo><msup><mi>θ</mi><mn>0</mn></msup><mo separator="true">,</mo><mtext> </mtext><mn>0.05</mn><msubsup><mover accent="true"><mi>θ</mi><mo>˙</mo></mover><mi>k</mi><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">g</mi></mrow></msubsup><mo separator="true">,</mo><mtext> </mtext><msub><mi>a</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><mtext> </mtext><mi>sin</mi><mo>⁡</mo><msub><mi>ϕ</mi><mi>k</mi></msub><mo separator="true">,</mo><mtext> </mtext><mi>cos</mi><mo>⁡</mo><msub><mi>ϕ</mi><mi>k</mi></msub><mo fence="true">)</mo></mrow><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>47</mn></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<div class="method-table" tabindex="0" role="region" aria-label="技术参数表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>形状</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ω_k</td>
+<td>3</td>
+<td>代码取浮动基座的转动速度分量，缩放后输入策略。</td>
+</tr>
+<tr>
+<td>γ_k</td>
+<td>3</td>
+<td>从机身四元数计算的机身坐标重力方向。</td>
+</tr>
+<tr>
+<td>c_k</td>
+<td>3</td>
+<td>经导航反馈修正的速度命令。</td>
+</tr>
+<tr>
+<td>D_c</td>
+<td>3×3</td>
+<td>对角缩放矩阵，三个对角值为 2、2、0.25。</td>
+</tr>
+<tr>
+<td>θ_leg、θ̇_leg</td>
+<td>各 12</td>
+<td>两条腿的实际关节角与速度。</td>
+</tr>
+<tr>
+<td>θ⁰</td>
+<td>12</td>
+<td>上游 YAML 中的默认腿部角度。</td>
+</tr>
+<tr>
+<td>a_(k−1)</td>
+<td>12</td>
+<td>上一次策略输出。</td>
+</tr>
+<tr>
+<td>φ_k</td>
+<td>标量</td>
+<td>步态相位，2π 乘以行走经过时间再除以 0.8 s。</td>
+</tr>
+</tbody></table></div>
+<p>concat 表示首尾拼接；维数为 3+3+3+12+12+12+1+1=47。策略输出为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>a</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>h</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>m</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo><mo>=</mo><msub><mi>π</mi><mi>ϑ</mi></msub><mo stretchy="false">(</mo><msub><mi>o</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>h</mi><mi>k</mi></msub><mo separator="true">,</mo><msub><mi>m</mi><mi>k</mi></msub><mo stretchy="false">)</mo><mo separator="true">,</mo><mspace width="2em"/><msubsup><mi>θ</mi><mi>k</mi><mrow><mo>⋆</mo><mo separator="true">,</mo><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">g</mi></mrow></mrow></msubsup><mo>=</mo><msup><mi>θ</mi><mn>0</mn></msup><mo>+</mo><mn>0.25</mn><msub><mi>a</mi><mi>k</mi></msub><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>π_ϑ 是来自 Unitree 上游 <code>motion.pt</code> 的固定权重策略，ϑ 表示其网络参数；a_k∈R¹² 是无量纲动作输出；h_k 与 m_k 分别为 LSTM hidden state 和 cell state，实际 buffer 形状均为 1×1×64。θ★,leg∈R¹² 是腿部角度目标，单位 rad。策略在 CPU 上通过 TorchScript 推理，舞台行走时以 50 Hz 更新；外层更新之间保持最新策略目标。接近支架时还存在对落后摆动腿的有限前伸修正，以及踝关节目标限幅。</p>
+<p>此处的 action 是 12 个腿部关节角增量。它没有图像输入，没有自然语言输入，也没有直接输出全身 29 个关节力矩。</p>
+<h2 id="section-7">7. 操作分支：姿态、IK 与接触支撑</h2>
+<h3>7.1 参考姿态与平滑过渡</h3>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>α</mi><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo><mo>=</mo><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mo>−</mo><mstyle displaystyle="false" scriptlevel="0"><mfrac><mn>1</mn><mn>2</mn></mfrac></mstyle><mi>cos</mi><mo>⁡</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mi>π</mi><mi mathvariant="normal">clip</mi><mo>⁡</mo><mo stretchy="false">(</mo><mi>r</mi><mo separator="true">,</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">)</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo><mo separator="true">,</mo><mspace width="2em"/><msup><mi>θ</mi><mo>⋆</mo></msup><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mi>α</mi><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><mi>α</mi><mo stretchy="false">(</mo><mi>r</mi><mo stretchy="false">)</mo><msub><mi>θ</mi><mi>B</mi></msub><mo separator="true">,</mo><mspace width="1em"/><mi>r</mi><mo>=</mo><mo stretchy="false">(</mo><mi>t</mi><mo>−</mo><msub><mi>t</mi><mn>0</mn></msub><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mi>T</mi><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>θ_A、θ_B∈R²⁹ 是两组身体关节目标；t、t₀、T 是标量秒数，分别为当前时间、过渡开始时间与过渡时长，T&gt;0；r 和 α 是无量纲标量；θ★(t)∈R²⁹ 是插值目标。该式用于解释程序中的 cosine easing，部分动作也沿多个离散 IK 节点插值。目标并不会直接覆盖运行中的真实 qpos，真实身体仍由电机驱动。</p>
+<p>参考姿态来源包括已有 IK 实验保存的 JSON/NPZ、当前场景的重新求解和程序定义的动作曲线。搬运下蹲复用 <code>sequence_017_fresh/adapted_descent_plan.npz</code> 的身体关节参考，同时根据实际支架位置更新手臂；持物起身依据实际足端和手掌位置重新求解。波比跳的逐腿目标也复用经过实验验证的规划文件。参考复用会带来对场景与初态的依赖。</p>
+<p>例如最后秀肌肉的下顿把 peak 到 hold 的双臂目标差放大到 1.6 倍，过渡用时 0.3 s；前面的腿部控制与跳跃参考继续由各自分支生成。</p>
+<h3>7.2 手臂 IK</h3>
+<p>IK 的问题是：已知希望手掌到达哪里，求肩、肘、腕应该转到什么角度。搬运脚本中，每侧手臂有 7 个关节，使用如下加权最小二乘形式：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>x</mi><mo>⋆</mo></msup><mo>=</mo><mi>arg</mi><mo>⁡</mo><munder><mrow><mi>min</mi><mo>⁡</mo></mrow><mrow><msub><mi>x</mi><mi>min</mi><mo>⁡</mo></msub><mo>≤</mo><mi>x</mi><mo>≤</mo><msub><mi>x</mi><mi>max</mi><mo>⁡</mo></msub></mrow></munder><msubsup><mrow><mo fence="true">∥</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>80</mn><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mi>p</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>−</mo><msup><mi>p</mi><mo>⋆</mo></msup><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>2</mn><mi mathvariant="normal">vec</mi><mo>⁡</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mi>R</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>−</mo><msup><mi>R</mi><mo>⋆</mo></msup><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mn>0.01</mn><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><msub><mi>x</mi><mn>0</mn></msub><mo stretchy="false">)</mo></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><mo fence="true">∥</mo></mrow><mn>2</mn><mn>2</mn></msubsup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>x∈R⁷ 为待求的一侧手臂关节角；x_min、x_max∈R⁷ 为保留余量的关节限位；x₀∈R⁷ 为初始参考；p(x)、p★∈R³ 为实际模型计算出的手掌位置和目标位置；R(x)、R★∈R³ˣ³ 为末端朝向矩阵；vec 将矩阵展平为 9 维向量。拼接后的残差维数为 3+9+7=19，二范数平方为标量代价。前两项追踪位置与朝向，最后一项减少无必要的关节改动；80、2、0.01 是固定权重，不代表概率。</p>
+<p>SciPy <code>least_squares</code> 输出 x★。数值求解时，程序在临时 <code>MjData</code> 中尝试姿态并调用正运动学；临时姿态试算与真实动力学状态是不同数据实例。手臂目标随后交给电机控制器。站立和逐腿转换使用更大规模的 IK，额外考虑足端位置、质心、身体俯仰、关节范围与碰撞距离；各阶段具体残差并不完全相同。</p>
+<h3>7.3 波比跳的接触力分配</h3>
+<p>波比跳控制选择机身 6 个速度自由度与身体 29 个关节，形成 35 维活动子空间。设当前选定接触点数为 n_c，每点用三维力表示：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mn>3</mn><msub><mi>n</mi><mi>c</mi></msub></mrow></msup><mo separator="true">,</mo><mspace width="2em"/><mi>J</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mn>3</mn><msub><mi>n</mi><mi>c</mi></msub><mo>×</mo><mn>35</mn></mrow></msup><mo separator="true">,</mo><mspace width="2em"/><msub><mi>J</mi><mi>b</mi></msub><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mn>3</mn><msub><mi>n</mi><mi>c</mi></msub><mo>×</mo><mn>6</mn></mrow></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>f 为各接触点期望力的拼接，单位 N；J 为接触点速度对活动速度的 Jacobian；J_b 是 J 的浮动基座六列。这里的 n_c 随支撑脚、脚跟抬起状态和是否握杆改变。由姿态误差和速度反馈构造机身六维目标 wrench：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>w</mi><mi>b</mi></msub><mo>=</mo><msub><mi>b</mi><mi>b</mi></msub><mo>+</mo><msub><mi>M</mi><mrow><mi>b</mi><mi>b</mi></mrow></msub><msubsup><mi>a</mi><mi>b</mi><mo>⋆</mo></msubsup><mo separator="true">,</mo><mspace width="2em"/><msup><mi>f</mi><mo>⋆</mo></msup><mo>≈</mo><mi>arg</mi><mo>⁡</mo><munder><mrow><mi>min</mi><mo>⁡</mo></mrow><mi>f</mi></munder><mrow><mo fence="true">(</mo><mi mathvariant="normal">∥</mi><mn>10</mn><mo stretchy="false">(</mo><msubsup><mi>J</mi><mi>b</mi><mi mathvariant="sans-serif">T</mi></msubsup><mi>f</mi><mo>−</mo><msub><mi>w</mi><mi>b</mi></msub><mo stretchy="false">)</mo><msubsup><mi mathvariant="normal">∥</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mi mathvariant="normal">∥</mi><mn>0.04</mn><mi>f</mi><msubsup><mi mathvariant="normal">∥</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mi>P</mi><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">)</mo><mo fence="true">)</mo></mrow><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>w_b∈R⁶ 为基座广义力需求，包含平移与转动分量；b_b∈R⁶ 来自偏置广义力减去被动力的基座部分；M_bb∈R⁶ˣ⁶ 为质量矩阵的基座子块；a_b★∈R⁶ 为基座位置、姿态误差与速度反馈构造的目标加速度。该式对应实现中的近似基座 wrench 匹配，不是完整全身逆动力学等式约束优化。</p>
+<p>P(f) 是切向摩擦违规的二次惩罚项，输出非负标量。代码以最多 4 轮有界最小二乘逐步加入违规行，每行权重为 100；单点世界竖直力范围为 0–500 N，两个水平分量范围为 −200–200 N，并对超过 0.6 倍竖直力的水平分量施加惩罚。竖直力非负和分量范围为硬边界，摩擦条件属于软惩罚，不能声称所有摩擦约束都得到严格满足。</p>
+<p>关节支撑前馈为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>τ</mi><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">f</mi></mrow></msub><mo>=</mo><msub><mi>b</mi><mi>j</mi></msub><mo>−</mo><msubsup><mi>J</mi><mi>j</mi><mi mathvariant="sans-serif">T</mi></msubsup><msup><mi>f</mi><mo>⋆</mo></msup><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>29</mn></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>b_j∈R²⁹ 为身体关节的偏置力减去被动力；J_j∈R^(3n_c×29) 为 J 的关节列。移动脚还根据三维足端位置和速度误差，经过足端 Jacobian 转换成对应腿部的力矩修正。求得的 f★只用于计算电机力矩；实际手脚接触力由 MuJoCo 计算，没有直接把 f★作为外部托举力加到身体上。</p>
+<p>搬运阶段使用较简单的重力与支撑 Jacobian 前馈；跳跃阶段使用专门的屈膝、摆臂、蹬伸、落地与平衡反馈。它们没有全部调用上述接触力分配器。代码中计算但未实际参与最终力矩的中间变量，也不能作为已实现控制功能的证据。</p>
+<h2 id="section-8">8. 电机控制与物理输出</h2>
+<p>身体关节的主要控制形式为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>τ</mi><mo>=</mo><mi mathvariant="normal">clip</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><msub><mi>τ</mi><mrow><mi mathvariant="normal">f</mi><mi mathvariant="normal">f</mi></mrow></msub><mo>+</mo><msub><mi>K</mi><mi>p</mi></msub><mo stretchy="false">(</mo><msup><mi>θ</mi><mo>⋆</mo></msup><mo>−</mo><mi>θ</mi><mo stretchy="false">)</mo><mo>+</mo><msub><mi>K</mi><mi>d</mi></msub><mo stretchy="false">(</mo><msup><mover accent="true"><mi>θ</mi><mo>˙</mo></mover><mo>⋆</mo></msup><mo>−</mo><mover accent="true"><mi>θ</mi><mo>˙</mo></mover><mo stretchy="false">)</mo><mo separator="true">,</mo><mo>−</mo><msub><mi>τ</mi><mi>max</mi><mo>⁡</mo></msub><mo separator="true">,</mo><msub><mi>τ</mi><mi>max</mi><mo>⁡</mo></msub><mo fence="true">)</mo></mrow><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>τ、τ_ff、τ_max∈R²⁹，分别是请求力矩、前馈力矩和关节力矩上限，单位 N·m；θ★、θ∈R²⁹ 为目标与实际角度；θ̇★、θ̇∈R²⁹ 为目标与实际角速度；K_p、K_d∈R²⁹ˣ²⁹ 为对角增益矩阵。PD 可以理解为“位置偏差产生拉回作用，速度项减少振荡”。不同阶段使用不同增益；行走的 12 个腿部力矩由策略目标对应的 PD 分支覆盖，不能把非行走前馈原样套到它们上面。</p>
+<p>两个夹爪的驱动力为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>u</mi><mi>g</mi></msub><mo>=</mo><mi mathvariant="normal">clip</mi><mo>⁡</mo><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">(</mo><mn>600</mn><mo stretchy="false">(</mo><msup><mi>g</mi><mo>⋆</mo></msup><mo>−</mo><mi>g</mi><mo stretchy="false">)</mo><mo>−</mo><mn>3</mn><mover accent="true"><mi>g</mi><mo>˙</mo></mover><mo separator="true">,</mo><mo>−</mo><mn>12</mn><mo separator="true">,</mo><mn>12</mn><mo fence="true" stretchy="true" minsize="1.2em" maxsize="1.2em">)</mo><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mn>2</mn></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>u_g 是两只夹爪的直线驱动力，单位 N；g★∈R² 为夹爪目标，g 与 ġ 见第 3 节。常用张开目标为 0.06 m，闭合目标为 −0.015 m；这是控制参考，实际位移由关节限制和接触共同决定。夹爪与支架通过碰撞几何及摩擦接触，没有抓住后焊接绑定器材。</p>
+<p>将身体力矩与夹爪力组成 u 后，MuJoCo 推进实际物理状态。概念形式为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>M</mi><mo stretchy="false">(</mo><mi>q</mi><mo stretchy="false">)</mo><mover accent="true"><mi>v</mi><mo>˙</mo></mover><mo>+</mo><mi>b</mi><mo stretchy="false">(</mo><mi>q</mi><mo separator="true">,</mo><mi>v</mi><mo stretchy="false">)</mo><mo>=</mo><mi>B</mi><mi>u</mi><mo>+</mo><msub><mi>J</mi><mi>c</mi></msub><mo stretchy="false">(</mo><mi>q</mi><msup><mo stretchy="false">)</mo><mi mathvariant="sans-serif">T</mi></msup><mi>λ</mi><mo>+</mo><msub><mi>f</mi><mrow><mi mathvariant="normal">p</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">v</mi><mi mathvariant="normal">e</mi></mrow></msub><mo separator="true">,</mo><mspace width="2em"/><msub><mi>ξ</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi mathvariant="normal">Φ</mi><mrow><mi mathvariant="normal">Δ</mi><mi>t</mi></mrow></msub><mo stretchy="false">(</mo><msub><mi>ξ</mi><mi>n</mi></msub><mo separator="true">,</mo><msub><mi>u</mi><mi>n</mi></msub><mo stretchy="false">)</mo><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>M∈R⁴⁹ˣ⁴⁹ 是质量矩阵；v̇∈R⁴⁹ 为广义加速度；b∈R⁴⁹ 为重力、科里奥利力等偏置项；B∈R⁴⁹ˣ³¹ 为执行器到广义力的映射；J_c∈R^(r_c×49) 为当前接触约束 Jacobian；λ∈R^(r_c) 为接触约束力，r_c 为求解器约束维数，随接触变化；f_passive∈R⁴⁹ 为被动力。该式是动力学概念说明，实际积分和摩擦接触求解由 MuJoCo 执行。</p>
+<p>ξ_n 表示完整积分状态，除了 q、v，还可包含求解器 warmstart 等内部状态，其长度由模型与 MuJoCo state spec 决定；n 为物理积分步编号；Φ_Δt 表示一个物理步。q 的四元数需要按转动规律积分，不能把 49 维 v 直接与 52 维 q 相加。</p>
+<p>外层控制周期内仍在每个物理步重新计算 PD 误差和限幅电机输入；外层目标与部分前馈保持不变。因此“外层 500 Hz”和“PD 计算 10 kHz”可以同时成立。</p>
+<h2 id="section-9">9. 保存、恢复与画面</h2>
+<h3>9.1 轨迹与审计</h3>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>Q</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>N</mi><mo>×</mo><mn>52</mn></mrow></msup><mo separator="true">,</mo><mspace width="1em"/><mi>V</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>N</mi><mo>×</mo><mn>49</mn></mrow></msup><mo separator="true">,</mo><mspace width="1em"/><mi>U</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mrow><mi>N</mi><mo>×</mo><mn>31</mn></mrow></msup><mo separator="true">,</mo><mspace width="1em"/><mi>t</mi><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mi>N</mi></msup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>N 是保存的采样数；Q、V、U 每一行分别是某时刻的 q、v、u；t 是相应仿真时刻数组。它们保存于 <code>trajectory.npz</code>。另有目标轨迹、初态、<code>events.json</code> 阶段事件、<code>metrics.csv</code> 接触与速度记录、<code>summary.json</code> 及独立审计。不同脚本的 target 形状不同：搬运通常为 N×29，波比跳通常为 N×52，不能混用。</p>
+<p>典型的记录采样率是 50 Hz，不能仅凭这些采样证明全部 10 kHz 积分步都满足约束。部分检查由运行中的控制循环累计，检查点前缀还可能采用保存采样重建统计，应依据各结果的审计 scope 解读。</p>
+<p>已确认四阶段视频采用 <code>sequence_065_low + flex_024</code>；最新接近优化为 <code>sequence_069_approach</code>，完成新的第 1、2 阶段；<code>sequence_002_approach</code> 将其与 flex_024 以 0.4 s 画面交叉淡化编辑合成，属于分段录制视频，不代表新边界连续动力学通过。前者第二段初态读取第一段最后保存的 qpos、qvel、ctrl，源记录没有末尾 warmstart；它属于保存状态初始化。片段内部可用完整 integration state 检查点续算。不能把两种边界等同为完整积分状态无缝延续。</p>
+<h3>9.2 第一视角</h3>
+<p>已有舞台 XML 没有 camera 元素。新增渲染器在 torso_link 上附加虚拟相机；模型的头部 mesh 固定于该刚体，没有独立头部转动关节。相机的世界位姿为：</p>
+<div class="formula" tabindex="0" role="region" aria-label="数学公式，可横向滚动"><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi>p</mi><mi>C</mi><mi>W</mi></msubsup><mo>=</mo><msubsup><mi>p</mi><mi>B</mi><mi>W</mi></msubsup><mo>+</mo><msubsup><mi>R</mi><mi>B</mi><mi>W</mi></msubsup><msubsup><mi>p</mi><mi>C</mi><mi>B</mi></msubsup><mo separator="true">,</mo><mspace width="2em"/><msubsup><mi>R</mi><mi>C</mi><mi>W</mi></msubsup><mo>=</mo><msubsup><mi>R</mi><mi>B</mi><mi>W</mi></msubsup><msubsup><mi>R</mi><mi>C</mi><mi>B</mi></msubsup><mi mathvariant="normal">.</mi></mrow></semantics></math></span></div>
+
+
+<p>W 表示世界坐标系，B 表示 torso_link 坐标系，C 表示相机坐标系；p_C^W、p_B^W、p_C^B 均为三维位置向量；R_B^W、R_C^B、R_C^W 均为 3×3 旋转矩阵，上标为表达坐标系，下标为被表达的坐标系。p_C^B 固定为 (0.095, 0, 0.40) m，位于头部前方。展示版光轴朝机身前方并向下倾斜 25°，垂直视场角 90°；另保留水平朝前的 75° 视场试验记录。</p>
+<p>这些参数是虚拟观察位，不是硬件标定参数。下倾版本便于看到近处双手和器材；随着机身俯仰，画面也会转动，没有额外头部追踪或相机稳定控制。图像输出为 480×848×3 的 RGB 数组，再编码为 15 fps 视频。</p>
+<p>官方 G1 产品页列出 Depth Camera + 3D LiDAR；该配置描述不能证明存在 360° RGB 全景相机。第一视角与 360° 全景是不同概念，当前交付为头部附着的透视 RGB 回放，没有模拟深度噪声、LiDAR 扫描或真实相机畸变。<a href="https://www.unitree.com/g1/">Unitree G1 官方配置</a></p>
+<h2 id="section-10">10. 指标与可测量边界</h2>
+<h3>10.1 控制频率</h3>
+<div class="method-table" tabindex="0" role="region" aria-label="技术参数表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>环节</th>
+<th align="right">搬运阶段</th>
+<th align="right">波比跳阶段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>物理积分与逐步 PD</td>
+<td align="right">10,000 Hz</td>
+<td align="right">10,000 Hz</td>
+<td>0.0001 s 物理步。</td>
+</tr>
+<tr>
+<td>外层状态机、参考与前馈更新</td>
+<td align="right">500 Hz</td>
+<td align="right">250 Hz</td>
+<td>分别为 0.002 s 和 0.004 s 控制周期。</td>
+</tr>
+<tr>
+<td>预训练行走策略</td>
+<td align="right">50 Hz，行走时启用</td>
+<td align="right">当前续段不使用该行走策略</td>
+<td>输出 12 个腿部目标增量。</td>
+</tr>
+<tr>
+<td>轨迹保存</td>
+<td align="right">约 50 Hz</td>
+<td align="right">约 50 Hz</td>
+<td>保存实际物理轨迹采样。</td>
+</tr>
+<tr>
+<td>视频</td>
+<td align="right">通常 15 fps</td>
+<td align="right">通常 20 fps</td>
+<td>完整表演版为 20 fps，第一视角为 15 fps。</td>
+</tr>
+
+</tbody></table></div>
+<h3>10.2 已有记录</h3>
+<div class="method-table" tabindex="0" role="region" aria-label="技术参数表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值或状态</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>已确认前段仿真时间</td>
+<td>98.670 s</td>
+<td>sequence_065_low。</td>
+</tr>
+<tr>
+<td>最新前段仿真时间</td>
+<td>95.618 s</td>
+<td>sequence_069_approach。</td>
+</tr>
+<tr>
+<td>后段仿真时间</td>
+<td>57.648 s</td>
+<td>contact_023 与 flex_024。</td>
+</tr>
+<tr>
+<td>已确认完整视频时间</td>
+<td>156.35 s</td>
+<td>包含采样边界与视频帧取整，不能代替原运行墙钟时间。</td>
+</tr>
+<tr>
+<td>上述舞台实验原始总墙钟时间</td>
+<td>未记录</td>
+<td>不能由文件修改时间或视频长度准确反推。</td>
+</tr>
+<tr>
+<td>GPT 总生成耗时</td>
+<td>未记录</td>
+<td>当前日志没有模型请求开始与完成时间。</td>
+</tr>
+
+</tbody></table></div>
+<p>早期 <code>codex_session_v1</code> 保存了另一组可以准确汇总的数据：8 个执行段，其中 7 条请求由 Codex 发出，合计仿真时间 22.000 s；段内本地执行计时之和为 <strong>5.645 s</strong>；7 条 Codex 请求对应的平均本地执行时间为 <strong>0.747 s</strong>。该计时位于 <code>Simulation.execute()</code> 内，排除了进程加载、部分存盘及模型生成。</p>
+<p>相邻 Codex 请求被 CLI 接收的平均间隔为 <strong>58.914 s</strong>，其中包含模型思考、工具往返、读取记录、执行与等待等活动。它是请求接收间隔，不能报告为 GPT 的纯推理延迟，也不能套用到当前舞台控制器。</p>
+<h3>10.3 计时实验</h3>
+<p>为测量实际墙钟时间，设置时间上限为 6 s 的低舞台登台短程实验 <code>timing_entry_070</code>。完整子进程墙钟时间为 <strong>14.001 s</strong>，实际在完成登台后于 <strong>4.840 s</strong> 结束，对应仿真速度比约 <strong>0.346</strong>。计时包含 Python 启动、依赖及模型加载、控制、积分与结果保存，排除 GPT 生成和视频渲染。该短程模式不执行完整表演，summary 中 full_sequence 为 false；其接触、关节范围、速度与力矩检查通过。该耗时属于短程测量，不是历史完整表演总耗时；启动成本、阶段计算量与并发负载均影响速度比，不能直接据此精确外推 95 s 或 156 s 表演的耗时。</p>
+<p>原始命令、UTC 起止时刻、系统信息与返回码保存于 <code>artifacts/metrics/pipeline_20261010/entry_process.json</code>；汇总见同目录 <code>metrics.json</code>。第一视角的渲染墙钟时间单独记录在 <code>artifacts/first_person/approach_069_downward/render.json</code>，属于可视化开销。</p>
+
+    </article>
+    <div class="method-return"><a class="download-button" href="./">← 返回表演</a></div>
+  </main>
+  <footer><div><span class="footer-mark">G1</span> Unitree G1 <span class="footer-separator">/</span> GPT-6-Astra</div><span>舞台波比跳 · 技术方案</span></footer>
+</body>
+</html>

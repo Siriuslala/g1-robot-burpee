@@ -16,6 +16,8 @@ Unitree G1 舞台波比跳的静态展示网站：https://siriuslala.github.io/g
 | 路径 | 内容 |
 | --- | --- |
 | `index.html` | 页面结构及播放器 |
+| `technical.html` | 技术方案，含控制流程、公式与参数说明 |
+| `assets/css/method.css` | 技术方案页面及移动端排版 |
 | `assets/css/site.css` | 桌面与移动端样式 |
 | `assets/js/player.js` | 视角切换、倍速与阶段同步 |
 | `assets/js/timeline.js` | 四阶段动作标签与起始时间 |

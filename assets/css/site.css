@@ -795,3 +795,11 @@ footer a:hover {
     height:46px;
   }
 }
+
+.method-entry {
+  margin-top:-30px;
+  padding-bottom:30px;
+}
+@media(max-width:540px) {
+  .method-entry {margin-top:-8px}
+}

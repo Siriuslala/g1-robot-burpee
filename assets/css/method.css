@@ -1,0 +1,38 @@
+.method-page .back-link {font-size:14px;color:var(--green)}
+.method-intro {padding:36px 0 24px}
+.method-intro h1 {font-size:40px;letter-spacing:-1px}
+.method-intro>p:last-child {font-size:16px;line-height:1.8;color:#657268}
+.method-toc {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px;padding:24px;border:1px solid var(--line);border-radius:10px;background:var(--mint);margin-bottom:28px}
+.method-toc a {font-size:15px;line-height:1.6;color:var(--green)}
+.method-toc a:hover,.back-link:hover {text-decoration:underline}
+.method-content {padding:10px 36px 32px;background:var(--paper);border:1px solid var(--line);border-radius:12px;font-size:17px;line-height:1.95;overflow-wrap:anywhere}
+.method-content h2 {font-size:26px;line-height:1.45;letter-spacing:0;padding-top:26px;margin:38px 0 20px;border-top:1px solid var(--line);scroll-margin-top:24px}
+.method-content h2:first-child {border:0;margin-top:0}
+.method-content h3 {font-size:20px;line-height:1.6;margin:28px 0 14px}
+.method-content p {margin:16px 0}
+.method-content ol {padding-left:26px}
+.method-content li {padding-left:4px;margin:12px 0}
+.method-content a {color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.method-content code {font-size:.88em;background:#f0f3ed;padding:2px 4px;border-radius:3px;overflow-wrap:anywhere}
+.method-content pre {overflow-x:auto;padding:18px;background:#f0f3ed;border-radius:7px;line-height:1.65}
+.method-content pre code {padding:0;overflow-wrap:normal}
+.method-table {max-width:100%;overflow-x:auto;margin:24px 0}
+.method-content table {width:100%;min-width:580px;border-collapse:collapse;font-size:15px;line-height:1.8}
+.method-content th,.method-content td {border:1px solid var(--line);padding:12px;text-align:left;vertical-align:top}
+.method-content th {background:var(--mint);font-weight:600}
+.formula {max-width:100%;overflow-x:auto;padding:22px 18px;margin:24px 0;background:#f5f7f2;border:1px solid #e7ece1;border-radius:7px}
+.formula math {font-size:21px;min-width:max-content}
+.method-return {padding:28px 0 40px}
+.method-content :focus-visible {outline:3px solid #238f68;outline-offset:3px}
+@media(max-width:650px) {
+  .method-intro {padding-top:20px}
+  .method-intro h1 {font-size:32px}
+  .method-intro>p:last-child {font-size:15px}
+  .method-toc {grid-template-columns:1fr;padding:18px;gap:12px}
+  .method-content {padding:8px 18px 24px;font-size:16px}
+  .method-content h2 {font-size:23px}
+  .method-content h3 {font-size:19px}
+  .formula {padding:18px 12px}
+  .formula math {font-size:20px}
+  .method-page .back-link {font-size:13px}
+}
