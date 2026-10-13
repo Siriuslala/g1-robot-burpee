@@ -140,7 +140,7 @@
     const download = document.querySelector('#download-video');
     download.href = `assets/media/v2/${view}.mp4`;
     download.download = `g1-performance-${view}.mp4`;
-    document.querySelector('#download-label').textContent = `下载到本地 · ${view === 'transition' ? '运镜衔接' : '统一视角'}`;
+    document.querySelector('#download-label').textContent = '下载第三人称视频';
     update();
   });
 

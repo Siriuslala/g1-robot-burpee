@@ -817,3 +817,10 @@ footer a:hover {
 .video-pane {min-width:0;background:var(--paper)}
 .video-heading {font-size:14px;font-weight:500;letter-spacing:0;padding:11px 20px;border-top:1px solid var(--line);color:var(--green)}
 @media(max-width:650px) {.dual-video{grid-template-columns:1fr}.version-switch{gap:10px;margin-bottom:22px}.version-button{padding:10px 14px}}
+
+/* Keep the two perspective downloads together at the caption's right edge. */
+.download-actions {display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-left:auto;max-width:100%}
+@media(max-width:540px) {
+  .download-actions {align-self:flex-end;gap:8px}
+  .download-actions .download-button {padding:10px 9px;font-size:12px;gap:5px;flex-shrink:1}
+}
