@@ -1,0 +1,70 @@
+{
+  "observation_id": 17,
+  "part": "transport",
+  "proposed_skill": "lower",
+  "sim_time": 64.77400000102674,
+  "image": "ego_017.png",
+  "gravity_body": [
+    -0.007371459371648063,
+    -0.004457139432316269,
+    -0.9999628970590915
+  ],
+  "body_velocity": [
+    0.03823527980399695,
+    -0.0030264907409892293,
+    -0.0001521055772947187
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    21.916172363482602,
+    18.609535124770602,
+    183.81594921791026,
+    172.68753367951575
+  ],
+  "gripper_m": [
+    -0.0010563773260095224,
+    -0.0015882150129588434
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.09772068218783517,
+    "left_hip_roll_joint": 0.08809268951483526,
+    "left_hip_yaw_joint": 0.18866504075561769,
+    "left_knee_joint": 0.32784111189043424,
+    "left_ankle_pitch_joint": -0.20946554598467118,
+    "left_ankle_roll_joint": -0.03645675310029698,
+    "right_hip_pitch_joint": -0.1100202434266352,
+    "right_hip_roll_joint": -0.12212307855604253,
+    "right_hip_yaw_joint": -0.14437752511123253,
+    "right_knee_joint": 0.33101695100932554,
+    "right_ankle_pitch_joint": -0.19893609942859142,
+    "right_ankle_roll_joint": 0.07538701219439856,
+    "waist_yaw_joint": -0.000863951584282069,
+    "waist_roll_joint": 0.007192529951052682,
+    "waist_pitch_joint": 0.08114664360929828,
+    "left_shoulder_pitch_joint": 0.26987297447473185,
+    "left_shoulder_roll_joint": 0.7722768380971076,
+    "left_shoulder_yaw_joint": -0.5825099568940396,
+    "left_elbow_joint": 0.4823232769965845,
+    "left_wrist_roll_joint": -0.797765622596539,
+    "left_wrist_pitch_joint": -1.0522904266743884,
+    "left_wrist_yaw_joint": -1.5910176996579812,
+    "right_shoulder_pitch_joint": 0.13816071312428538,
+    "right_shoulder_roll_joint": -0.6900719098584029,
+    "right_shoulder_yaw_joint": -2.210018921067929,
+    "right_elbow_joint": 2.088512879862245,
+    "right_wrist_roll_joint": -1.9700527770489011,
+    "right_wrist_pitch_joint": -1.4540624131584132,
+    "right_wrist_yaw_joint": 1.6088357822239356
+  },
+  "previous_decision": {
+    "observation_id": 16,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "转向结束、双脚恢复承重，两手仍夹持支架；切换实测落脚位置下的静态IK并逐渐站稳。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

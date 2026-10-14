@@ -1,0 +1,8 @@
+{
+  "observation_id": 37,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "两腿已伸展，左脚尚未承重、右脚与双手支撑；先让左脚落稳，达到稳定俯卧撑预备姿势后再下压。"
+}

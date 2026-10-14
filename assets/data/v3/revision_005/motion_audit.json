@@ -1,0 +1,74 @@
+{
+  "success": false,
+  "checks": {
+    "source_scene_identical": true,
+    "source_initial_qpos_exact": true,
+    "all_leg_transitions": false,
+    "actual_pushup": false,
+    "actual_jump": true,
+    "final_flex": true,
+    "grip_geometry": false,
+    "final_stable": true
+  },
+  "legs": {
+    "left_extend": {
+      "reached": true,
+      "passed": true,
+      "forward_or_backward_travel_m": 0.4754469579756583,
+      "lateral_excursion_m": 0.0471698348548113,
+      "peak_sole_clearance_m": 0.07629975091614725,
+      "airborne_recorded": true,
+      "final_knee_rad": 0.2104748676972175,
+      "landing_completed": true
+    },
+    "left_return": {
+      "reached": true,
+      "passed": true,
+      "forward_or_backward_travel_m": 0.5486919554721366,
+      "lateral_excursion_m": 0.04794220163994023,
+      "peak_sole_clearance_m": 0.054685679724910785,
+      "airborne_recorded": true,
+      "final_knee_rad": 1.6875734276166676,
+      "landing_completed": true
+    },
+    "right_extend": {
+      "reached": true,
+      "passed": true,
+      "forward_or_backward_travel_m": 0.5433955307527757,
+      "lateral_excursion_m": 0.04905028971597947,
+      "peak_sole_clearance_m": 0.137963628452347,
+      "airborne_recorded": true,
+      "final_knee_rad": 0.1656644965544132,
+      "landing_completed": true
+    },
+    "right_return": {
+      "reached": true,
+      "passed": false,
+      "forward_or_backward_travel_m": 0.5319079717785477,
+      "lateral_excursion_m": 0.08133630360835808,
+      "peak_sole_clearance_m": 0.048010235466253895,
+      "airborne_recorded": true,
+      "final_knee_rad": 2.2777907735054104,
+      "landing_completed": true
+    }
+  },
+  "pushup": {
+    "minimum_elbow_deg": [
+      110.11160782211032,
+      109.18962929961924
+    ],
+    "bend_excursion_deg": [
+      52.75920643173329,
+      50.924202796745476
+    ],
+    "raised_minimum_elbow_deg": [
+      163.3072950591621,
+      160.32332285368713
+    ],
+    "scope": "Geometric shoulder-elbow-wrist angles measured from the physical trajectory"
+  },
+  "flight_duration_lower_bound_s": 0.10000000000331966,
+  "max_double_sole_clearance_m": 0.021631043357599924,
+  "grip_geometry_valid_fraction": 0.5624284077892325,
+  "scope": "Recorded-state audit at 50 Hz; flight duration is a lower bound; geometric grip does not alone establish opposed contact forces"
+}

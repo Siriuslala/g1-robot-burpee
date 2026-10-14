@@ -1,0 +1,28 @@
+{
+  "online_sequence_audit_passed": true,
+  "checks": {
+    "contiguous_observation_ids": true,
+    "live_codex_decisions": true,
+    "matching_action_ids": true,
+    "saved_first_person_images": true,
+    "increasing_observation_times": true,
+    "exact_boundary_qpos": true,
+    "exact_boundary_dynamic_state": true,
+    "identical_scene": true,
+    "transport_passed": true,
+    "burpee_sequence_complete": true,
+    "terminal_flex_observed": true
+  },
+  "strict_physics_passed": false,
+  "decision_count": 51,
+  "simulation_seconds": 159.67200000305348,
+  "sonic_decision_count": 6,
+  "decision_wait_wall_seconds": 1293.9602382276207,
+  "task_sequence_assistance": true,
+  "physics_paused_for_decision": true,
+  "source_sha256": {
+    "/home/liyueyan/robot/artifacts/stage_transport/codex_sonic_revision_005": "7f348aaf59414c978b6df8cbf6b342545208b7ac29f5b3587fb3cb5390c9e6ed",
+    "/home/liyueyan/robot/artifacts/stage_burpee/codex_sonic_revision_005": "b7f05067c217ca2fd91e05e4b53cfeffcaa5d422823cc3c784c74e826b8de0ba"
+  },
+  "scope": "Verifies recorded online supervision and exact state continuity; separate motion and strict physics audits determine task quality. Logs alone do not prove what a model perceived."
+}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 20,
+  "part": "transport",
+  "proposed_skill": "escape",
+  "sim_time": 77.6960000014557,
+  "image": "ego_020.png",
+  "gravity_body": [
+    0.8421080750039385,
+    0.007007910442330623,
+    -0.5392632744813937
+  ],
+  "body_velocity": [
+    0.0002444024744489691,
+    0.00040767897829734984,
+    0.00044983916766080484
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    2.2506157612661912,
+    171.09664423538692,
+    171.7058204648779
+  ],
+  "gripper_m": [
+    0.06016770958961819,
+    0.06002814722019198
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4812964976573335,
+    "left_hip_roll_joint": 0.08684208008003352,
+    "left_hip_yaw_joint": 0.03053895583824682,
+    "left_knee_joint": 2.261233285505154,
+    "left_ankle_pitch_joint": -0.7745346723208575,
+    "left_ankle_roll_joint": 0.04105879111905001,
+    "right_hip_pitch_joint": -2.4772460227153257,
+    "right_hip_roll_joint": -0.07761820438888828,
+    "right_hip_yaw_joint": -0.01017854901887656,
+    "right_knee_joint": 2.257586062410719,
+    "right_ankle_pitch_joint": -0.7709590170595374,
+    "right_ankle_roll_joint": -0.03213067027093059,
+    "waist_yaw_joint": 0.0033857912761315985,
+    "waist_roll_joint": -0.01381502558539689,
+    "waist_pitch_joint": 0.28582468357016627,
+    "left_shoulder_pitch_joint": -1.1032265453911814,
+    "left_shoulder_roll_joint": 0.8670047021054172,
+    "left_shoulder_yaw_joint": -0.6057303282345917,
+    "left_elbow_joint": 1.388108416443954,
+    "left_wrist_roll_joint": -0.857621470062749,
+    "left_wrist_pitch_joint": -1.4642085259815196,
+    "left_wrist_yaw_joint": -1.6094386309138007,
+    "right_shoulder_pitch_joint": -1.2488708557643253,
+    "right_shoulder_roll_joint": -0.879676758198068,
+    "right_shoulder_yaw_joint": 0.9973459462348161,
+    "right_elbow_joint": 1.0118497024371436,
+    "right_wrist_roll_joint": 1.5076511199369895,
+    "right_wrist_pitch_joint": -1.290428266164962,
+    "right_wrist_yaw_joint": 1.6095526471463484
+  },
+  "previous_decision": {
+    "observation_id": 19,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双支架平放于面前，身体速度近零且放置接触门控已通过；逐渐张开夹爪释放支架。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

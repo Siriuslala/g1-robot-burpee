@@ -1,0 +1,71 @@
+{
+  "observation_id": 11,
+  "part": "transport",
+  "proposed_skill": "turn_center",
+  "sim_time": 44.794000000363475,
+  "image": "ego_011.png",
+  "gravity_body": [
+    0.007473287375340082,
+    0.00013681330561565372,
+    -0.9999720652387888
+  ],
+  "body_velocity": [
+    -0.004555441556114316,
+    0.008891068574610275,
+    0.0011849828791119696
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    19.960335518538827,
+    18.679542513218795,
+    188.5064631379471,
+    167.78863479320842
+  ],
+  "gripper_m": [
+    -0.0013110367124493816,
+    -0.0016696967198302384
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.153800842753715,
+    "left_hip_roll_joint": 0.007596526187883347,
+    "left_hip_yaw_joint": -0.0008328439078806299,
+    "left_knee_joint": 0.32622976155831435,
+    "left_ankle_pitch_joint": -0.18044469172461394,
+    "left_ankle_roll_joint": 0.001191566492208817,
+    "right_hip_pitch_joint": -0.15384517770871256,
+    "right_hip_roll_joint": -0.003589551625142694,
+    "right_hip_yaw_joint": -1.3275880787265713e-05,
+    "right_knee_joint": 0.3275862188334106,
+    "right_ankle_pitch_joint": -0.18149844527512746,
+    "right_ankle_roll_joint": -0.003071117651300805,
+    "waist_yaw_joint": 0.00022960853483442,
+    "waist_roll_joint": -0.0014628542574515724,
+    "waist_pitch_joint": 0.07807018807450491,
+    "left_shoulder_pitch_joint": 0.2665738942818909,
+    "left_shoulder_roll_joint": 0.7725064303682984,
+    "left_shoulder_yaw_joint": -0.5782237441834784,
+    "left_elbow_joint": 0.4812762147438314,
+    "left_wrist_roll_joint": -0.7977002946532569,
+    "left_wrist_pitch_joint": -1.0584708015066933,
+    "left_wrist_yaw_joint": -1.5912741393786003,
+    "right_shoulder_pitch_joint": 0.13564925587375157,
+    "right_shoulder_roll_joint": -0.6905897935468224,
+    "right_shoulder_yaw_joint": -2.2106320432773616,
+    "right_elbow_joint": 2.088352715639682,
+    "right_wrist_roll_joint": -1.970238860099545,
+    "right_wrist_pitch_joint": -1.4531133184599352,
+    "right_wrist_yaw_joint": 1.6078889761326505
+  },
+  "previous_decision": {
+    "observation_id": 10,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "提架后视野已抬高，双手仍有约20N接触，膝关节接近站姿；继续稳住负载至转身条件满足。"
+  },
+  "available_controllers": [
+    "legacy",
+    "sonic"
+  ]
+}

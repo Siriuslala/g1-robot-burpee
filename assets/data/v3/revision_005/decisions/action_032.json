@@ -1,0 +1,8 @@
+{
+  "observation_id": 32,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双手已降至杆侧，双脚仍支撑身体；闭合夹爪，以实际夹持接触确认后再把重量转移到手臂。"
+}

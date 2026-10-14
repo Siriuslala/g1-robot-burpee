@@ -1,0 +1,70 @@
+{
+  "observation_id": 8,
+  "part": "transport",
+  "proposed_skill": "close_grasp",
+  "sim_time": 34.49400000002155,
+  "image": "ego_008.png",
+  "gravity_body": [
+    0.8434003556632429,
+    0.008852504977717474,
+    -0.5372126890001161
+  ],
+  "body_velocity": [
+    0.0005478643454359722,
+    -0.00597892210800566,
+    -0.0026610089188428957
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    1.2664070179462814,
+    2.069751073606785,
+    173.1868400385112,
+    169.04523410478583
+  ],
+  "gripper_m": [
+    0.06002710421140506,
+    0.06006677000175023
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.482983917187556,
+    "left_hip_roll_joint": 0.08559947988299009,
+    "left_hip_yaw_joint": 0.035785364319388106,
+    "left_knee_joint": 2.2606356305519015,
+    "left_ankle_pitch_joint": -0.7759728194778135,
+    "left_ankle_roll_joint": 0.05224674438127603,
+    "right_hip_pitch_joint": -2.477940821065006,
+    "right_hip_roll_joint": -0.07274583740650425,
+    "right_hip_yaw_joint": -0.012108914167746171,
+    "right_knee_joint": 2.25545663305785,
+    "right_ankle_pitch_joint": -0.7725966543388678,
+    "right_ankle_roll_joint": -0.024622178573415397,
+    "waist_yaw_joint": 0.0045392973525245845,
+    "waist_roll_joint": -0.007833960196641367,
+    "waist_pitch_joint": 0.289558815835593,
+    "left_shoulder_pitch_joint": -1.0157045457730567,
+    "left_shoulder_roll_joint": 0.9733388436075726,
+    "left_shoulder_yaw_joint": -0.9908910502429431,
+    "left_elbow_joint": 0.8094694609883235,
+    "left_wrist_roll_joint": -1.3048347095479635,
+    "left_wrist_pitch_joint": -1.459065414256837,
+    "left_wrist_yaw_joint": -1.5531185708988928,
+    "right_shoulder_pitch_joint": -0.7892255159988081,
+    "right_shoulder_roll_joint": -0.8429986189649572,
+    "right_shoulder_yaw_joint": 0.677847719181471,
+    "right_elbow_joint": 0.9443188563183144,
+    "right_wrist_roll_joint": 1.3147816764358753,
+    "right_wrist_pitch_joint": -1.4696685725085465,
+    "right_wrist_yaw_joint": 1.6097970976011318
+  },
+  "previous_decision": {
+    "observation_id": 7,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双掌位于杆侧，双脚稳定支撑、速度低；进行最后抓握对齐。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 39,
+  "part": "burpee",
+  "proposed_skill": "pushup_raise",
+  "sim_time": 127.06000000221731,
+  "image": "ego_039.png",
+  "gravity_body": [
+    0.9996410665217551,
+    0.003973744633561038,
+    0.02649429140083623
+  ],
+  "body_velocity": [
+    -0.008714667981840134,
+    -0.008666458878911789,
+    -0.01576591982414557
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    121.84314369558672,
+    124.98077416443384,
+    59.561624894448016,
+    58.79347510897439
+  ],
+  "gripper_m": [
+    0.0216250795699686,
+    0.01831232402212677
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.519785536047889,
+    "left_hip_roll_joint": -0.08916126595541796,
+    "left_hip_yaw_joint": -0.27010550473137007,
+    "left_knee_joint": 0.04113834361542592,
+    "left_ankle_pitch_joint": -0.8016231111487697,
+    "left_ankle_roll_joint": 0.22183689045555974,
+    "right_hip_pitch_joint": -0.5653438331604934,
+    "right_hip_roll_joint": -0.16109184391062725,
+    "right_hip_yaw_joint": -0.18883788307332883,
+    "right_knee_joint": 0.15327673145059242,
+    "right_ankle_pitch_joint": -0.7578909311241556,
+    "right_ankle_roll_joint": 0.23459854442979033,
+    "waist_yaw_joint": 0.05662611958168487,
+    "waist_roll_joint": 0.050401094566794216,
+    "waist_pitch_joint": 0.1835293525528888,
+    "left_shoulder_pitch_joint": -0.40271904428723954,
+    "left_shoulder_roll_joint": 0.6745456335039722,
+    "left_shoulder_yaw_joint": 0.15456399504767587,
+    "left_elbow_joint": 0.1906247951818443,
+    "left_wrist_roll_joint": -0.6910003586659025,
+    "left_wrist_pitch_joint": -1.3874857312693758,
+    "left_wrist_yaw_joint": -1.5805608974145162,
+    "right_shoulder_pitch_joint": -0.2448475266418852,
+    "right_shoulder_roll_joint": -0.8418789860934767,
+    "right_shoulder_yaw_joint": -0.32462237274991423,
+    "right_elbow_joint": 0.1670103848828383,
+    "right_wrist_roll_joint": 0.8144712040441812,
+    "right_wrist_pitch_joint": -1.414777567287429,
+    "right_wrist_yaw_joint": 1.5640481617922777
+  },
+  "previous_decision": {
+    "observation_id": 38,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双手与双脚均已承重，身体速度约0.01m/s；执行八段连续IK下压，保持伸腿后的足端目标并加深屈肘。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

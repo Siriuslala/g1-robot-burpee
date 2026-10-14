@@ -1,0 +1,8 @@
+{
+  "contact_ticks": 0,
+  "contact_seconds": 0.0,
+  "max_normal_force_n": 0.0,
+  "first_time_s": null,
+  "no_foot_prop_contact": true,
+  "scope": "Normal foot/prop contact force sampled at every 2 ms control tick before pickup"
+}

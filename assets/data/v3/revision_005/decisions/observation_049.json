@@ -1,0 +1,70 @@
+{
+  "observation_id": 49,
+  "part": "burpee",
+  "proposed_skill": "jump",
+  "sim_time": 147.67600000265526,
+  "image": "ego_049.png",
+  "gravity_body": [
+    0.0028977749621206857,
+    -2.4851306998871416e-05,
+    -0.9999958011325257
+  ],
+  "body_velocity": [
+    0.03732520032737331,
+    0.007737401336723176,
+    0.05161810987818438
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    330.684281700223,
+    395.51714200767515
+  ],
+  "gripper_m": [
+    0.06042295352451382,
+    0.06041931757537404
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.16141577599978257,
+    "left_hip_roll_joint": 0.0313630939125638,
+    "left_hip_yaw_joint": 0.11180557777950294,
+    "left_knee_joint": 0.3521084487116039,
+    "left_ankle_pitch_joint": -0.19245515597054555,
+    "left_ankle_roll_joint": 0.006855273947293609,
+    "right_hip_pitch_joint": -0.12976666564816322,
+    "right_hip_roll_joint": -0.05250166531723688,
+    "right_hip_yaw_joint": -0.17769325499250302,
+    "right_knee_joint": 0.34982132077094447,
+    "right_ankle_pitch_joint": -0.218261089575425,
+    "right_ankle_roll_joint": -0.0032009458796708433,
+    "waist_yaw_joint": 0.0005541055197107669,
+    "waist_roll_joint": 0.002328649480131949,
+    "waist_pitch_joint": 0.0711545581013537,
+    "left_shoulder_pitch_joint": 0.000963124481580567,
+    "left_shoulder_roll_joint": 0.2197140602902713,
+    "left_shoulder_yaw_joint": -0.0018779032074174944,
+    "left_elbow_joint": 1.4001147851557891,
+    "left_wrist_roll_joint": 0.0001362556737642421,
+    "left_wrist_pitch_joint": 0.01933781039587689,
+    "left_wrist_yaw_joint": -0.0005949865061495775,
+    "right_shoulder_pitch_joint": 0.00048388344175646106,
+    "right_shoulder_roll_joint": -0.21988007639452403,
+    "right_shoulder_yaw_joint": 0.0019862829002774496,
+    "right_elbow_joint": 1.4003369070437746,
+    "right_wrist_roll_joint": -0.00029995228273289203,
+    "right_wrist_pitch_joint": 0.01954498751527954,
+    "right_wrist_yaw_joint": 0.0007146136113667905
+  },
+  "previous_decision": {
+    "observation_id": 48,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "身体已回到竖直，双脚约172N承重、两手无负载；完成站立稳定门控后开始摆臂蓄力跳跃。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

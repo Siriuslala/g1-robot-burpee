@@ -1,0 +1,8 @@
+{
+  "observation_id": 8,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双掌与木杆对齐，身体稳定，夹爪仍张开；闭合夹爪并等待实际夹持接触成立。"
+}

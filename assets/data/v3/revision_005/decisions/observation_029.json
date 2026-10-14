@@ -1,0 +1,70 @@
+{
+  "observation_id": 29,
+  "part": "burpee",
+  "proposed_skill": "crouch",
+  "sim_time": 111.20000000225427,
+  "image": "ego_029.png",
+  "gravity_body": [
+    0.8446536966439093,
+    0.0026842606165503047,
+    -0.5353063865588754
+  ],
+  "body_velocity": [
+    0.0008247380498178454,
+    -0.009573424009888342,
+    0.0021076323110350834
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    177.258835177134,
+    167.3055163977778
+  ],
+  "gripper_m": [
+    0.060168564813226896,
+    0.06002608433590796
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4794097837513673,
+    "left_hip_roll_joint": 0.0870312024842915,
+    "left_hip_yaw_joint": 0.03297933814635888,
+    "left_knee_joint": 2.2591794740620097,
+    "left_ankle_pitch_joint": -0.7791958916526405,
+    "left_ankle_roll_joint": 0.0422103262333578,
+    "right_hip_pitch_joint": -2.4787651537304045,
+    "right_hip_roll_joint": -0.07866250049663456,
+    "right_hip_yaw_joint": -0.014275388613904115,
+    "right_knee_joint": 2.257866504387111,
+    "right_ankle_pitch_joint": -0.7771856212789899,
+    "right_ankle_roll_joint": -0.022992144271468142,
+    "waist_yaw_joint": 0.0047792584200541015,
+    "waist_roll_joint": -0.01285774737455728,
+    "waist_pitch_joint": 0.28530667979658236,
+    "left_shoulder_pitch_joint": 0.04313434412322405,
+    "left_shoulder_roll_joint": 1.1483868916117368,
+    "left_shoulder_yaw_joint": 0.5491649540500967,
+    "left_elbow_joint": -0.12835423882696081,
+    "left_wrist_roll_joint": -0.5674935372277781,
+    "left_wrist_pitch_joint": -0.7151822694208267,
+    "left_wrist_yaw_joint": -1.3131465390336863,
+    "right_shoulder_pitch_joint": -0.5024720416454576,
+    "right_shoulder_roll_joint": -1.7639763324402524,
+    "right_shoulder_yaw_joint": 0.4797980005570959,
+    "right_elbow_joint": -0.10332331747715916,
+    "right_wrist_roll_joint": 1.0868652346382184,
+    "right_wrist_pitch_joint": -1.2243430903468995,
+    "right_wrist_yaw_joint": 0.7615367645388547
+  },
+  "previous_decision": {
+    "observation_id": 28,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "接触摘要已建立，双脚182/162N且身体静止；下蹲并将双臂伸向支架。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

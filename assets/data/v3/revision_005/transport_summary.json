@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "checks": {
+    "full_sequence": true,
+    "no_unexpected_contact": true,
+    "no_self_contact": true,
+    "range": true,
+    "velocity": true,
+    "torque": true
+  },
+  "final_stage": "final_hold",
+  "end_reason": "duration_complete",
+  "seconds": 101.99600000226238,
+  "root": [
+    2.0703312536679537,
+    0.05820370252928389,
+    0.7975646141545155
+  ],
+  "max_joint_limit_rad": 0.006084415088454698,
+  "max_speed_ratio": 0.4981791363488572,
+  "max_torque_ratio": 1.0,
+  "unexpected_seconds": 0.0,
+  "self_contact_seconds": 0.0,
+  "unexpected_geoms": [],
+  "scope": "Continuous unified-model simulation; full-sequence success requires final standing after flex"
+}

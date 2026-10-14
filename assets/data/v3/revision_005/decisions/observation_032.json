@@ -1,0 +1,70 @@
+{
+  "observation_id": 32,
+  "part": "burpee",
+  "proposed_skill": "close_grip",
+  "sim_time": 116.61200000224166,
+  "image": "ego_032.png",
+  "gravity_body": [
+    0.7855183884011387,
+    0.011016528553839722,
+    -0.6187402504947437
+  ],
+  "body_velocity": [
+    0.005027899368563135,
+    -0.006623137947432536,
+    0.010754784131293452
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    7.613681594381373,
+    0.0,
+    191.29273462343633,
+    144.78118721551377
+  ],
+  "gripper_m": [
+    0.060074869416816556,
+    0.06008693160021101
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.50732396736986,
+    "left_hip_roll_joint": 0.197826759458336,
+    "left_hip_yaw_joint": 0.21869193753600052,
+    "left_knee_joint": 2.2824681286468667,
+    "left_ankle_pitch_joint": -0.5577507823088348,
+    "left_ankle_roll_joint": 0.25134758994371403,
+    "right_hip_pitch_joint": -2.4983017302410415,
+    "right_hip_roll_joint": -0.1914008612244977,
+    "right_hip_yaw_joint": 0.0639194549814251,
+    "right_knee_joint": 2.2552148845084834,
+    "right_ankle_pitch_joint": -0.661700283121115,
+    "right_ankle_roll_joint": 0.026761878877004673,
+    "waist_yaw_joint": -5.601091908955865e-05,
+    "waist_roll_joint": 0.0010586526184697964,
+    "waist_pitch_joint": 0.3880635171254114,
+    "left_shoulder_pitch_joint": -1.2548549420442525,
+    "left_shoulder_roll_joint": 0.9698842242833496,
+    "left_shoulder_yaw_joint": -0.9745215197392952,
+    "left_elbow_joint": 1.0997359395378317,
+    "left_wrist_roll_joint": -1.4793180533616903,
+    "left_wrist_pitch_joint": -1.2393871163476469,
+    "left_wrist_yaw_joint": -1.581318609388572,
+    "right_shoulder_pitch_joint": -1.2730392479508823,
+    "right_shoulder_roll_joint": -0.9906341143682516,
+    "right_shoulder_yaw_joint": 1.0560950260457376,
+    "right_elbow_joint": 1.0952783064394518,
+    "right_wrist_roll_joint": 1.520881692048209,
+    "right_wrist_pitch_joint": -1.241119559668804,
+    "right_wrist_yaw_joint": 1.5796234373134623
+  },
+  "previous_decision": {
+    "observation_id": 31,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双掌已朝向木杆，当前仍由双脚承重，身体速度较低；缓慢降手至夹持位置。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

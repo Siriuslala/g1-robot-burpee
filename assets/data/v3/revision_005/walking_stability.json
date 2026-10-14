@@ -1,0 +1,56 @@
+{
+  "run": "/home/liyueyan/robot/artifacts/stage_transport/codex_sonic_revision_005",
+  "groups": {
+    "approach": {
+      "reached": true,
+      "sampled_seconds": 17.94,
+      "roll_rms_deg": 4.198688731921243,
+      "roll_peak_deg": 11.228277805355942,
+      "pitch_std_deg": 3.9410377199854603,
+      "roll_pitch_rate_rms_deg_s": 39.975109629930586,
+      "lateral_speed_rms_m_s": 0.20181867987015498,
+      "vertical_speed_rms_m_s": 0.08743566873144036
+    },
+    "fine_approach": {
+      "reached": true,
+      "sampled_seconds": 5.96,
+      "roll_rms_deg": 5.874982491880019,
+      "roll_peak_deg": 11.228277805355942,
+      "pitch_std_deg": 2.482296181192446,
+      "roll_pitch_rate_rms_deg_s": 52.61465775411175,
+      "lateral_speed_rms_m_s": 0.19867239500839687,
+      "vertical_speed_rms_m_s": 0.06390001749532949
+    },
+    "loaded_carry": {
+      "reached": true,
+      "sampled_seconds": 14.5,
+      "roll_rms_deg": 3.597341052911896,
+      "roll_peak_deg": 9.313078804999966,
+      "pitch_std_deg": 4.457747079203769,
+      "roll_pitch_rate_rms_deg_s": 26.086332930507808,
+      "lateral_speed_rms_m_s": 0.09581512063836588,
+      "vertical_speed_rms_m_s": 0.053743922278731406
+    },
+    "loaded_navigation": {
+      "reached": true,
+      "sampled_seconds": 9.66,
+      "roll_rms_deg": 3.5437812879087303,
+      "roll_peak_deg": 9.313078804999966,
+      "pitch_std_deg": 3.476569690086047,
+      "roll_pitch_rate_rms_deg_s": 29.199321772506572,
+      "lateral_speed_rms_m_s": 0.10670803843882214,
+      "vertical_speed_rms_m_s": 0.06055795972668765
+    },
+    "placement_alignment": {
+      "reached": true,
+      "sampled_seconds": 4.84,
+      "roll_rms_deg": 3.701923261906541,
+      "roll_peak_deg": 6.939672254307064,
+      "pitch_std_deg": 2.330660124450303,
+      "roll_pitch_rate_rms_deg_s": 18.35757841721727,
+      "lateral_speed_rms_m_s": 0.0691195853423408,
+      "vertical_speed_rms_m_s": 0.03652277360499564
+    }
+  },
+  "scope": "Physical torso orientation and velocity at saved 50 Hz states; no camera stabilization. Stage masks include acceleration and stopping; different paths/durations must be considered."
+}

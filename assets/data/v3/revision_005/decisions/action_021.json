@@ -1,0 +1,8 @@
+{
+  "observation_id": 21,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双掌已离开木杆、手部接触力为零，支架稳定留在台面；保持双脚位置缓慢站起。"
+}

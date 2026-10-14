@@ -1,0 +1,70 @@
+{
+  "observation_id": 30,
+  "part": "burpee",
+  "proposed_skill": "orient_open_hands",
+  "sim_time": 111.4040000022538,
+  "image": "ego_030.png",
+  "gravity_body": [
+    0.8445885004158423,
+    0.0021683362293367092,
+    -0.5354115830679382
+  ],
+  "body_velocity": [
+    0.00012568925091000906,
+    0.0006931246549114151,
+    -0.00017201043397009573
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    177.1861916931661,
+    167.67888731686372
+  ],
+  "gripper_m": [
+    0.06016854052960675,
+    0.06002695483471548
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4790173621980087,
+    "left_hip_roll_joint": 0.08694604316813845,
+    "left_hip_yaw_joint": 0.03235836641691778,
+    "left_knee_joint": 2.2591869539669203,
+    "left_ankle_pitch_joint": -0.7793372921485776,
+    "left_ankle_roll_joint": 0.04094922675264813,
+    "right_hip_pitch_joint": -2.478527233803514,
+    "right_hip_roll_joint": -0.07880552764744611,
+    "right_hip_yaw_joint": -0.014752901255799457,
+    "right_knee_joint": 2.2582715214049234,
+    "right_ankle_pitch_joint": -0.7776668879466407,
+    "right_ankle_roll_joint": -0.02408861808845998,
+    "waist_yaw_joint": 0.0034670842259016204,
+    "waist_roll_joint": -0.01425172242185186,
+    "waist_pitch_joint": 0.28421536184732643,
+    "left_shoulder_pitch_joint": 0.043110263366370874,
+    "left_shoulder_roll_joint": 1.1483398239171203,
+    "left_shoulder_yaw_joint": 0.5491132515508804,
+    "left_elbow_joint": -0.12832491205585292,
+    "left_wrist_roll_joint": -0.5674674376722538,
+    "left_wrist_pitch_joint": -0.7151693406613304,
+    "left_wrist_yaw_joint": -1.3131495519841767,
+    "right_shoulder_pitch_joint": -0.5024058512020664,
+    "right_shoulder_roll_joint": -1.7638487560515184,
+    "right_shoulder_yaw_joint": 0.479871318216032,
+    "right_elbow_joint": -0.10333519727742928,
+    "right_wrist_roll_joint": 1.086825041724692,
+    "right_wrist_pitch_joint": -1.2243276608706886,
+    "right_wrist_yaw_joint": 0.7615427493059986
+  },
+  "previous_decision": {
+    "observation_id": 29,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "蹲姿已建立，双脚支撑稳定、双掌悬在支架上方；完成蹲姿稳定门控，随后调整手掌朝向。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

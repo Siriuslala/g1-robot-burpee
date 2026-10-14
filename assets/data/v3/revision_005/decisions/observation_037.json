@@ -1,0 +1,70 @@
+{
+  "observation_id": 37,
+  "part": "burpee",
+  "proposed_skill": "left_land",
+  "sim_time": 124.77600000222263,
+  "image": "ego_037.png",
+  "gravity_body": [
+    0.9961950982448018,
+    -0.017129137074121503,
+    0.08545126620552512
+  ],
+  "body_velocity": [
+    0.10668616879516167,
+    -0.03207294051953287,
+    -0.1469835614416468
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    117.80229396961475,
+    84.85033856982622,
+    0.0,
+    233.59819447981153
+  ],
+  "gripper_m": [
+    0.013996207261734525,
+    0.0014372212898674246
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.7915863271528383,
+    "left_hip_roll_joint": 0.03316008636051058,
+    "left_hip_yaw_joint": 0.16329168704533922,
+    "left_knee_joint": 0.21297158615316453,
+    "left_ankle_pitch_joint": -0.6564117047487248,
+    "left_ankle_roll_joint": 0.14347720751224266,
+    "right_hip_pitch_joint": -0.882686849102455,
+    "right_hip_roll_joint": -0.14373897106365624,
+    "right_hip_yaw_joint": -0.2768552227681158,
+    "right_knee_joint": 0.13459426158314206,
+    "right_ankle_pitch_joint": -0.5471991299672353,
+    "right_ankle_roll_joint": 0.2099343806717465,
+    "waist_yaw_joint": -0.01673144237654342,
+    "waist_roll_joint": 0.03562293174238931,
+    "waist_pitch_joint": 0.15189869816480264,
+    "left_shoulder_pitch_joint": -1.1849937611242345,
+    "left_shoulder_roll_joint": 0.6605224309787925,
+    "left_shoulder_yaw_joint": -0.03927686441637831,
+    "left_elbow_joint": 1.122118245183719,
+    "left_wrist_roll_joint": -0.5638518599388349,
+    "left_wrist_pitch_joint": -1.548346068728637,
+    "left_wrist_yaw_joint": -1.5859873388680843,
+    "right_shoulder_pitch_joint": -1.1217797118805204,
+    "right_shoulder_roll_joint": -0.7411032824967451,
+    "right_shoulder_yaw_joint": -0.05105897009663315,
+    "right_elbow_joint": 1.0655095005928386,
+    "right_wrist_roll_joint": 0.5008447881258408,
+    "right_wrist_pitch_joint": -1.4154213840101513,
+    "right_wrist_yaw_joint": 1.5692954237438541
+  },
+  "previous_decision": {
+    "observation_id": 36,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "右脚已建立约62N接触，身体速度明显降低，双手持续支撑；保持右脚与双手，缓慢向后伸左腿。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

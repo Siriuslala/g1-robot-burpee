@@ -1,0 +1,70 @@
+{
+  "observation_id": 28,
+  "part": "burpee",
+  "proposed_skill": "crouch",
+  "sim_time": 103.20000000226226,
+  "image": "ego_028.png",
+  "gravity_body": [
+    -0.0021101637177748074,
+    -0.00011214329861575917,
+    -0.9999977673139906
+  ],
+  "body_velocity": [
+    3.00686337863302e-07,
+    -5.23228009678065e-07,
+    1.7603417388785794e-07
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    182.42799903332218,
+    162.41452143325768
+  ],
+  "gripper_m": [
+    0.06031812114283263,
+    0.06031841904708181
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.10146798011240611,
+    "left_hip_roll_joint": -0.00798737546670261,
+    "left_hip_yaw_joint": 0.018896599020975426,
+    "left_knee_joint": 0.31530136440731726,
+    "left_ankle_pitch_joint": -0.21129726698647616,
+    "left_ankle_roll_joint": 0.012418885070382904,
+    "right_hip_pitch_joint": -0.10750517313618001,
+    "right_hip_roll_joint": -0.014179752917987523,
+    "right_hip_yaw_joint": 0.017981850025071477,
+    "right_knee_joint": 0.3171284297136133,
+    "right_ankle_pitch_joint": -0.2071506845608151,
+    "right_ankle_roll_joint": 0.01750004153914993,
+    "waist_yaw_joint": -0.0005240750847585298,
+    "waist_roll_joint": 0.0018722465929453464,
+    "waist_pitch_joint": 0.07357356554881013,
+    "left_shoulder_pitch_joint": 9.342545021526429e-05,
+    "left_shoulder_roll_joint": 0.22012410257264328,
+    "left_shoulder_yaw_joint": -0.0019481406112998281,
+    "left_elbow_joint": 1.4000231317479475,
+    "left_wrist_roll_joint": 0.00010402333439287488,
+    "left_wrist_pitch_joint": 0.01927866773872817,
+    "left_wrist_yaw_joint": -0.0009368265135298318,
+    "right_shoulder_pitch_joint": 8.843901588225295e-05,
+    "right_shoulder_roll_joint": -0.21986691962398927,
+    "right_shoulder_yaw_joint": 0.001982505533240683,
+    "right_elbow_joint": 1.4000219563744294,
+    "right_wrist_roll_joint": -0.00010228180723628487,
+    "right_wrist_pitch_joint": 0.019277298086296597,
+    "right_wrist_yaw_joint": 0.0009526956784244907
+  },
+  "previous_decision": {
+    "observation_id": 27,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "场景与站姿连续，双支架仍在前方；当前接触摘要尚未初始化，先执行站立观测与稳定门控。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 24,
+  "part": "transport",
+  "proposed_skill": "flex",
+  "sim_time": 91.99600000193041,
+  "image": "ego_024.png",
+  "gravity_body": [
+    -0.0038025431086632653,
+    -0.0004551790629073215,
+    -0.9999926667120744
+  ],
+  "body_velocity": [
+    0.01652335015313652,
+    -0.0009545249143559378,
+    -5.1298709533426685e-05
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    176.8513164813479,
+    167.95811524248415
+  ],
+  "gripper_m": [
+    0.06031795644461232,
+    0.06031845085097746
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.10134587356570501,
+    "left_hip_roll_joint": -0.006417703060723949,
+    "left_hip_yaw_joint": 0.018397612833669526,
+    "left_knee_joint": 0.31563406289672663,
+    "left_ankle_pitch_joint": -0.210208764993903,
+    "left_ankle_roll_joint": 0.01071195841407146,
+    "right_hip_pitch_joint": -0.10727218465411047,
+    "right_hip_roll_joint": -0.01575572697210541,
+    "right_hip_yaw_joint": 0.01845009151937192,
+    "right_knee_joint": 0.31772886207288836,
+    "right_ankle_pitch_joint": -0.2064192736609809,
+    "right_ankle_roll_joint": 0.014435460160102866,
+    "waist_yaw_joint": -0.0005753747553133216,
+    "waist_roll_joint": 0.002206941110519544,
+    "waist_pitch_joint": 0.07328997277862717,
+    "left_shoulder_pitch_joint": 0.0001414162161890234,
+    "left_shoulder_roll_joint": 0.2199881680242977,
+    "left_shoulder_yaw_joint": -0.0019585460903680622,
+    "left_elbow_joint": 1.4000345719829537,
+    "left_wrist_roll_joint": 0.00010347263227264699,
+    "left_wrist_pitch_joint": 0.01928130104795518,
+    "left_wrist_yaw_joint": -0.0009416831828331592,
+    "right_shoulder_pitch_joint": 0.0001401225385506211,
+    "right_shoulder_roll_joint": -0.22001156249455464,
+    "right_shoulder_yaw_joint": 0.0019710548385496293,
+    "right_elbow_joint": 1.4000341977992417,
+    "right_wrist_roll_joint": -0.00010304169651686669,
+    "right_wrist_pitch_joint": 0.019279993693882346,
+    "right_wrist_yaw_joint": 0.0009474474609296897
+  },
+  "previous_decision": {
+    "observation_id": 23,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "站姿稳定、身体速度近零，支架已独立放置；短暂停留后执行第一次秀肌肉展示。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

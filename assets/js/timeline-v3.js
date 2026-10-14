@@ -1,6 +1,6 @@
-/* Event times from codex_sonic_003, minus the first sample at 0.002 s. */
+/* Event times from codex_sonic_revision_005, minus the first sample at 0.002 s. */
 window.G1_TIMELINE = {
-  "duration": 164.0,
+  "duration": 159.66666666666666,
   "phases": [
     {
       "title": "登台与搬运",
@@ -22,38 +22,43 @@ window.G1_TIMELINE = {
           "source_event": "approach"
         },
         {
+          "label": "小步接近支架",
+          "start": 13.47,
+          "source_event": "approach_fine"
+        },
+        {
           "label": "停步站稳",
-          "start": 19.452,
+          "start": 19.44,
           "source_event": "recover"
         },
         {
           "label": "准备拾取",
-          "start": 22.658,
+          "start": 22.19,
           "source_event": "prepare_grasp"
         },
         {
           "label": "弯腰拾取支架",
-          "start": 26.66,
+          "start": 26.192,
           "source_event": "crouch"
         },
         {
           "label": "双手握紧支架",
-          "start": 34.96,
+          "start": 34.492,
           "source_event": "close_grasp"
         },
         {
           "label": "持架起身",
-          "start": 37.258,
+          "start": 36.79,
           "source_event": "pickup"
         },
         {
           "label": "原地转向舞台中心",
-          "start": 45.26,
+          "start": 44.792,
           "source_event": "turn_center"
         },
         {
           "label": "走向舞台中心",
-          "start": 47.222,
+          "start": 46.102,
           "source_event": "carry_center"
         }
       ],
@@ -65,46 +70,46 @@ window.G1_TIMELINE = {
       "actions": [
         {
           "label": "停步调整站姿",
-          "start": 53.554,
+          "start": 54.452,
           "source_event": "recover"
         },
         {
           "label": "转向正前方",
-          "start": 56.302,
+          "start": 57.2,
           "source_event": "turn_front"
         },
         {
           "label": "弯腰放置支架",
-          "start": 69.498,
+          "start": 64.772,
           "source_event": "lower"
         },
         {
           "label": "松手离开支架",
-          "start": 80.498,
+          "start": 76.194,
           "source_event": "open"
         },
         {
           "label": "起身自然站立",
-          "start": 85.296,
+          "start": 80.992,
           "source_event": "rise_empty"
         },
         {
           "label": "保持自然站姿",
-          "start": 93.298,
+          "start": 88.994,
           "source_event": "natural_stand"
         },
         {
           "label": "秀肌肉",
-          "start": 96.298,
+          "start": 91.994,
           "source_event": "flex"
         },
         {
           "label": "恢复自然站立",
-          "start": 100.298,
+          "start": 95.994,
           "source_event": "return_natural"
         }
       ],
-      "start": 53.554
+      "start": 54.452
     },
     {
       "title": "支架俯卧撑",
@@ -112,81 +117,81 @@ window.G1_TIMELINE = {
       "actions": [
         {
           "label": "蹲下",
-          "start": 107.502,
+          "start": 103.198,
           "source_event": "crouch"
         },
         {
           "label": "调整双手朝向",
-          "start": 115.706,
+          "start": 111.402,
           "source_event": "orient_open_hands"
         },
         {
           "label": "双臂前伸触架",
-          "start": 117.91,
+          "start": 113.606,
           "source_event": "reach_bars"
         },
         {
           "label": "双手握紧支架",
-          "start": 120.914,
+          "start": 116.61,
           "source_event": "close_grip"
         },
         {
           "label": "稳住支撑姿势",
-          "start": 122.618,
+          "start": 118.314,
           "source_event": "prepare_support"
         },
         {
           "label": "右腿后伸并落稳",
-          "start": 125.822,
+          "start": 121.518,
           "source_event": "right_extend"
         },
         {
           "label": "左腿后伸并落稳",
-          "start": 127.726,
+          "start": 123.422,
           "source_event": "left_extend"
         },
         {
           "label": "曲臂向下",
-          "start": 129.63,
+          "start": 125.326,
           "source_event": "pushup_lower"
         },
         {
           "label": "推起恢复支撑",
-          "start": 131.334,
+          "start": 127.058,
           "source_event": "pushup_raise"
         },
         {
           "label": "收回左腿并落稳",
-          "start": 133.038,
+          "start": 128.762,
           "source_event": "left_return"
         },
         {
           "label": "收回右腿并落稳",
-          "start": 134.942,
+          "start": 130.666,
           "source_event": "right_return"
         },
         {
           "label": "恢复蹲姿",
-          "start": 136.846,
+          "start": 132.57,
           "source_event": "release_crouch"
         },
         {
           "label": "松开双手",
-          "start": 140.046,
+          "start": 135.77,
           "source_event": "open_hands"
         },
         {
           "label": "收回双臂",
-          "start": 141.046,
+          "start": 136.77,
           "source_event": "withdraw_hands"
         },
         {
           "label": "起身站立",
-          "start": 143.746,
+          "start": 139.47,
           "source_event": "stand_up"
         }
       ],
-      "start": 107.502
+      "start": 103.198
     },
     {
       "title": "跳跃与谢幕",
@@ -194,31 +199,31 @@ window.G1_TIMELINE = {
       "actions": [
         {
           "label": "站稳准备跳跃",
-          "start": 151.946,
+          "start": 147.67,
           "source_event": "jump"
         },
         {
           "label": "双臂后摆、屈膝",
-          "start": 153.446,
-          "source": "codex_sonic_003 jump controller and recorded contact timeline"
+          "start": 149.17,
+          "source": "codex_sonic_revision_005 jump controller and recorded contact timeline"
         },
         {
           "label": "双臂前摆、起身跳跃",
-          "start": 154.746,
-          "source": "codex_sonic_003 jump controller and recorded contact timeline"
+          "start": 150.47,
+          "source": "codex_sonic_revision_005 jump controller and recorded contact timeline"
         },
         {
           "label": "自然落地、恢复站立",
-          "start": 155.042,
-          "source": "codex_sonic_003 jump controller and recorded contact timeline"
+          "start": 150.758,
+          "source": "codex_sonic_revision_005 jump controller and recorded contact timeline"
         },
         {
           "label": "再次秀肌肉",
-          "start": 157.346,
+          "start": 153.07,
           "source_event": "final_flex"
         }
       ],
-      "start": 151.946
+      "start": 147.67
     }
   ]
 };

@@ -1,0 +1,70 @@
+{
+  "observation_id": 38,
+  "part": "burpee",
+  "proposed_skill": "pushup_lower",
+  "sim_time": 125.32800000222134,
+  "image": "ego_038.png",
+  "gravity_body": [
+    0.99870326823089,
+    0.0453472862906002,
+    0.023138834262305286
+  ],
+  "body_velocity": [
+    0.011509625533226297,
+    0.001002713704104661,
+    0.004544796295854966
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    105.66981932562513,
+    82.60461192001439,
+    59.39706132707899,
+    82.18407914233977
+  ],
+  "gripper_m": [
+    0.015165013059180697,
+    -0.0013380652651146618
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.8131697255874453,
+    "left_hip_roll_joint": 0.002018464721933739,
+    "left_hip_yaw_joint": 0.1711970591223516,
+    "left_knee_joint": 0.21055941233788888,
+    "left_ankle_pitch_joint": -0.6936547069642484,
+    "left_ankle_roll_joint": 0.09884290407690695,
+    "right_hip_pitch_joint": -0.8070464283729838,
+    "right_hip_roll_joint": -0.12912769547311892,
+    "right_hip_yaw_joint": -0.28597948764618814,
+    "right_knee_joint": 0.1489489714553449,
+    "right_ankle_pitch_joint": -0.595313048168216,
+    "right_ankle_roll_joint": 0.2395809378070847,
+    "waist_yaw_joint": 0.032543617646594025,
+    "waist_roll_joint": 0.03754040867364697,
+    "waist_pitch_joint": 0.16562674546988335,
+    "left_shoulder_pitch_joint": -1.186600428480822,
+    "left_shoulder_roll_joint": 0.6746321140854757,
+    "left_shoulder_yaw_joint": -0.03364367639569633,
+    "left_elbow_joint": 1.1243601393187639,
+    "left_wrist_roll_joint": -0.5650415891485068,
+    "left_wrist_pitch_joint": -1.4837424536897943,
+    "left_wrist_yaw_joint": -1.5855285086746294,
+    "right_shoulder_pitch_joint": -1.1680062070571966,
+    "right_shoulder_roll_joint": -0.742525845454273,
+    "right_shoulder_yaw_joint": -0.04999301883720072,
+    "right_elbow_joint": 1.0706910218549928,
+    "right_wrist_roll_joint": 0.5001390071137812,
+    "right_wrist_pitch_joint": -1.390839672405246,
+    "right_wrist_yaw_joint": 1.5652454049311282
+  },
+  "previous_decision": {
+    "observation_id": 37,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "两腿已伸展，左脚尚未承重、右脚与双手支撑；先让左脚落稳，达到稳定俯卧撑预备姿势后再下压。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "observation_id": 36,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "右脚已建立约62N接触，身体速度明显降低，双手持续支撑；保持右脚与双手，缓慢向后伸左腿。"
+}

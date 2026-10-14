@@ -1,0 +1,70 @@
+{
+  "observation_id": 7,
+  "part": "transport",
+  "proposed_skill": "align_grasp",
+  "sim_time": 34.19400000001159,
+  "image": "ego_007.png",
+  "gravity_body": [
+    0.8452442170702039,
+    0.007464136719434099,
+    -0.534328082897026
+  ],
+  "body_velocity": [
+    0.004389527199560371,
+    0.0023148512475997004,
+    0.0013945596704174636
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.4558578464514563,
+    0.14178550795218386,
+    174.9182907532528,
+    171.4355277867924
+  ],
+  "gripper_m": [
+    0.060017373142707206,
+    0.06005787281143811
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4881866978072456,
+    "left_hip_roll_joint": 0.08255169623053141,
+    "left_hip_yaw_joint": 0.03643431406385422,
+    "left_knee_joint": 2.259121622567129,
+    "left_ankle_pitch_joint": -0.7729012729219538,
+    "left_ankle_roll_joint": 0.05026080578186836,
+    "right_hip_pitch_joint": -2.4825062742724717,
+    "right_hip_roll_joint": -0.07308017784733171,
+    "right_hip_yaw_joint": -0.01252937199926557,
+    "right_knee_joint": 2.25601331059789,
+    "right_ankle_pitch_joint": -0.7721234370488913,
+    "right_ankle_roll_joint": -0.0270104523721695,
+    "waist_yaw_joint": 0.01004518927632737,
+    "waist_roll_joint": -0.015107798834224155,
+    "waist_pitch_joint": 0.3026876733823512,
+    "left_shoulder_pitch_joint": -1.001621302039193,
+    "left_shoulder_roll_joint": 0.999549624157872,
+    "left_shoulder_yaw_joint": -0.9954612593384862,
+    "left_elbow_joint": 0.7758356351657083,
+    "left_wrist_roll_joint": -1.2938853851485603,
+    "left_wrist_pitch_joint": -1.467886416745598,
+    "left_wrist_yaw_joint": -1.5239526537348382,
+    "right_shoulder_pitch_joint": -0.7714987463557395,
+    "right_shoulder_roll_joint": -0.8619071783242355,
+    "right_shoulder_yaw_joint": 0.6544771880170414,
+    "right_elbow_joint": 0.8853377906210036,
+    "right_wrist_roll_joint": 1.2990891308122123,
+    "right_wrist_pitch_joint": -1.4697376446511905,
+    "right_wrist_yaw_joint": 1.610249803613442
+  },
+  "previous_decision": {
+    "observation_id": 6,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "夹爪张开、身体静止，两脚175/170N承重；缓慢下蹲并伸手接近木杆。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

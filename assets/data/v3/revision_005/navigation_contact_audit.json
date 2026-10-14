@@ -1,0 +1,10 @@
+{
+  "no_recorded_foot_prop_contact": true,
+  "checked_until_s": 34.49400000002155,
+  "contacted_samples": 0,
+  "max_penetration_m": 0.0,
+  "first_contact_s": null,
+  "last_contact_s": null,
+  "contacts": [],
+  "scope": "Geometric intersections in saved 50 Hz states before close_grasp; not a continuous-time contact proof"
+}

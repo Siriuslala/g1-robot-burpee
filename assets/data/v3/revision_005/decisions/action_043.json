@@ -1,0 +1,8 @@
+{
+  "observation_id": 43,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "右腿已收至身体下方，但右脚接触尚未建立；保持支撑，等待双脚落稳再卸除手部负载。"
+}

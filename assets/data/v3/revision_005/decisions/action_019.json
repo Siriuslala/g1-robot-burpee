@@ -1,0 +1,8 @@
+{
+  "observation_id": 19,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双支架平放于面前，身体速度近零且放置接触门控已通过；逐渐张开夹爪释放支架。"
+}

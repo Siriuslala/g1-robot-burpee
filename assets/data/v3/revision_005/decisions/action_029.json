@@ -1,0 +1,8 @@
+{
+  "observation_id": 29,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "蹲姿已建立，双脚支撑稳定、双掌悬在支架上方；完成蹲姿稳定门控，随后调整手掌朝向。"
+}

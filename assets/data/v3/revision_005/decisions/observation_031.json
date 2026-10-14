@@ -1,0 +1,70 @@
+{
+  "observation_id": 31,
+  "part": "burpee",
+  "proposed_skill": "reach_bars",
+  "sim_time": 113.60800000224866,
+  "image": "ego_031.png",
+  "gravity_body": [
+    0.747597863682919,
+    0.012142476807237457,
+    -0.6640406572445109
+  ],
+  "body_velocity": [
+    0.003559470933794198,
+    -0.0067549795548697755,
+    0.006892568753403903
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    202.91391877863492,
+    142.67417126410413
+  ],
+  "gripper_m": [
+    0.060044117464601886,
+    0.06004512505928516
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.498238946525362,
+    "left_hip_roll_joint": 0.18118771844647222,
+    "left_hip_yaw_joint": 0.20987480226953112,
+    "left_knee_joint": 2.2556212430416895,
+    "left_ankle_pitch_joint": -0.4797549508491026,
+    "left_ankle_roll_joint": 0.24612748477335553,
+    "right_hip_pitch_joint": -2.4844759469535784,
+    "right_hip_roll_joint": -0.18938211657389933,
+    "right_hip_yaw_joint": 0.08083753151274926,
+    "right_knee_joint": 2.228450535046305,
+    "right_ankle_pitch_joint": -0.59539940020027,
+    "right_ankle_roll_joint": 0.028819564709132457,
+    "waist_yaw_joint": 0.0022621346213224304,
+    "waist_roll_joint": 0.015708256045250227,
+    "waist_pitch_joint": 0.05075526193399276,
+    "left_shoulder_pitch_joint": -1.0406599295548413,
+    "left_shoulder_roll_joint": 1.0562299094044851,
+    "left_shoulder_yaw_joint": -0.9103568393327118,
+    "left_elbow_joint": 0.8684580036326724,
+    "left_wrist_roll_joint": -1.4493430022124998,
+    "left_wrist_pitch_joint": -0.9601830661227888,
+    "left_wrist_yaw_joint": -1.5793686974449659,
+    "right_shoulder_pitch_joint": -1.098974038219765,
+    "right_shoulder_roll_joint": -1.080664651108157,
+    "right_shoulder_yaw_joint": 1.0093382009467584,
+    "right_elbow_joint": 0.8697452494763107,
+    "right_wrist_roll_joint": 1.4912269808616765,
+    "right_wrist_pitch_joint": -0.9627777589199289,
+    "right_wrist_yaw_joint": 1.5794364028594965
+  },
+  "previous_decision": {
+    "observation_id": 30,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "身体低位稳定，手掌与支架有垂直间隙；保持夹爪张开，对齐双掌朝向后缓慢下降。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

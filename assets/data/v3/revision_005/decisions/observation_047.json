@@ -1,0 +1,70 @@
+{
+  "observation_id": 47,
+  "part": "burpee",
+  "proposed_skill": "stand_up",
+  "sim_time": 139.4720000023829,
+  "image": "ego_047.png",
+  "gravity_body": [
+    0.7633224838194317,
+    -0.008227806191507592,
+    -0.6459652381521838
+  ],
+  "body_velocity": [
+    -5.409671620228978e-06,
+    -0.00024309629113043862,
+    -0.001923312081818671
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    200.2359642336366,
+    143.50234043251308
+  ],
+  "gripper_m": [
+    0.06007813767187808,
+    0.06007651960176577
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.496020427803406,
+    "left_hip_roll_joint": 0.1988103846957211,
+    "left_hip_yaw_joint": 0.21183098113398985,
+    "left_knee_joint": 2.249442946153858,
+    "left_ankle_pitch_joint": -0.5385714392494657,
+    "left_ankle_roll_joint": 0.2318733948051166,
+    "right_hip_pitch_joint": -2.496056531893766,
+    "right_hip_roll_joint": -0.17347277111178414,
+    "right_hip_yaw_joint": 0.05293196289688939,
+    "right_knee_joint": 2.2624106840006695,
+    "right_ankle_pitch_joint": -0.6404431629496675,
+    "right_ankle_roll_joint": 0.0018263273132759616,
+    "waist_yaw_joint": -0.0003864866786798842,
+    "waist_roll_joint": 0.002039019988392689,
+    "waist_pitch_joint": 0.3802742040455025,
+    "left_shoulder_pitch_joint": -1.0111100697834936,
+    "left_shoulder_roll_joint": 2.0465244928476523,
+    "left_shoulder_yaw_joint": -1.153187586176655,
+    "left_elbow_joint": -0.08780205609507244,
+    "left_wrist_roll_joint": -1.3822684176025848,
+    "left_wrist_pitch_joint": -1.3474496691972033,
+    "left_wrist_yaw_joint": -0.8900839957422111,
+    "right_shoulder_pitch_joint": -1.1193881283334408,
+    "right_shoulder_roll_joint": -2.05137994204704,
+    "right_shoulder_yaw_joint": 1.2211387974205734,
+    "right_elbow_joint": -0.09741632263188321,
+    "right_wrist_roll_joint": 1.3699578725222357,
+    "right_wrist_pitch_joint": -1.3002433386959145,
+    "right_wrist_yaw_joint": 0.9239377894787436
+  },
+  "previous_decision": {
+    "observation_id": 46,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "夹爪已张开、手部负载近零，支架留在台面；先抬手离杆，再保持双脚支撑站起。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

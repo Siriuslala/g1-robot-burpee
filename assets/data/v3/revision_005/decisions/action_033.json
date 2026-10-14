@@ -1,0 +1,8 @@
+{
+  "observation_id": 33,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双手闭合抓住支架、身体静止；右手当前竖直负载仍小，先执行缓慢重心转移，待支撑门控通过再伸腿。"
+}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 50,
+  "part": "burpee",
+  "proposed_skill": "final_flex",
+  "sim_time": 153.07600000283452,
+  "image": "ego_050.png",
+  "gravity_body": [
+    0.018238814059028812,
+    0.00010959647359200589,
+    -0.9998336529895018
+  ],
+  "body_velocity": [
+    -0.0013213176446154311,
+    -0.0017106587542507217,
+    -0.0012912912121814933
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    181.19082926933586,
+    177.9437223450602
+  ],
+  "gripper_m": [
+    0.055727112893638964,
+    0.05572661978946229
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.15541534609322802,
+    "left_hip_roll_joint": -0.0024526220750544633,
+    "left_hip_yaw_joint": 0.001146503471341528,
+    "left_knee_joint": 0.3141988751048187,
+    "left_ankle_pitch_joint": -0.1774680213979768,
+    "left_ankle_roll_joint": 0.0013587595764352727,
+    "right_hip_pitch_joint": -0.1533481847461901,
+    "right_hip_roll_joint": 0.001639195482684828,
+    "right_hip_yaw_joint": -0.0002726513110662803,
+    "right_knee_joint": 0.31371414012098425,
+    "right_ankle_pitch_joint": -0.17885435540994224,
+    "right_ankle_roll_joint": -0.0007456549159195815,
+    "waist_yaw_joint": 1.1232793511059964e-05,
+    "waist_roll_joint": -0.0003902649982351582,
+    "waist_pitch_joint": 0.027142459473112057,
+    "left_shoulder_pitch_joint": 0.0020564853018772947,
+    "left_shoulder_roll_joint": 0.2002365487374122,
+    "left_shoulder_yaw_joint": -0.0031823486610697625,
+    "left_elbow_joint": 1.4011930615165809,
+    "left_wrist_roll_joint": -0.00015042723820116362,
+    "left_wrist_pitch_joint": 0.020638826450782632,
+    "left_wrist_yaw_joint": -0.0036392776774740805,
+    "right_shoulder_pitch_joint": 0.0020358690110157396,
+    "right_shoulder_roll_joint": -0.19976593891092276,
+    "right_shoulder_yaw_joint": 0.0032318720502774127,
+    "right_elbow_joint": 1.4011866671244195,
+    "right_wrist_roll_joint": 0.00016161919592897001,
+    "right_wrist_pitch_joint": 0.020623935969718267,
+    "right_wrist_yaw_joint": 0.0037317963648067186
+  },
+  "previous_decision": {
+    "observation_id": 49,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "身体竖直、双脚接触已建立、双手与支架分离；执行后摆臂屈膝蓄力、前摆臂起跳及落地恢复。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

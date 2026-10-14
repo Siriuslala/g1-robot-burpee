@@ -1,0 +1,8 @@
+{
+  "observation_id": 41,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "左膝已收回，左脚尚未承重；保持右脚和双手支撑，等待左脚落地稳定。"
+}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 44,
+  "part": "burpee",
+  "proposed_skill": "release_crouch",
+  "sim_time": 132.57200000220445,
+  "image": "ego_044.png",
+  "gravity_body": [
+    0.8525937760551114,
+    -0.004766871548495755,
+    -0.5225525140765565
+  ],
+  "body_velocity": [
+    -0.001045747960564988,
+    0.0023400968268648624,
+    -0.0021599168795986947
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    39.24854923749562,
+    29.52880397343606,
+    139.93906596834668,
+    131.8248111006386
+  ],
+  "gripper_m": [
+    -0.0010556483221062908,
+    -0.00245569883012714
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.519737158290766,
+    "left_hip_roll_joint": 0.1620684601861215,
+    "left_hip_yaw_joint": 0.11403769543047643,
+    "left_knee_joint": 2.2565254862276296,
+    "left_ankle_pitch_joint": -0.7560652235655559,
+    "left_ankle_roll_joint": 0.12751706405883942,
+    "right_hip_pitch_joint": -2.5088268029287257,
+    "right_hip_roll_joint": -0.16308904145689357,
+    "right_hip_yaw_joint": -0.02687082489343379,
+    "right_knee_joint": 2.2777338092771395,
+    "right_ankle_pitch_joint": -0.7906464607018003,
+    "right_ankle_roll_joint": -0.047240798728230275,
+    "waist_yaw_joint": 0.0021525932108056828,
+    "waist_roll_joint": 0.014663961473440124,
+    "waist_pitch_joint": 0.21411328068760596,
+    "left_shoulder_pitch_joint": -1.1591630066163197,
+    "left_shoulder_roll_joint": 0.8211373993204021,
+    "left_shoulder_yaw_joint": -1.069975155189848,
+    "left_elbow_joint": 1.1720402455452368,
+    "left_wrist_roll_joint": -1.485440187661298,
+    "left_wrist_pitch_joint": -1.3396793178731576,
+    "left_wrist_yaw_joint": -1.578025326388813,
+    "right_shoulder_pitch_joint": -1.1858088533168551,
+    "right_shoulder_roll_joint": -0.8514447485956353,
+    "right_shoulder_yaw_joint": 0.999500359251843,
+    "right_elbow_joint": 1.1862473672282359,
+    "right_wrist_roll_joint": 1.433079862127202,
+    "right_wrist_pitch_joint": -1.3347804391415061,
+    "right_wrist_yaw_joint": 1.5701434357221506
+  },
+  "previous_decision": {
+    "observation_id": 43,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "右腿已收至身体下方，但右脚接触尚未建立；保持支撑，等待双脚落稳再卸除手部负载。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

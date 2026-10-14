@@ -1,0 +1,8 @@
+{
+  "observation_id": 34,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "两手均已承担约31–35N，身体速度接近零；保持双手和左脚支撑，先将右腿缓慢向后伸。"
+}

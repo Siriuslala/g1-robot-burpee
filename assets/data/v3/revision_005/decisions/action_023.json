@@ -1,0 +1,8 @@
+{
+  "observation_id": 23,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "站姿稳定、身体速度近零，支架已独立放置；短暂停留后执行第一次秀肌肉展示。"
+}

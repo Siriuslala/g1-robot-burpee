@@ -1,0 +1,8 @@
+{
+  "observation_id": 49,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "身体竖直、双脚接触已建立、双手与支架分离；执行后摆臂屈膝蓄力、前摆臂起跳及落地恢复。"
+}

@@ -1,0 +1,12 @@
+{
+  "full_sequence_executed": true,
+  "strict_physics_pass": false,
+  "transport": "/home/liyueyan/robot/artifacts/stage_transport/codex_sonic_revision_005",
+  "burpee": "/home/liyueyan/robot/artifacts/stage_burpee/codex_sonic_revision_005",
+  "decisions": 51,
+  "total_sim_seconds": 159.67200000305348,
+  "backend": "codex",
+  "task_sequence_assistance": true,
+  "physics_paused_for_decision": true,
+  "sonic_decisions": 6
+}

@@ -1,0 +1,8 @@
+{
+  "observation_id": 9,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双手已闭合环抱木杆，手部接触力约16/22N且身体静止；保持夹持，逐步起身提架。"
+}

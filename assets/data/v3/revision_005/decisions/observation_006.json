@@ -1,0 +1,70 @@
+{
+  "observation_id": 6,
+  "part": "transport",
+  "proposed_skill": "crouch",
+  "sim_time": 26.193999999952293,
+  "image": "ego_006.png",
+  "gravity_body": [
+    0.001475753651406502,
+    -0.0004922199973565169,
+    -0.9999987899345849
+  ],
+  "body_velocity": [
+    -0.00022880635561638252,
+    -0.0009797098473940582,
+    3.6806193591834566e-05
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    174.89196756960348,
+    169.95510780915262
+  ],
+  "gripper_m": [
+    0.0600200437032201,
+    0.06002127034804319
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.14213479584271674,
+    "left_hip_roll_joint": 0.018730298366819727,
+    "left_hip_yaw_joint": -0.008339972737076979,
+    "left_knee_joint": 0.3242250657040214,
+    "left_ankle_pitch_joint": -0.18357784690175238,
+    "left_ankle_roll_joint": -0.004929779086715869,
+    "right_hip_pitch_joint": -0.16252409431858306,
+    "right_hip_roll_joint": -0.010592364140971698,
+    "right_hip_yaw_joint": -0.001125514728064841,
+    "right_knee_joint": 0.3289756427859693,
+    "right_ankle_pitch_joint": -0.16937757411729812,
+    "right_ankle_roll_joint": -0.00014107193224843062,
+    "waist_yaw_joint": -0.0005301332270360461,
+    "waist_roll_joint": 0.002008716915093088,
+    "waist_pitch_joint": 0.07448473752224365,
+    "left_shoulder_pitch_joint": 0.13336020987339334,
+    "left_shoulder_roll_joint": 0.9310544690503466,
+    "left_shoulder_yaw_joint": -0.9538016434065727,
+    "left_elbow_joint": 0.617793597579511,
+    "left_wrist_roll_joint": -1.2558010066862697,
+    "left_wrist_pitch_joint": -1.2768715250923233,
+    "left_wrist_yaw_joint": -1.6094189724896424,
+    "right_shoulder_pitch_joint": 0.2043472330350366,
+    "right_shoulder_roll_joint": -0.7957370759443657,
+    "right_shoulder_yaw_joint": 0.5610663437926063,
+    "right_elbow_joint": 0.5278038124260499,
+    "right_wrist_roll_joint": 0.8882929169817934,
+    "right_wrist_pitch_joint": -1.0266458222374732,
+    "right_wrist_yaw_joint": 1.60941603602207
+  },
+  "previous_decision": {
+    "observation_id": 5,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "身体已竖直且速度低于0.005m/s，双脚承重均衡；保持当前落脚位置准备双臂抓握。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

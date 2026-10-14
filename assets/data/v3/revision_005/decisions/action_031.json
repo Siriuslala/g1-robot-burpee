@@ -1,0 +1,8 @@
+{
+  "observation_id": 31,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双掌已朝向木杆，当前仍由双脚承重，身体速度较低；缓慢降手至夹持位置。"
+}

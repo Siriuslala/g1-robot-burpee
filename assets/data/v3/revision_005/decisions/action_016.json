@@ -1,0 +1,8 @@
+{
+  "observation_id": 16,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "转向结束、双脚恢复承重，两手仍夹持支架；切换实测落脚位置下的静态IK并逐渐站稳。"
+}

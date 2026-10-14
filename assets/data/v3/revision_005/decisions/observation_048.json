@@ -1,0 +1,70 @@
+{
+  "observation_id": 48,
+  "part": "burpee",
+  "proposed_skill": "stand_up",
+  "sim_time": 147.47200000264849,
+  "image": "ego_048.png",
+  "gravity_body": [
+    0.0013338462944705708,
+    -0.00018550257609405347,
+    -0.9999990932210157
+  ],
+  "body_velocity": [
+    0.0034459718671629915,
+    -8.512158237118014e-05,
+    0.0033138331196277994
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    171.69611840720634,
+    172.7055654678153
+  ],
+  "gripper_m": [
+    0.060318171718343666,
+    0.06031852858620672
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.16054162603307157,
+    "left_hip_roll_joint": 0.031246499565472714,
+    "left_hip_yaw_joint": 0.11209037878988456,
+    "left_knee_joint": 0.35307545336234847,
+    "left_ankle_pitch_joint": -0.19256637938951446,
+    "left_ankle_roll_joint": 0.007418808589724109,
+    "right_hip_pitch_joint": -0.12720791520920868,
+    "right_hip_roll_joint": -0.05412106107498678,
+    "right_hip_yaw_joint": -0.1822351155349125,
+    "right_knee_joint": 0.34924878783454666,
+    "right_ankle_pitch_joint": -0.2186740241884176,
+    "right_ankle_roll_joint": -0.0032398386071262985,
+    "waist_yaw_joint": -0.0005740887622415664,
+    "waist_roll_joint": 0.0021299265212446966,
+    "waist_pitch_joint": 0.07367819366537046,
+    "left_shoulder_pitch_joint": 4.740846158509676e-05,
+    "left_shoulder_roll_joint": 0.22004952766093186,
+    "left_shoulder_yaw_joint": -0.0019743121029379934,
+    "left_elbow_joint": 1.399993933490896,
+    "left_wrist_roll_joint": 8.249504032775949e-05,
+    "left_wrist_pitch_joint": 0.019255940682604715,
+    "left_wrist_yaw_joint": -0.0009519163881673276,
+    "right_shoulder_pitch_joint": 5.248197633357931e-05,
+    "right_shoulder_roll_joint": -0.22004909776207984,
+    "right_shoulder_yaw_joint": 0.0019896030197923283,
+    "right_elbow_joint": 1.3999960958702802,
+    "right_wrist_roll_joint": -8.191564852651506e-05,
+    "right_wrist_pitch_joint": 0.019255831535467116,
+    "right_wrist_yaw_joint": 0.0009594538718203078
+  },
+  "previous_decision": {
+    "observation_id": 47,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双掌已明显离开木杆，手部接触为零、身体静止；缓慢伸膝起身，保持支架位置不受手臂牵拉。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

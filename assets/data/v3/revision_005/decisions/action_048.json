@@ -1,0 +1,8 @@
+{
+  "observation_id": 48,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "身体已回到竖直，双脚约172N承重、两手无负载；完成站立稳定门控后开始摆臂蓄力跳跃。"
+}

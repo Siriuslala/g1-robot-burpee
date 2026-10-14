@@ -1,0 +1,20 @@
+{
+  "success": false,
+  "checks": {
+    "full_sequence": true,
+    "no_unexpected_contact": true,
+    "no_self_contact": true,
+    "joint_limits": true,
+    "speed": false,
+    "bar_slip": false
+  },
+  "end_reason": "sequence_complete",
+  "last_stage": "final_flex",
+  "seconds": 57.67600000079111,
+  "max_joint_limit_rad": 0.006044089195109126,
+  "max_speed_ratio": 1.0639395925151776,
+  "max_bar_slip_m": 0.06725465090176728,
+  "unexpected_seconds": 0.0,
+  "self_contact_seconds": 0.004,
+  "scope": "Single integrated continuation attempt from saved stage endpoint; no runtime state replacement"
+}

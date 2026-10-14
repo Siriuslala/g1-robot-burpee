@@ -1,0 +1,70 @@
+{
+  "observation_id": 40,
+  "part": "burpee",
+  "proposed_skill": "left_return",
+  "sim_time": 128.76400000221332,
+  "image": "ego_040.png",
+  "gravity_body": [
+    0.9994399571350454,
+    0.020452199945933947,
+    0.026485460148416046
+  ],
+  "body_velocity": [
+    0.002705801156898716,
+    0.012581766894514602,
+    -0.005939309371252481
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    106.03798959135585,
+    89.04643900779134,
+    67.88070259039837,
+    74.26579389596029
+  ],
+  "gripper_m": [
+    0.01065151240740963,
+    0.009538975421596995
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.8038015379306467,
+    "left_hip_roll_joint": -0.029104225638196497,
+    "left_hip_yaw_joint": 0.17352479422285172,
+    "left_knee_joint": 0.21521213569978967,
+    "left_ankle_pitch_joint": -0.7013928591603001,
+    "left_ankle_roll_joint": 0.09539327301316254,
+    "right_hip_pitch_joint": -0.7760788001375593,
+    "right_hip_roll_joint": -0.11880532101798438,
+    "right_hip_yaw_joint": -0.2827954394238634,
+    "right_knee_joint": 0.1712332097716508,
+    "right_ankle_pitch_joint": -0.5755786232175065,
+    "right_ankle_roll_joint": 0.23636231862351176,
+    "waist_yaw_joint": 0.03260040876923395,
+    "waist_roll_joint": 0.03717831065168988,
+    "waist_pitch_joint": 0.1364216582948974,
+    "left_shoulder_pitch_joint": -1.1989588518675711,
+    "left_shoulder_roll_joint": 0.7099180770290144,
+    "left_shoulder_yaw_joint": -0.024888203596418162,
+    "left_elbow_joint": 1.122806944771109,
+    "left_wrist_roll_joint": -0.5637621233118014,
+    "left_wrist_pitch_joint": -1.4035681596897078,
+    "left_wrist_yaw_joint": -1.586070598124737,
+    "right_shoulder_pitch_joint": -1.180773951841403,
+    "right_shoulder_roll_joint": -0.7715153039142583,
+    "right_shoulder_yaw_joint": -0.06198027301014855,
+    "right_elbow_joint": 1.067705580305055,
+    "right_wrist_roll_joint": 0.5047966425462128,
+    "right_wrist_pitch_joint": -1.4228400729031907,
+    "right_wrist_yaw_joint": 1.563942164433258
+  },
+  "previous_decision": {
+    "observation_id": 39,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "第一视角已下降接近支架，双手约122/125N、双脚约59N支撑；下压完成，沿连续参考逆序上推，随后等待稳定。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

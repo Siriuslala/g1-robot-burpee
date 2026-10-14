@@ -131,14 +131,14 @@
     video.pause();
     view = next;
     error.hidden = true;
-    video.poster = `assets/media/v3/${view}_poster.png`;
-    video.src = `assets/media/v3/${view}.mp4`;
+    video.poster = `assets/media/v3/revision_005/${view}_poster.png`;
+    video.src = `assets/media/v3/revision_005/${view}.mp4`;
     video.load();
     video.playbackRate = rate;
     viewButtons.forEach((candidate) => candidate.setAttribute('aria-pressed', String(candidate === button)));
     document.querySelector('#view-note').textContent = notes[view];
     const download = document.querySelector('#download-video');
-    download.href = `assets/media/v3/${view}.mp4`;
+    download.href = `assets/media/v3/revision_005/${view}.mp4`;
     download.download = `g1-performance-${view}.mp4`;
     document.querySelector('#download-label').textContent = '下载第三人称视频';
     update();

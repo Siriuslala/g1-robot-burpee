@@ -1,0 +1,70 @@
+{
+  "observation_id": 34,
+  "part": "burpee",
+  "proposed_skill": "right_extend",
+  "sim_time": 121.52000000223022,
+  "image": "ego_034.png",
+  "gravity_body": [
+    0.852260382768594,
+    0.0013237711428384369,
+    -0.5231161320329274
+  ],
+  "body_velocity": [
+    0.00014023853018700896,
+    -5.986576525264087e-05,
+    0.00020622456930033408
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    34.799841187791955,
+    31.240128823602948,
+    146.03014045154532,
+    134.4759628956649
+  ],
+  "gripper_m": [
+    -0.0009358174775159452,
+    -0.0016124337840877482
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.509080506071502,
+    "left_hip_roll_joint": 0.1517848977633117,
+    "left_hip_yaw_joint": 0.11759677404221226,
+    "left_knee_joint": 2.2538355578020877,
+    "left_ankle_pitch_joint": -0.7638343334531459,
+    "left_ankle_roll_joint": 0.13140847153425728,
+    "right_hip_pitch_joint": -2.495004885771863,
+    "right_hip_roll_joint": -0.16635527414176135,
+    "right_hip_yaw_joint": -0.027988710119486587,
+    "right_knee_joint": 2.2706904492717817,
+    "right_ankle_pitch_joint": -0.7956185146007801,
+    "right_ankle_roll_joint": -0.04318237511848236,
+    "waist_yaw_joint": 0.0017345141748173636,
+    "waist_roll_joint": 0.013208831324317586,
+    "waist_pitch_joint": 0.20866532948756328,
+    "left_shoulder_pitch_joint": -1.1513475596413847,
+    "left_shoulder_roll_joint": 0.8118447774321522,
+    "left_shoulder_yaw_joint": -1.114596230337473,
+    "left_elbow_joint": 1.1726456660521485,
+    "left_wrist_roll_joint": -1.5314770486766278,
+    "left_wrist_pitch_joint": -1.358861693735062,
+    "left_wrist_yaw_joint": -1.58170441656051,
+    "right_shoulder_pitch_joint": -1.1286761984662623,
+    "right_shoulder_roll_joint": -0.8091807455263051,
+    "right_shoulder_yaw_joint": 0.813564581872437,
+    "right_elbow_joint": 1.1702511672742564,
+    "right_wrist_roll_joint": 1.259468413594268,
+    "right_wrist_pitch_joint": -1.3019929904380034,
+    "right_wrist_yaw_joint": 1.5788938717161893
+  },
+  "previous_decision": {
+    "observation_id": 33,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双手闭合抓住支架、身体静止；右手当前竖直负载仍小，先执行缓慢重心转移，待支撑门控通过再伸腿。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

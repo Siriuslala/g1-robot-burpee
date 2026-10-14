@@ -1,0 +1,8 @@
+{
+  "observation_id": 17,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "身体已竖直、双脚稳定支撑，前方台面空旷；保持夹持，缓慢下蹲将双支架放到身前。"
+}

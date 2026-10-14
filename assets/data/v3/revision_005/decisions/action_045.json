@@ -1,0 +1,8 @@
+{
+  "observation_id": 45,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "蹲姿已恢复、两脚承重约149/143N，身体稳定；张开夹爪松开木杆。"
+}

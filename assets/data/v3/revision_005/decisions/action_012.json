@@ -1,0 +1,8 @@
+{
+  "observation_id": 12,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "sonic",
+  "reason": "中心标记已进入前方视野，双手夹持持续；采用SONIC低速负重行走接近中心。"
+}

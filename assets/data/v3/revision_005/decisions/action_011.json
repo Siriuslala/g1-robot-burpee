@@ -1,0 +1,8 @@
+{
+  "observation_id": 11,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "sonic",
+  "reason": "身体竖直、两手夹持接触持续，膝角稳定；切换SONIC转向舞台中心，同时保持上肢夹持参考。"
+}

@@ -1,0 +1,71 @@
+{
+  "observation_id": 2,
+  "part": "transport",
+  "proposed_skill": "approach",
+  "sim_time": 5.546000000000413,
+  "image": "ego_002.png",
+  "gravity_body": [
+    -0.11087836995777657,
+    0.018445009437374503,
+    -0.993662804326679
+  ],
+  "body_velocity": [
+    0.3086570202340856,
+    -0.5107049671606598,
+    -0.07579303701002027
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    228.82873673585524,
+    217.02196051318992
+  ],
+  "gripper_m": [
+    0.06047722152857446,
+    0.06043520927855149
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": 0.04117293281197816,
+    "left_hip_roll_joint": 0.14443834541903994,
+    "left_hip_yaw_joint": 0.15742703486764084,
+    "left_knee_joint": 0.6196726123330794,
+    "left_ankle_pitch_joint": -0.41430807012490034,
+    "left_ankle_roll_joint": -0.07706592425852772,
+    "right_hip_pitch_joint": -0.2775662588495516,
+    "right_hip_roll_joint": -0.05292660970206898,
+    "right_hip_yaw_joint": -0.3176372080767871,
+    "right_knee_joint": 0.38462457577830145,
+    "right_ankle_pitch_joint": -0.0537158351672985,
+    "right_ankle_roll_joint": -0.11802378243757768,
+    "waist_yaw_joint": 0.007932167399207926,
+    "waist_roll_joint": -0.023771956363406,
+    "waist_pitch_joint": 0.08286880485290232,
+    "left_shoulder_pitch_joint": -0.006128659208965425,
+    "left_shoulder_roll_joint": 0.23588471969240632,
+    "left_shoulder_yaw_joint": -0.0005987514299966127,
+    "left_elbow_joint": 1.3975130336349166,
+    "left_wrist_roll_joint": 0.00037044643071976587,
+    "left_wrist_pitch_joint": 0.016141099657054802,
+    "left_wrist_yaw_joint": 0.0027710260112195706,
+    "right_shoulder_pitch_joint": -0.006144430572209331,
+    "right_shoulder_roll_joint": -0.2072163040084288,
+    "right_shoulder_yaw_joint": 0.0030328215732544515,
+    "right_elbow_joint": 1.3987725130180415,
+    "right_wrist_roll_joint": 0.00010757921128995954,
+    "right_wrist_pitch_joint": 0.0189417857432436,
+    "right_wrist_yaw_joint": 0.0035995848073844244
+  },
+  "previous_decision": {
+    "observation_id": 1,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "sonic",
+    "reason": "双脚173/172N承重，躯干近竖直，前方入口畅通；采用SONIC登台。"
+  },
+  "available_controllers": [
+    "legacy",
+    "sonic"
+  ]
+}

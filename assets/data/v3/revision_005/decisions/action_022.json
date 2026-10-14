@@ -1,0 +1,8 @@
+{
+  "observation_id": 22,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "已恢复直立、双脚稳定承重，双支架留在脚前；完成起身并进入自然站立。"
+}

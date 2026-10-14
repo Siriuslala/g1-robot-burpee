@@ -1,0 +1,8 @@
+{
+  "observation_id": 3,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "支架已在近处，双脚承重且速度接近零；执行前进0.08m/s、横移0.04m/s上限的小步接近，到位后停稳。"
+}

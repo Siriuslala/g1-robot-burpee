@@ -1,0 +1,8 @@
+{
+  "observation_id": 47,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双掌已明显离开木杆，手部接触为零、身体静止；缓慢伸膝起身，保持支架位置不受手臂牵拉。"
+}

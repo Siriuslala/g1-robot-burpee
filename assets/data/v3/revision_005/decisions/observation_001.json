@@ -1,0 +1,71 @@
+{
+  "observation_id": 1,
+  "part": "transport",
+  "proposed_skill": "stage_entry",
+  "sim_time": 1.501999999999851,
+  "image": "ego_001.png",
+  "gravity_body": [
+    0.014857831018280846,
+    5.404962633047818e-05,
+    -0.9998896148755957
+  ],
+  "body_velocity": [
+    -0.03386776491030066,
+    0.0008193785169773669,
+    -0.001629008538646708
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    173.0670066948442,
+    171.69473630449772
+  ],
+  "gripper_m": [
+    0.060318732686810525,
+    0.06031846427565142
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.16747131148175048,
+    "left_hip_roll_joint": 0.0028747965009615225,
+    "left_hip_yaw_joint": -0.0009616558772370983,
+    "left_knee_joint": 0.31271104361143354,
+    "left_ankle_pitch_joint": -0.1611258981960889,
+    "left_ankle_roll_joint": -0.002563269745168771,
+    "right_hip_pitch_joint": -0.16755088539689886,
+    "right_hip_roll_joint": -0.0030802266823899754,
+    "right_hip_yaw_joint": 0.0009573185653613526,
+    "right_knee_joint": 0.31247258345354373,
+    "right_ankle_pitch_joint": -0.16082326212340772,
+    "right_ankle_roll_joint": 0.0027236013723991714,
+    "waist_yaw_joint": 9.72097343927815e-06,
+    "waist_roll_joint": -0.0004982564551814302,
+    "waist_pitch_joint": 0.0650036674596606,
+    "left_shoulder_pitch_joint": 0.0003797290850461981,
+    "left_shoulder_roll_joint": 0.22001994088916532,
+    "left_shoulder_yaw_joint": -0.001955508723653509,
+    "left_elbow_joint": 1.4000913343021821,
+    "left_wrist_roll_joint": 0.00010406082824753618,
+    "left_wrist_pitch_joint": 0.019346881866903306,
+    "left_wrist_yaw_joint": -0.0009383525955271709,
+    "right_shoulder_pitch_joint": 0.00037589542779495897,
+    "right_shoulder_roll_joint": -0.2199747865042247,
+    "right_shoulder_yaw_joint": 0.001973034234661815,
+    "right_elbow_joint": 1.4000899977367947,
+    "right_wrist_roll_joint": -0.00010276674122530375,
+    "right_wrist_pitch_joint": 0.019343827923087312,
+    "right_wrist_yaw_joint": 0.0009504705473705336
+  },
+  "previous_decision": {
+    "observation_id": 0,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "舞台、双支架与中心标记可见，初始身体竖直且静止；先建立稳定站立接触。"
+  },
+  "available_controllers": [
+    "legacy",
+    "sonic"
+  ]
+}

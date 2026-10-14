@@ -1,0 +1,8 @@
+{
+  "observation_id": 42,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "左脚已恢复约161N承重，身体速度降低；保持左脚和双手支撑，再收回右腿。"
+}

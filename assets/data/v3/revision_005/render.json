@@ -1,0 +1,68 @@
+{
+  "mode": "saved_state_sequence_replay",
+  "sources": [
+    "artifacts/stage_transport/sonic_revision_validation_005",
+    "artifacts/stage_burpee/sonic_revision_validation_005"
+  ],
+  "source_sha256": {
+    "artifacts/stage_transport/sonic_revision_validation_005": "7f348aaf59414c978b6df8cbf6b342545208b7ac29f5b3587fb3cb5390c9e6ed",
+    "artifacts/stage_burpee/sonic_revision_validation_005": "b7f05067c217ca2fd91e05e4b53cfeffcaa5d422823cc3c784c74e826b8de0ba"
+  },
+  "fps": 15,
+  "frames": 2395,
+  "duration_seconds": 159.66666666666666,
+  "resolution": [
+    848,
+    480
+  ],
+  "handoff_time_s": 101.99600000226238,
+  "initial_qpos_max_error": 0.0,
+  "editorial_handoff": false,
+  "crossfade_s": 0.0,
+  "burpee_time_offset_s": 101.99600000226238,
+  "continuous_physics_handoff": true,
+  "source_initial_qpos_exact": true,
+  "source_solver_warmstart_available": true,
+  "camera_start": [
+    1.9,
+    0.0,
+    0.45,
+    6.0,
+    135.0,
+    -30.0
+  ],
+  "camera_end": [
+    2.08,
+    0.12,
+    0.7,
+    2.9,
+    35.0,
+    -20.0
+  ],
+  "camera_vector_fields": [
+    "lookat_x",
+    "lookat_y",
+    "lookat_z",
+    "distance",
+    "azimuth",
+    "elevation"
+  ],
+  "transition_interval_s": [
+    98.99600000216279,
+    101.99600000226238
+  ],
+  "transition_easing": "cosine",
+  "inserted_freeze_frames": 0,
+  "videos": [
+    "fixed.mp4",
+    "transition.mp4"
+  ],
+  "burpee_frames": 865,
+  "burpee_duration_seconds": 57.666666666666664,
+  "playback_speed": 1.0,
+  "appearance_changes": "camera and sky only",
+  "strict_physics_audit_passed": false,
+  "reused_for_online_run": "/home/liyueyan/robot/artifacts/online_hybrid/codex_sonic_revision_005",
+  "cached_render_source": "/home/liyueyan/robot/artifacts/online_hybrid/sonic_revision_validation_005/render",
+  "trajectory_equivalence_audit": "../render_equivalence.json"
+}

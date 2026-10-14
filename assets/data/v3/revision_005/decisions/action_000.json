@@ -1,0 +1,8 @@
+{
+  "observation_id": 0,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "舞台、双支架与中心标记可见，初始身体竖直且静止；先建立稳定站立接触。"
+}

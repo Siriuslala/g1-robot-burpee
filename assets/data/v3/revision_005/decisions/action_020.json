@@ -1,0 +1,8 @@
+{
+  "observation_id": 20,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "夹爪已张开至0.06m，手部接触基本卸载、双脚稳定；抬手脱离支架，确认无牵连后起身。"
+}

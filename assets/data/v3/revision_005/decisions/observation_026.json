@@ -1,0 +1,70 @@
+{
+  "observation_id": 26,
+  "part": "transport",
+  "proposed_skill": "final_hold",
+  "sim_time": 98.99600000216279,
+  "image": "ego_026.png",
+  "gravity_body": [
+    -0.007299058737747806,
+    -0.0003230111808657718,
+    -0.9999733093464642
+  ],
+  "body_velocity": [
+    0.02711546178753816,
+    0.00036174688904673264,
+    -0.00013477897029608602
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    177.35186000453896,
+    167.41708427877182
+  ],
+  "gripper_m": [
+    0.060317951470856244,
+    0.060318177271244874
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.10085140757552723,
+    "left_hip_roll_joint": -0.00787295659746606,
+    "left_hip_yaw_joint": 0.018874739237031594,
+    "left_knee_joint": 0.316797812754948,
+    "left_ankle_pitch_joint": -0.20862123185506604,
+    "left_ankle_roll_joint": 0.011667427404339825,
+    "right_hip_pitch_joint": -0.10685441386452788,
+    "right_hip_roll_joint": -0.014566628444548006,
+    "right_hip_yaw_joint": 0.018031995623420533,
+    "right_knee_joint": 0.31875023903526295,
+    "right_ankle_pitch_joint": -0.20460542115377123,
+    "right_ankle_roll_joint": 0.013772473916001423,
+    "waist_yaw_joint": -0.0005567244795789449,
+    "waist_roll_joint": 0.002017176138468819,
+    "waist_pitch_joint": 0.07251417555875765,
+    "left_shoulder_pitch_joint": 0.0003110978775542251,
+    "left_shoulder_roll_joint": 0.22001384293972612,
+    "left_shoulder_yaw_joint": -0.0019561925387554,
+    "left_elbow_joint": 1.4000784506712638,
+    "left_wrist_roll_joint": 0.00010403645683826476,
+    "left_wrist_pitch_joint": 0.0192951931325442,
+    "left_wrist_yaw_joint": -0.0009405846154349126,
+    "right_shoulder_pitch_joint": 0.0003039194180783687,
+    "right_shoulder_roll_joint": -0.2199850391627491,
+    "right_shoulder_yaw_joint": 0.0019725464570286,
+    "right_elbow_joint": 1.4000761188614663,
+    "right_wrist_roll_joint": -0.00010304473383679087,
+    "right_wrist_pitch_joint": 0.01929296198313183,
+    "right_wrist_yaw_joint": 0.0009484880855075273
+  },
+  "previous_decision": {
+    "observation_id": 25,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "展示结束时身体竖直、速度很低；放下双臂并张开夹爪，恢复自然站姿。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

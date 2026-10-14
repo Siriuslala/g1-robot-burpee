@@ -1,0 +1,8 @@
+{
+  "observation_id": 18,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "两支架已放到中心标记两侧，身体低位静止、双脚承重；保持夹持，以微小高度与倾角反馈建立四底座稳定接触后再松手。"
+}

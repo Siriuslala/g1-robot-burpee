@@ -1,0 +1,22 @@
+{
+  "render/transition.mp4": {
+    "frames": 2395,
+    "fps": 15.0,
+    "size": [
+      848,
+      480
+    ],
+    "duration": 159.67000000000002,
+    "fully_decoded": true
+  },
+  "ego_video/first_person.mp4": {
+    "frames": 2395,
+    "fps": 15.0,
+    "size": [
+      848,
+      480
+    ],
+    "duration": 159.67000000000002,
+    "fully_decoded": true
+  }
+}

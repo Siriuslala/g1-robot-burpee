@@ -1,0 +1,8 @@
+{
+  "observation_id": 30,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "身体低位稳定，手掌与支架有垂直间隙；保持夹爪张开，对齐双掌朝向后缓慢下降。"
+}

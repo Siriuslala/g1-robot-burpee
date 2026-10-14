@@ -1,0 +1,8 @@
+{
+  "observation_id": 39,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "第一视角已下降接近支架，双手约122/125N、双脚约59N支撑；下压完成，沿连续参考逆序上推，随后等待稳定。"
+}

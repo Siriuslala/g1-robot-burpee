@@ -1,0 +1,70 @@
+{
+  "observation_id": 21,
+  "part": "transport",
+  "proposed_skill": "rise_empty",
+  "sim_time": 80.99400000156518,
+  "image": "ego_021.png",
+  "gravity_body": [
+    0.8423117173718133,
+    0.0017164610584724516,
+    -0.5389879632603908
+  ],
+  "body_velocity": [
+    8.897127881071648e-05,
+    0.0006583301308732426,
+    -5.228138683583361e-05
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    170.67383644380493,
+    174.2977611538115
+  ],
+  "gripper_m": [
+    0.06016932862123569,
+    0.06002610023437171
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.479379068939092,
+    "left_hip_roll_joint": 0.08695285882762784,
+    "left_hip_yaw_joint": 0.02967895327901568,
+    "left_knee_joint": 2.259715992897511,
+    "left_ankle_pitch_joint": -0.7752536824944752,
+    "left_ankle_roll_joint": 0.03906084441990302,
+    "right_hip_pitch_joint": -2.4792344272723756,
+    "right_hip_roll_joint": -0.07759529712091477,
+    "right_hip_yaw_joint": -0.011892099682671077,
+    "right_knee_joint": 2.2592184438430554,
+    "right_ankle_pitch_joint": -0.7727357103671518,
+    "right_ankle_roll_joint": -0.03324517110653419,
+    "waist_yaw_joint": 0.0031545634709942805,
+    "waist_roll_joint": -0.013330072614025804,
+    "waist_pitch_joint": 0.2859405373365032,
+    "left_shoulder_pitch_joint": 0.04338120197183409,
+    "left_shoulder_roll_joint": 1.1477231786418935,
+    "left_shoulder_yaw_joint": 0.5488282649360324,
+    "left_elbow_joint": -0.12829428969326268,
+    "left_wrist_roll_joint": -0.5674411870957582,
+    "left_wrist_pitch_joint": -0.7151626286828522,
+    "left_wrist_yaw_joint": -1.3131780934671942,
+    "right_shoulder_pitch_joint": -0.5022459254763193,
+    "right_shoulder_roll_joint": -1.763472961281405,
+    "right_shoulder_yaw_joint": 0.4800507896873142,
+    "right_elbow_joint": -0.10329210180238048,
+    "right_wrist_roll_joint": 1.0867802432079083,
+    "right_wrist_pitch_joint": -1.2242740118762516,
+    "right_wrist_yaw_joint": 0.7615608320734581
+  },
+  "previous_decision": {
+    "observation_id": 20,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "夹爪已张开至0.06m，手部接触基本卸载、双脚稳定；抬手脱离支架，确认无牵连后起身。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

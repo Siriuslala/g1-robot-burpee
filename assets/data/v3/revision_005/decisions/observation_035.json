@@ -1,0 +1,70 @@
+{
+  "observation_id": 35,
+  "part": "burpee",
+  "proposed_skill": "right_land",
+  "sim_time": 122.87200000222707,
+  "image": "ego_035.png",
+  "gravity_body": [
+    0.9858994596243933,
+    0.03903193007414779,
+    0.16272296687013216
+  ],
+  "body_velocity": [
+    0.21292367289469596,
+    0.0048088512413155225,
+    -0.11397857164694611
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    122.08941768841295,
+    132.8397183183726,
+    0.0,
+    0.0
+  ],
+  "gripper_m": [
+    0.0012198067161264447,
+    0.002566646076648344
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.393180891705534,
+    "left_hip_roll_joint": 0.11837868146873229,
+    "left_hip_yaw_joint": 0.08253133667835856,
+    "left_knee_joint": 1.6275042957948869,
+    "left_ankle_pitch_joint": -0.6794061893120581,
+    "left_ankle_roll_joint": 0.02161920862600428,
+    "right_hip_pitch_joint": -0.7612159390529833,
+    "right_hip_roll_joint": -0.03514670330883172,
+    "right_hip_yaw_joint": 0.046839258522890816,
+    "right_knee_joint": 0.1511225603678995,
+    "right_ankle_pitch_joint": -0.7908564313582707,
+    "right_ankle_roll_joint": 0.06910922705107737,
+    "waist_yaw_joint": 0.02932823682314159,
+    "waist_roll_joint": 0.010373594176863593,
+    "waist_pitch_joint": 0.0930796043065588,
+    "left_shoulder_pitch_joint": -1.0763722244204184,
+    "left_shoulder_roll_joint": 0.6911621775345144,
+    "left_shoulder_yaw_joint": -0.017847159054639357,
+    "left_elbow_joint": 1.0481632802622773,
+    "left_wrist_roll_joint": -0.5384910084782121,
+    "left_wrist_pitch_joint": -1.4836874454841726,
+    "left_wrist_yaw_joint": -1.5789585400187374,
+    "right_shoulder_pitch_joint": -1.1660837262748591,
+    "right_shoulder_roll_joint": -0.7303393343530467,
+    "right_shoulder_yaw_joint": 0.04450393233769945,
+    "right_elbow_joint": 1.0371521224622364,
+    "right_wrist_roll_joint": 0.5702218066069545,
+    "right_wrist_pitch_joint": -1.5677234116814605,
+    "right_wrist_yaw_joint": 1.5657837948287454
+  },
+  "previous_decision": {
+    "observation_id": 34,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "两手均已承担约31–35N，身体速度接近零；保持双手和左脚支撑，先将右腿缓慢向后伸。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

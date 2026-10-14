@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "checks": {
+    "stage_transport_scene_identical": true,
+    "stage_transport_same_array_keys": true,
+    "stage_transport_time_exact": true,
+    "stage_transport_qpos_exact": true,
+    "stage_transport_qvel_exact": true,
+    "stage_transport_ctrl_exact": true,
+    "stage_transport_target_exact": true,
+    "stage_transport_initial_qpos_exact": true,
+    "stage_transport_integration_exact": true,
+    "stage_burpee_scene_identical": true,
+    "stage_burpee_same_array_keys": true,
+    "stage_burpee_time_exact": true,
+    "stage_burpee_qpos_exact": true,
+    "stage_burpee_qvel_exact": true,
+    "stage_burpee_ctrl_exact": true,
+    "stage_burpee_target_exact": true,
+    "stage_burpee_initial_qpos_exact": true,
+    "stage_burpee_integration_exact": true
+  },
+  "sources": {
+    "stage_transport": {
+      "cache_source": "/home/liyueyan/robot/artifacts/stage_transport/sonic_revision_validation_005",
+      "online_source": "/home/liyueyan/robot/artifacts/stage_transport/codex_sonic_revision_005",
+      "cache_sha256": "7f348aaf59414c978b6df8cbf6b342545208b7ac29f5b3587fb3cb5390c9e6ed",
+      "online_sha256": "7f348aaf59414c978b6df8cbf6b342545208b7ac29f5b3587fb3cb5390c9e6ed"
+    },
+    "stage_burpee": {
+      "cache_source": "/home/liyueyan/robot/artifacts/stage_burpee/sonic_revision_validation_005",
+      "online_source": "/home/liyueyan/robot/artifacts/stage_burpee/codex_sonic_revision_005",
+      "cache_sha256": "b7f05067c217ca2fd91e05e4b53cfeffcaa5d422823cc3c784c74e826b8de0ba",
+      "online_sha256": "b7f05067c217ca2fd91e05e4b53cfeffcaa5d422823cc3c784c74e826b8de0ba"
+    }
+  },
+  "scope": "Rendered frames are reused only after exact equality of every saved trajectory array, scene, and handoff integration state. Online decisions and live observation images belong exclusively to codex_sonic_revision_005.",
+  "video_sha256": {
+    "render/transition.mp4": "fcb61c5ea4cad73a722445923b76feb8cd8488050f853447fa853abcc415cad4",
+    "ego_video/first_person.mp4": "9afb00ef4c5bf12389664cf9a8d2cafa33dbb9e8ef04dc5ee4f49041e2670b88"
+  }
+}

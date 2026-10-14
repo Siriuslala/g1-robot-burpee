@@ -1,0 +1,8 @@
+{
+  "observation_id": 40,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "身体已推回高位，双脚及双手支撑恢复且速度低；保持右脚与双手，先收回左腿。"
+}

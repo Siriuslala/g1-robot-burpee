@@ -1,0 +1,8 @@
+{
+  "observation_id": 35,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "右膝已接近伸直，两手正在承重，当前足部接触尚未恢复；先执行落脚与稳定门控，确认支撑后再移动另一腿。"
+}

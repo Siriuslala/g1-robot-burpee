@@ -1,0 +1,8 @@
+{
+  "observation_id": 44,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双脚已稳定承重，身体速度接近零；将重心逐渐移回双脚，恢复蹲姿并卸载双手。"
+}

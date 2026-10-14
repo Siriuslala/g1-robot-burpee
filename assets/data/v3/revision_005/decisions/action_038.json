@@ -1,0 +1,8 @@
+{
+  "observation_id": 38,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "双手与双脚均已承重，身体速度约0.01m/s；执行八段连续IK下压，保持伸腿后的足端目标并加深屈肘。"
+}

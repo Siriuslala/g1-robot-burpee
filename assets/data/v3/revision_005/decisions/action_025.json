@@ -1,0 +1,8 @@
+{
+  "observation_id": 25,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "展示结束时身体竖直、速度很低；放下双臂并张开夹爪，恢复自然站姿。"
+}

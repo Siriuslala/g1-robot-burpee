@@ -1,0 +1,8 @@
+{
+  "observation_id": 50,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "落地后身体已竖直且静止，双脚约181/178N稳定承重；执行最后一次秀肌肉并保持稳定定姿，完成表演。"
+}

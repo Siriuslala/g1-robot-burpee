@@ -1,0 +1,8 @@
+{
+  "observation_id": 46,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "夹爪已张开、手部负载近零，支架留在台面；先抬手离杆，再保持双脚支撑站起。"
+}

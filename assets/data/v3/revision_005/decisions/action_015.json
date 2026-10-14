@@ -1,0 +1,8 @@
+{
+  "observation_id": 15,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "sonic",
+  "reason": "已在中心附近，双脚185/171N承重、双手夹持稳定；采用经交接观测刷新的SONIC转向展示方向，随后保留实测落脚位置。"
+}

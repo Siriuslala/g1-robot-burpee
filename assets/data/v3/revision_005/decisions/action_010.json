@@ -1,0 +1,8 @@
+{
+  "observation_id": 10,
+  "execute": true,
+  "horizon_s": 8.0,
+  "speed_scale": 1.0,
+  "controller": "legacy",
+  "reason": "提架后视野已抬高，双手仍有约20N接触，膝关节接近站姿；继续稳住负载至转身条件满足。"
+}

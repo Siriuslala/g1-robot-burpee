@@ -1,0 +1,71 @@
+{
+  "observation_id": 15,
+  "part": "transport",
+  "proposed_skill": "turn_front",
+  "sim_time": 57.20200000077538,
+  "image": "ego_015.png",
+  "gravity_body": [
+    0.04502191263471782,
+    -0.00453063876154868,
+    -0.9989757257787227
+  ],
+  "body_velocity": [
+    -0.01896489533678569,
+    0.04604920832282185,
+    -0.0004914609350979798
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    21.38830766473291,
+    18.11498490149271,
+    185.54363570003665,
+    171.4971503574105
+  ],
+  "gripper_m": [
+    -0.0008053431538991666,
+    -0.0016283894983546785
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.18424552934243865,
+    "left_hip_roll_joint": 0.007012312230288135,
+    "left_hip_yaw_joint": 0.00880069232928461,
+    "left_knee_joint": 0.31124788370448014,
+    "left_ankle_pitch_joint": -0.1713856369106419,
+    "left_ankle_roll_joint": 0.0032957066056106886,
+    "right_hip_pitch_joint": -0.13335449773377483,
+    "right_hip_roll_joint": 0.008389491780315408,
+    "right_hip_yaw_joint": 0.007169194314485934,
+    "right_knee_joint": 0.3151589411569305,
+    "right_ankle_pitch_joint": -0.22151075507341944,
+    "right_ankle_roll_joint": -0.008199087491330182,
+    "waist_yaw_joint": -0.001801378072867513,
+    "waist_roll_joint": 0.003206504924775663,
+    "waist_pitch_joint": 0.09082090179757547,
+    "left_shoulder_pitch_joint": 0.26528755759252937,
+    "left_shoulder_roll_joint": 0.7727812986471001,
+    "left_shoulder_yaw_joint": -0.5808621956222282,
+    "left_elbow_joint": 0.4811436487460163,
+    "left_wrist_roll_joint": -0.7988999911944107,
+    "left_wrist_pitch_joint": -1.0566088732129741,
+    "left_wrist_yaw_joint": -1.5899523373973494,
+    "right_shoulder_pitch_joint": 0.13523433985208883,
+    "right_shoulder_roll_joint": -0.6900878699443604,
+    "right_shoulder_yaw_joint": -2.210501799684148,
+    "right_elbow_joint": 2.0892006176918954,
+    "right_wrist_roll_joint": -1.969501461640186,
+    "right_wrist_pitch_joint": -1.4548692556829679,
+    "right_wrist_yaw_joint": 1.60800543540867
+  },
+  "previous_decision": {
+    "observation_id": 14,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "两脚已恢复承重，两手夹持持续；先恢复直立、消除移动速度，再原地调整展示朝向。"
+  },
+  "available_controllers": [
+    "legacy",
+    "sonic"
+  ]
+}

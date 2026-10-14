@@ -46,7 +46,8 @@ try {
  const url=`http://127.0.0.1:${server.address().port}${prefix}`;
  for (const [route,v,report,count] of [['','v3','technical.html',2],['v2/','v2','technical_v2.html',2],['v1/','v1','technical_v1.html',1]]) {
   await page.goto(url+route);await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.readyState>=2));
-  assert.equal(await page.locator('video').count(),count);assert.equal(await page.locator('.version-button').count(),3);
+  assert.equal(await page.locator('video').count(),count);
+  if(v==='v3'){for(const video of await page.locator('video').all()){assert((await video.getAttribute('src')).includes('/revision_005/'));assert(Math.abs(await video.evaluate(el=>el.duration)-2395/15)<.1);}}assert.equal(await page.locator('.version-button').count(),3);
   assert((await page.locator('.version-button[aria-current]').textContent()).startsWith(v));
   assert.equal(await page.locator('.method-entry').count(),1);assert.equal(await page.locator('.method-entry a').getAttribute('href'),report);
   assert(!(await page.locator('body').textContent()).includes('↓'));
@@ -58,13 +59,13 @@ try {
    await page.locator('#first-person').evaluate(v=>v.pause());await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.paused));
    await page.locator('[data-speed="2"]').click();await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.playbackRate===2));
    await page.locator('.action-button').filter({hasText:'曲臂向下'}).click();await page.waitForFunction(()=>Math.abs(document.querySelector('#performance').currentTime-document.querySelector('#first-person').currentTime)<.1);
-   const time=await page.locator('#performance').evaluate(v=>v.currentTime);assert(Math.abs(time-(v==='v3'?129.630:121.59))<.1);
+   const time=await page.locator('#performance').evaluate(v=>v.currentTime);assert(Math.abs(time-(v==='v3'?125.326:121.59))<.1);
    await page.locator('[data-view="fixed"]').click();await page.waitForFunction(()=>{const a=document.querySelector('#performance'),b=document.querySelector('#first-person');return a.readyState>=2&&a.src.includes('fixed.mp4')&&Math.abs(a.currentTime-b.currentTime)<.1});
   }
   await page.screenshot({path:path.join(output,v+'-desktop.png'),fullPage:true});
   for(const width of [390,320]){await page.setViewportSize({width,height:900});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(output,v+'-'+width+'.png'),fullPage:true});}
   await page.setViewportSize({width:1440,height:1100});await page.locator('.method-entry a').click();assert(page.url().endsWith(report));
-  if(v==='v3'){assert.equal(await page.locator('.decision-example').count(),9);for(const a of await page.locator('a[href^="assets/"]').all()){const href=await a.getAttribute('href');assert(fs.existsSync(path.join(root,href)),href);}}
+  if(v==='v3'){assert.equal(await page.locator('.decision-example').count(),12);for(const a of await page.locator('a[href^="assets/"]').all()){const href=await a.getAttribute('href');assert(fs.existsSync(path.join(root,href)),href);}}
   for(const width of [1440,390,320]){await page.setViewportSize({width,height:1000});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));}
   await page.setViewportSize({width:1440,height:1100});
   console.log(v+' playback, report, placement and responsive checks passed');

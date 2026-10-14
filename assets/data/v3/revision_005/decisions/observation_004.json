@@ -1,0 +1,70 @@
+{
+  "observation_id": 4,
+  "part": "transport",
+  "proposed_skill": "recover",
+  "sim_time": 19.44199999996803,
+  "image": "ego_004.png",
+  "gravity_body": [
+    0.02183990115685637,
+    -0.05215897480531594,
+    -0.9983999499522814
+  ],
+  "body_velocity": [
+    -0.013059453992098305,
+    -0.06396419657120152,
+    -0.06602177948164002
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    165.6890578555275,
+    247.21212794132245
+  ],
+  "gripper_m": [
+    0.060434829993799975,
+    0.060582969659311155
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.25499051481717927,
+    "left_hip_roll_joint": -0.032368548831045,
+    "left_hip_yaw_joint": -0.051917666155855184,
+    "left_knee_joint": 0.4527621220823455,
+    "left_ankle_pitch_joint": -0.2202950054037909,
+    "left_ankle_roll_joint": 0.06635814168425863,
+    "right_hip_pitch_joint": -0.35622248637350024,
+    "right_hip_roll_joint": -0.041231947960502585,
+    "right_hip_yaw_joint": 0.04716858028270653,
+    "right_knee_joint": 0.530169177531392,
+    "right_ankle_pitch_joint": -0.18605749475983038,
+    "right_ankle_roll_joint": 0.06772128454499576,
+    "waist_yaw_joint": -0.00024676790029504577,
+    "waist_roll_joint": -0.002392184808396476,
+    "waist_pitch_joint": 0.110909342048186,
+    "left_shoulder_pitch_joint": -0.011204544074371136,
+    "left_shoulder_roll_joint": 0.21559201321703905,
+    "left_shoulder_yaw_joint": -0.002326229933148074,
+    "left_elbow_joint": 1.3970328611264289,
+    "left_wrist_roll_joint": 6.877169832979663e-05,
+    "left_wrist_pitch_joint": 0.016800593481546784,
+    "left_wrist_yaw_joint": -0.0012393504966036935,
+    "right_shoulder_pitch_joint": -0.01404171388872939,
+    "right_shoulder_roll_joint": -0.22829448450388162,
+    "right_shoulder_yaw_joint": 0.0013307086211272231,
+    "right_elbow_joint": 1.3959938047922802,
+    "right_wrist_roll_joint": -0.0002985393698441837,
+    "right_wrist_pitch_joint": 0.015958564941158774,
+    "right_wrist_yaw_joint": -0.000793172587354794
+  },
+  "previous_decision": {
+    "observation_id": 3,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "支架已在近处，双脚承重且速度接近零；执行前进0.08m/s、横移0.04m/s上限的小步接近，到位后停稳。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}
