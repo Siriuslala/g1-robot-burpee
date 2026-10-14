@@ -1,0 +1,70 @@
+{
+  "observation_id": 48,
+  "part": "burpee",
+  "proposed_skill": "stand_up",
+  "sim_time": 143.74800000252486,
+  "image": "ego_048.png",
+  "gravity_body": [
+    0.77707807976552,
+    0.0030423786727904467,
+    -0.6293968556323934
+  ],
+  "body_velocity": [
+    1.0674435113518313e-05,
+    -0.0002328609110109035,
+    -0.0015822323228636963
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    203.05618528416883,
+    140.67950856260077
+  ],
+  "gripper_m": [
+    0.060077227392562556,
+    0.060077900768729334
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4646243146846363,
+    "left_hip_roll_joint": 0.23635199205134053,
+    "left_hip_yaw_joint": 0.201751562172341,
+    "left_knee_joint": 2.225225503658796,
+    "left_ankle_pitch_joint": -0.6473141361015872,
+    "left_ankle_roll_joint": 0.23551857075667698,
+    "right_hip_pitch_joint": -2.5028436664529075,
+    "right_hip_roll_joint": -0.15703444968345373,
+    "right_hip_yaw_joint": 0.022716817154369975,
+    "right_knee_joint": 2.233351130296435,
+    "right_ankle_pitch_joint": -0.6193130411312028,
+    "right_ankle_roll_joint": -0.009933000996826749,
+    "waist_yaw_joint": -0.007621340051542507,
+    "waist_roll_joint": 0.006036297855946124,
+    "waist_pitch_joint": 0.42214649390505077,
+    "left_shoulder_pitch_joint": -1.127595692211084,
+    "left_shoulder_roll_joint": 2.079640499428925,
+    "left_shoulder_yaw_joint": -1.1642906828184445,
+    "left_elbow_joint": -0.09209989469773165,
+    "left_wrist_roll_joint": -1.4586938603794484,
+    "left_wrist_pitch_joint": -1.2892425299462131,
+    "left_wrist_yaw_joint": -0.969536811255747,
+    "right_shoulder_pitch_joint": -1.1895906157388956,
+    "right_shoulder_roll_joint": -2.062627440182899,
+    "right_shoulder_yaw_joint": 1.1799281319802013,
+    "right_elbow_joint": -0.09320455362304526,
+    "right_wrist_roll_joint": 1.4416900320646864,
+    "right_wrist_pitch_joint": -1.2490086463534995,
+    "right_wrist_yaw_joint": 0.9891693493742378
+  },
+  "previous_decision": {
+    "observation_id": 47,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双夹爪已张开，手部接触力几乎为零，身体稳定；先将双手撤离横杆，保持双脚支撑再起身。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

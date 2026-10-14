@@ -1,0 +1,1 @@
+{"observation_id": 0, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "前方舞台和支架清晰可见，机器人初始直立且静止；先建立双脚支撑，再开始登台。"}

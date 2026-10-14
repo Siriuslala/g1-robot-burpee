@@ -1,0 +1,70 @@
+{
+  "observation_id": 36,
+  "part": "burpee",
+  "proposed_skill": "right_land",
+  "sim_time": 127.17600000236995,
+  "image": "ego_036.png",
+  "gravity_body": [
+    0.9846480896511489,
+    0.0411746326152827,
+    0.16962543787810727
+  ],
+  "body_velocity": [
+    0.22888589985397728,
+    0.020695138119943453,
+    -0.1451019467866405
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    121.530872140769,
+    126.23292127290739,
+    0.0,
+    0.0
+  ],
+  "gripper_m": [
+    0.0005822003838636568,
+    0.0023868098164194365
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.3726188031622746,
+    "left_hip_roll_joint": 0.11901186011289033,
+    "left_hip_yaw_joint": 0.07910761691842032,
+    "left_knee_joint": 1.63350341244492,
+    "left_ankle_pitch_joint": -0.6773054109398305,
+    "left_ankle_roll_joint": 0.023694745389591307,
+    "right_hip_pitch_joint": -0.75353786964676,
+    "right_hip_roll_joint": -0.03705208843684066,
+    "right_hip_yaw_joint": 0.046762652460664446,
+    "right_knee_joint": 0.1540133839615944,
+    "right_ankle_pitch_joint": -0.7899314485496085,
+    "right_ankle_roll_joint": 0.06892093222966346,
+    "waist_yaw_joint": 0.02614746165488427,
+    "waist_roll_joint": -0.009087286744512117,
+    "waist_pitch_joint": 0.07820157486940911,
+    "left_shoulder_pitch_joint": -1.0995673477739085,
+    "left_shoulder_roll_joint": 0.6982297147700043,
+    "left_shoulder_yaw_joint": -0.017527327134765944,
+    "left_elbow_joint": 1.050675687472226,
+    "left_wrist_roll_joint": -0.5397603609972988,
+    "left_wrist_pitch_joint": -1.550672310088876,
+    "left_wrist_yaw_joint": -1.5803874241885452,
+    "right_shoulder_pitch_joint": -1.1842968425230718,
+    "right_shoulder_roll_joint": -0.7372933054499677,
+    "right_shoulder_yaw_joint": 0.04156010960515983,
+    "right_elbow_joint": 1.0259692514478482,
+    "right_wrist_roll_joint": 0.571403796155354,
+    "right_wrist_pitch_joint": -1.5296228306673028,
+    "right_wrist_yaw_joint": 1.5648795867486838
+  },
+  "previous_decision": {
+    "observation_id": 35,
+    "execute": true,
+    "horizon_s": 2.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "两手承重接近对称，身体已经稳定；保持握架，先向后伸右腿，左腿继续提供支撑。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

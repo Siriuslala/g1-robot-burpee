@@ -1,0 +1,70 @@
+{
+  "observation_id": 9,
+  "part": "transport",
+  "proposed_skill": "close_grasp",
+  "sim_time": 34.96200000003709,
+  "image": "ego_009.png",
+  "gravity_body": [
+    0.8470972964690365,
+    0.009522317532614274,
+    -0.5313525155522064
+  ],
+  "body_velocity": [
+    -0.002477726202193742,
+    0.005868214061135441,
+    -0.00304201987546315
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    173.42320085466275,
+    169.20832816788254
+  ],
+  "gripper_m": [
+    0.06010641630640999,
+    0.060020485575448194
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.484513485920083,
+    "left_hip_roll_joint": 0.08598106906853267,
+    "left_hip_yaw_joint": 0.03352014342953017,
+    "left_knee_joint": 2.2592999546425157,
+    "left_ankle_pitch_joint": -0.7713154843042143,
+    "left_ankle_roll_joint": 0.05120204172644258,
+    "right_hip_pitch_joint": -2.4784350318653967,
+    "right_hip_roll_joint": -0.07309594301438746,
+    "right_hip_yaw_joint": -0.010759232983970222,
+    "right_knee_joint": 2.2562567788664496,
+    "right_ankle_pitch_joint": -0.7666675179031018,
+    "right_ankle_roll_joint": -0.02573493580919742,
+    "waist_yaw_joint": 0.003209323306990785,
+    "waist_roll_joint": -0.008409995063540144,
+    "waist_pitch_joint": 0.29235387203756225,
+    "left_shoulder_pitch_joint": -1.1893895992420804,
+    "left_shoulder_roll_joint": 0.9687045537704106,
+    "left_shoulder_yaw_joint": -0.8410749782176492,
+    "left_elbow_joint": 1.1948854117024408,
+    "left_wrist_roll_joint": -1.441002542710528,
+    "left_wrist_pitch_joint": -1.1632055044626937,
+    "left_wrist_yaw_joint": -1.6092254254500242,
+    "right_shoulder_pitch_joint": -1.0968962430636346,
+    "right_shoulder_roll_joint": -0.9588699248799772,
+    "right_shoulder_yaw_joint": 1.0967376452900472,
+    "right_elbow_joint": 0.8529603360679869,
+    "right_wrist_roll_joint": 1.4709935171082396,
+    "right_wrist_pitch_joint": -1.464610944129403,
+    "right_wrist_yaw_joint": 1.6088733543887968
+  },
+  "previous_decision": {
+    "observation_id": 8,
+    "execute": true,
+    "horizon_s": 2.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "已蹲到支架旁，双手张开且分别接近横杆，脚部支撑稳定；先完成手掌对位，再闭合夹爪。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

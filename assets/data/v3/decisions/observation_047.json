@@ -1,0 +1,70 @@
+{
+  "observation_id": 47,
+  "part": "burpee",
+  "proposed_skill": "withdraw_hands",
+  "sim_time": 141.04800000243523,
+  "image": "ego_047.png",
+  "gravity_body": [
+    0.7808419358293202,
+    0.004329679107252904,
+    -0.6247136344991574
+  ],
+  "body_velocity": [
+    8.135480365426252e-05,
+    0.0006014161634616505,
+    0.00013522316882864075
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.20020964058410243,
+    0.0,
+    199.31431139862372,
+    145.40416795988108
+  ],
+  "gripper_m": [
+    0.06007776956615681,
+    0.06008060899168131
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.47032973862007,
+    "left_hip_roll_joint": 0.239225431535573,
+    "left_hip_yaw_joint": 0.20879755034781158,
+    "left_knee_joint": 2.2271302396304433,
+    "left_ankle_pitch_joint": -0.6482848116183954,
+    "left_ankle_roll_joint": 0.23961454919961653,
+    "right_hip_pitch_joint": -2.511949946657998,
+    "right_hip_roll_joint": -0.15746945384561917,
+    "right_hip_yaw_joint": 0.02272884206611376,
+    "right_knee_joint": 2.232801632626521,
+    "right_ankle_pitch_joint": -0.6161580594476431,
+    "right_ankle_roll_joint": -0.009756347589744674,
+    "waist_yaw_joint": -0.007554235896928279,
+    "waist_roll_joint": 0.005999144672433795,
+    "waist_pitch_joint": 0.4248713808964263,
+    "left_shoulder_pitch_joint": -1.344823301899235,
+    "left_shoulder_roll_joint": 1.0097516298556959,
+    "left_shoulder_yaw_joint": -0.9890646471866548,
+    "left_elbow_joint": 1.1010400122223083,
+    "left_wrist_roll_joint": -1.4860168705717653,
+    "left_wrist_pitch_joint": -1.1963263898134073,
+    "left_wrist_yaw_joint": -1.5793373637342,
+    "right_shoulder_pitch_joint": -1.3665827032508062,
+    "right_shoulder_roll_joint": -1.0047981336632825,
+    "right_shoulder_yaw_joint": 1.0249111687868675,
+    "right_elbow_joint": 1.0977000786295685,
+    "right_wrist_roll_joint": 1.4913705899937757,
+    "right_wrist_pitch_joint": -1.197998861094415,
+    "right_wrist_yaw_joint": 1.5794311849337044
+  },
+  "previous_decision": {
+    "observation_id": 46,
+    "execute": true,
+    "horizon_s": 2.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双脚承重接近平衡，身体运动很小；缓慢打开双手，保持低蹲姿，避免松手时拉动支架。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

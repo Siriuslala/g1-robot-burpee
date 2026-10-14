@@ -1,0 +1,1 @@
+{"observation_id": 4, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "sonic", "reason": "支架已进入近处视野下方，前向速度接近零且双脚开始共同承重；继续SONIC完成末端对位和停步，暂不弯腰取架。"}

@@ -1,0 +1,1 @@
+{"observation_id": 28, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "第一视角与前段末态连续，机器人仍自然站立；新阶段接触摘要尚未初始化，先保持站姿并建立当前支撑观测。"}

@@ -1,0 +1,1 @@
+{"observation_id": 1, "execute": true, "horizon_s": 5.0, "speed_scale": 1.0, "controller": "sonic", "reason": "双脚支撑力约173N且身体接近直立，舞台入口位于正前方；使用SONIC向前登台，保持当前目标朝向。"}

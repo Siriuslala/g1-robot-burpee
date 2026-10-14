@@ -1,0 +1,70 @@
+{
+  "observation_id": 23,
+  "part": "transport",
+  "proposed_skill": "rise_empty",
+  "sim_time": 93.29800000197363,
+  "image": "ego_023.png",
+  "gravity_body": [
+    0.005121141533814821,
+    -0.0006425305118841233,
+    -0.9999866804432596
+  ],
+  "body_velocity": [
+    -0.0020256795390077758,
+    2.110612057221013e-05,
+    0.0010035844929414664
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    174.977941475465,
+    169.86615874143308
+  ],
+  "gripper_m": [
+    0.060317423918536124,
+    0.0603173978149411
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.15273070153596077,
+    "left_hip_roll_joint": 0.01092690318225462,
+    "left_hip_yaw_joint": -0.0019087402810468242,
+    "left_knee_joint": 0.3265511060794287,
+    "left_ankle_pitch_joint": -0.1798087740143095,
+    "left_ankle_roll_joint": 0.00015399830331537284,
+    "right_hip_pitch_joint": -0.15386798983841585,
+    "right_hip_roll_joint": -0.0007499851399623447,
+    "right_hip_yaw_joint": -0.0009308457471715353,
+    "right_knee_joint": 0.33115371064475774,
+    "right_ankle_pitch_joint": -0.18285587500711026,
+    "right_ankle_roll_joint": -0.00427182586135534,
+    "waist_yaw_joint": -0.0007465397395473733,
+    "waist_roll_joint": 0.002160465942152062,
+    "waist_pitch_joint": 0.07417301047084579,
+    "left_shoulder_pitch_joint": 0.0002257975785928211,
+    "left_shoulder_roll_joint": 0.2199822545005123,
+    "left_shoulder_yaw_joint": -0.0018909645786949086,
+    "left_elbow_joint": 1.3998296417799512,
+    "left_wrist_roll_joint": -7.927388929198984e-05,
+    "left_wrist_pitch_joint": 0.01921404295598703,
+    "left_wrist_yaw_joint": -0.0010905619764455577,
+    "right_shoulder_pitch_joint": 0.0002796456459018409,
+    "right_shoulder_roll_joint": -0.21998547794631695,
+    "right_shoulder_yaw_joint": 0.0021968899867595253,
+    "right_elbow_joint": 1.3999452916760269,
+    "right_wrist_roll_joint": 0.00011347206261929765,
+    "right_wrist_pitch_joint": 0.019200818923055134,
+    "right_wrist_yaw_joint": 0.001034492108753764
+  },
+  "previous_decision": {
+    "observation_id": 22,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双手已离开支架且接触力为零，两只支架独立留在台面上；批准空手缓慢起身并恢复自然站立。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

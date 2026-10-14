@@ -1,0 +1,70 @@
+{
+  "observation_id": 41,
+  "part": "burpee",
+  "proposed_skill": "left_return",
+  "sim_time": 133.04000000235627,
+  "image": "ego_041.png",
+  "gravity_body": [
+    0.9993858358204326,
+    0.025226721479094272,
+    0.024322082248673826
+  ],
+  "body_velocity": [
+    0.0005568329092545018,
+    -0.0006658173773971311,
+    0.0005385941319470553
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    125.37331388273228,
+    98.46403508749273,
+    57.67239098338778,
+    81.12591624424752
+  ],
+  "gripper_m": [
+    0.015290636887541214,
+    0.01033224065915499
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.7925561069889059,
+    "left_hip_roll_joint": -0.016691866540770338,
+    "left_hip_yaw_joint": 0.17187387108077132,
+    "left_knee_joint": 0.22327657570579604,
+    "left_ankle_pitch_joint": -0.6880035774437508,
+    "left_ankle_roll_joint": 0.09848801809763429,
+    "right_hip_pitch_joint": -0.7715604595884068,
+    "right_hip_roll_joint": -0.11324504008708478,
+    "right_hip_yaw_joint": -0.28230441767182,
+    "right_knee_joint": 0.17169964352068334,
+    "right_ankle_pitch_joint": -0.5831317283888613,
+    "right_ankle_roll_joint": 0.2379807534361412,
+    "waist_yaw_joint": 0.032790311563440075,
+    "waist_roll_joint": 0.02611990470760677,
+    "waist_pitch_joint": 0.11287683196787675,
+    "left_shoulder_pitch_joint": -1.219840357195814,
+    "left_shoulder_roll_joint": 0.6827520650215368,
+    "left_shoulder_yaw_joint": -0.032526015040749374,
+    "left_elbow_joint": 1.1082677886264851,
+    "left_wrist_roll_joint": -0.5655334667342854,
+    "left_wrist_pitch_joint": -1.4087550455686313,
+    "left_wrist_yaw_joint": -1.582937042510837,
+    "right_shoulder_pitch_joint": -1.2063532163707094,
+    "right_shoulder_roll_joint": -0.7523795146868705,
+    "right_shoulder_yaw_joint": -0.05194844349258755,
+    "right_elbow_joint": 1.05613072141338,
+    "right_wrist_roll_joint": 0.5025625035921748,
+    "right_wrist_pitch_joint": -1.3806294909479813,
+    "right_wrist_yaw_joint": 1.561227812235854
+  },
+  "previous_decision": {
+    "observation_id": 40,
+    "execute": true,
+    "horizon_s": 2.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "下压阶段已结束，手脚支撑仍在且身体速度很小；通过双臂把身体推回俯撑高度，并在收腿前稳定。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

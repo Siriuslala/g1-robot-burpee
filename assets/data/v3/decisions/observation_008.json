@@ -1,0 +1,70 @@
+{
+  "observation_id": 8,
+  "part": "transport",
+  "proposed_skill": "align_grasp",
+  "sim_time": 34.66200000002713,
+  "image": "ego_008.png",
+  "gravity_body": [
+    0.8483101426836248,
+    0.00736710899386625,
+    -0.5294484181911949
+  ],
+  "body_velocity": [
+    -0.00017196856227933815,
+    -0.0036411822226273738,
+    0.008628281795351595
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.3412581513179725,
+    0.2619855045298459,
+    172.6259575635874,
+    170.62691754800304
+  ],
+  "gripper_m": [
+    0.060102896988315134,
+    0.06002065411155918
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4879197738348333,
+    "left_hip_roll_joint": 0.08398308793095063,
+    "left_hip_yaw_joint": 0.03474481151958932,
+    "left_knee_joint": 2.2570137167190505,
+    "left_ankle_pitch_joint": -0.7664232866892162,
+    "left_ankle_roll_joint": 0.04814030271701961,
+    "right_hip_pitch_joint": -2.4830740316955735,
+    "right_hip_roll_joint": -0.0733505214194132,
+    "right_hip_yaw_joint": -0.01086472013430014,
+    "right_knee_joint": 2.2555222912858364,
+    "right_ankle_pitch_joint": -0.7627631311608414,
+    "right_ankle_roll_joint": -0.02910026053099608,
+    "waist_yaw_joint": 0.009325387010148596,
+    "waist_roll_joint": -0.011081817658572708,
+    "waist_pitch_joint": 0.3026846605412212,
+    "left_shoulder_pitch_joint": -1.1741375431182168,
+    "left_shoulder_roll_joint": 0.9875594262392513,
+    "left_shoulder_yaw_joint": -0.8367704212969246,
+    "left_elbow_joint": 1.1673192116299818,
+    "left_wrist_roll_joint": -1.454509993447419,
+    "left_wrist_pitch_joint": -1.170549508182301,
+    "left_wrist_yaw_joint": -1.6100848683555193,
+    "right_shoulder_pitch_joint": -1.1050213009984444,
+    "right_shoulder_roll_joint": -0.9911414452441839,
+    "right_shoulder_yaw_joint": 1.1163379644616775,
+    "right_elbow_joint": 0.8088167021045504,
+    "right_wrist_roll_joint": 1.4386395279944884,
+    "right_wrist_pitch_joint": -1.4690365715873508,
+    "right_wrist_yaw_joint": 1.5617593320175553
+  },
+  "previous_decision": {
+    "observation_id": 7,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "已停稳，双膝和双脚支撑正常，两只支架位于身前；执行缓慢下蹲与伸手，用既有IK保持足底支撑。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

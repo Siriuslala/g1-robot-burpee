@@ -1,0 +1,1 @@
+{"observation_id": 11, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "提架起身已接近完成，身体直立且速度接近零，夹爪仍有双侧接触；先完成站稳，再进入转身。"}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 18,
+  "part": "transport",
+  "proposed_skill": "lower",
+  "sim_time": 69.50000000118362,
+  "image": "ego_018.png",
+  "gravity_body": [
+    0.00688599141721263,
+    -0.014059534216385453,
+    -0.9998774488005113
+  ],
+  "body_velocity": [
+    0.010487622459681883,
+    0.02536425297833147,
+    0.00020488940006045938
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    24.498026158091676,
+    19.603967821394534,
+    137.22714290127675,
+    219.5532872799193
+  ],
+  "gripper_m": [
+    -0.0014998631761155002,
+    -0.0014879127673836155
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.12008061649511433,
+    "left_hip_roll_joint": 0.038502947452251836,
+    "left_hip_yaw_joint": 0.03667845961225417,
+    "left_knee_joint": 0.29201885571494063,
+    "left_ankle_pitch_joint": -0.1764333861788694,
+    "left_ankle_roll_joint": -0.0020890285074008845,
+    "right_hip_pitch_joint": -0.17766205164076881,
+    "right_hip_roll_joint": 0.03810826396329061,
+    "right_hip_yaw_joint": 0.01052169157320148,
+    "right_knee_joint": 0.34212262122626574,
+    "right_ankle_pitch_joint": -0.16999022292387295,
+    "right_ankle_roll_joint": -0.04260700902475206,
+    "waist_yaw_joint": -0.002381918446735868,
+    "waist_roll_joint": 0.004963240030250947,
+    "waist_pitch_joint": 0.09503917629850793,
+    "left_shoulder_pitch_joint": 0.12421327460108167,
+    "left_shoulder_roll_joint": 0.6532108897802635,
+    "left_shoulder_yaw_joint": -0.07684731111018511,
+    "left_elbow_joint": 0.7318831474479858,
+    "left_wrist_roll_joint": -0.5166412781060962,
+    "left_wrist_pitch_joint": -0.7182669141567862,
+    "left_wrist_yaw_joint": -1.5718289315690455,
+    "right_shoulder_pitch_joint": 0.19492678330229077,
+    "right_shoulder_roll_joint": -0.7700182454281218,
+    "right_shoulder_yaw_joint": 0.5776518773703351,
+    "right_elbow_joint": 0.5124694370472467,
+    "right_wrist_roll_joint": 0.8013473730787009,
+    "right_wrist_pitch_joint": -1.0088519294254532,
+    "right_wrist_yaw_joint": 1.6088863913679108
+  },
+  "previous_decision": {
+    "observation_id": 17,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "最终落脚已完成，当前双脚重新承重，仍有轻微下沉速度；先恢复稳定提架站姿，再开始放置。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

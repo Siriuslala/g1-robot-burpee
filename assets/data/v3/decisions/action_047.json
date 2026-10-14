@@ -1,0 +1,1 @@
+{"observation_id": 47, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "legacy", "reason": "双夹爪已张开，手部接触力几乎为零，身体稳定；先将双手撤离横杆，保持双脚支撑再起身。"}

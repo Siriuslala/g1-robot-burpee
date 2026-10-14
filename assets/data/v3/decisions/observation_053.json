@@ -1,0 +1,70 @@
+{
+  "observation_id": 53,
+  "part": "burpee",
+  "proposed_skill": "final_flex",
+  "sim_time": 157.35200000297647,
+  "image": "ego_053.png",
+  "gravity_body": [
+    0.018189509339490376,
+    -1.834545799450117e-05,
+    -0.9998345570210265
+  ],
+  "body_velocity": [
+    -0.0012976836064537173,
+    0.0005096182310223066,
+    -0.0012884509490665578
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    179.33238360739495,
+    179.80699420082505
+  ],
+  "gripper_m": [
+    0.05572680660037896,
+    0.05572689528902508
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.15422569905086175,
+    "left_hip_roll_joint": -0.001665025626680324,
+    "left_hip_yaw_joint": 0.0005390617464831158,
+    "left_knee_joint": 0.31394267474836596,
+    "left_ankle_pitch_joint": -0.17824240411455158,
+    "left_ankle_roll_joint": 0.0008322529769132329,
+    "right_hip_pitch_joint": -0.15451113922406226,
+    "right_hip_roll_joint": 0.0018855913832380826,
+    "right_hip_yaw_joint": -0.000697056201594992,
+    "right_knee_joint": 0.3140231517972616,
+    "right_ankle_pitch_joint": -0.17806443964692367,
+    "right_ankle_roll_joint": -0.0009857056741991608,
+    "waist_yaw_joint": -4.993742362505828e-06,
+    "waist_roll_joint": -3.790900102988597e-05,
+    "waist_pitch_joint": 0.027116260483583995,
+    "left_shoulder_pitch_joint": 0.0020588641130819107,
+    "left_shoulder_roll_joint": 0.19995581910468782,
+    "left_shoulder_yaw_joint": -0.0032031502582227215,
+    "left_elbow_joint": 1.401203734280265,
+    "left_wrist_roll_joint": -0.00015659576171406377,
+    "left_wrist_pitch_joint": 0.020638523764968567,
+    "left_wrist_yaw_joint": -0.0036900933908319286,
+    "right_shoulder_pitch_joint": 0.0020631852485210734,
+    "right_shoulder_roll_joint": -0.2000444544376716,
+    "right_shoulder_yaw_joint": 0.003210714264429109,
+    "right_elbow_joint": 1.4012053728385718,
+    "right_wrist_roll_joint": 0.00015536793550521123,
+    "right_wrist_pitch_joint": 0.020640163164035896,
+    "right_wrist_yaw_joint": 0.003681034634343907
+  },
+  "previous_decision": {
+    "observation_id": 52,
+    "execute": true,
+    "horizon_s": 3.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双脚已经重新承重，膝盖屈曲缓冲，身体速度明显降低且躯干直立；继续完成落地恢复，放下双臂并站稳。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

@@ -1,0 +1,1 @@
+{"observation_id": 22, "execute": true, "horizon_s": 8.0, "speed_scale": 1.0, "controller": "legacy", "reason": "双手已离开支架且接触力为零，两只支架独立留在台面上；批准空手缓慢起身并恢复自然站立。"}

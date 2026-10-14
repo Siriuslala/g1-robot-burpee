@@ -1,0 +1,1 @@
+{"observation_id": 27, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "legacy", "reason": "已恢复自然站姿，双手空载、支架在前，脚部受力均衡；保持站稳并将当前状态连续交给波比跳控制。"}

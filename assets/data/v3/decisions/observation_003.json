@@ -1,0 +1,71 @@
+{
+  "observation_id": 3,
+  "part": "transport",
+  "proposed_skill": "approach",
+  "sim_time": 9.545999999991091,
+  "image": "ego_003.png",
+  "gravity_body": [
+    -0.11956168315945986,
+    -0.000893944509561434,
+    -0.9928263719217416
+  ],
+  "body_velocity": [
+    0.3403739954927019,
+    0.2621325139839267,
+    -0.08401641831095094
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    0.0,
+    333.72950154832716
+  ],
+  "gripper_m": [
+    0.06024654075690521,
+    0.060343984482180896
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.2892684169033195,
+    "left_hip_roll_joint": 0.1906514591307728,
+    "left_hip_yaw_joint": 0.11735897253598788,
+    "left_knee_joint": 0.26191799052378845,
+    "left_ankle_pitch_joint": -0.034841416040099514,
+    "left_ankle_roll_joint": -0.0632419465090145,
+    "right_hip_pitch_joint": -0.0316884787812098,
+    "right_hip_roll_joint": -0.03695808739788246,
+    "right_hip_yaw_joint": -0.07361142369907352,
+    "right_knee_joint": 0.4277647687246042,
+    "right_ankle_pitch_joint": -0.2860870226902222,
+    "right_ankle_roll_joint": 0.00942231899239594,
+    "waist_yaw_joint": -0.005358053355819729,
+    "waist_roll_joint": 0.0694274945062953,
+    "waist_pitch_joint": 0.04786949778987579,
+    "left_shoulder_pitch_joint": 0.010245611513835733,
+    "left_shoulder_roll_joint": 0.22471937607296613,
+    "left_shoulder_yaw_joint": -0.0015065309563645983,
+    "left_elbow_joint": 1.40360295676548,
+    "left_wrist_roll_joint": 0.00042756475141872695,
+    "left_wrist_pitch_joint": 0.023836749509833294,
+    "left_wrist_yaw_joint": 0.0012700564072437525,
+    "right_shoulder_pitch_joint": 0.00974032660606821,
+    "right_shoulder_roll_joint": -0.2213700591942621,
+    "right_shoulder_yaw_joint": 0.001912536483379257,
+    "right_elbow_joint": 1.4029744851716461,
+    "right_wrist_roll_joint": -1.8588012661125497e-05,
+    "right_wrist_pitch_joint": 0.022061622164084804,
+    "right_wrist_yaw_joint": 0.0017092431079280136
+  },
+  "previous_decision": {
+    "observation_id": 2,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "sonic",
+    "reason": "已登上台面，支架仍在前方且双脚承重正常；当前有换步横向速度，保持SONIC导航并用较短窗口观察接近过程。"
+  },
+  "available_controllers": [
+    "legacy",
+    "sonic"
+  ]
+}

@@ -1,0 +1,1 @@
+{"observation_id": 5, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "legacy", "reason": "已到支架前，仍有轻微后向速度和左右承重差异；切换站立恢复控制，待身体稳定后再取架。"}

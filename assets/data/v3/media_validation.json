@@ -1,0 +1,22 @@
+{
+  "render/transition.mp4": {
+    "fps": 15.0,
+    "duration": 164.0,
+    "size": [
+      848,
+      480
+    ],
+    "codec": "h264",
+    "frames": 2460
+  },
+  "ego_video/first_person.mp4": {
+    "fps": 15.0,
+    "duration": 164.0,
+    "size": [
+      848,
+      480
+    ],
+    "codec": "h264",
+    "frames": 2460
+  }
+}

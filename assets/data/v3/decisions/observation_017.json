@@ -1,0 +1,70 @@
+{
+  "observation_id": 17,
+  "part": "transport",
+  "proposed_skill": "recover",
+  "sim_time": 66.68400000109014,
+  "image": "ego_017.png",
+  "gravity_body": [
+    0.1287804027368001,
+    0.0167092758556691,
+    -0.9915323534667578
+  ],
+  "body_velocity": [
+    -0.047041180892367356,
+    0.04654600847168546,
+    -0.062071191936571915
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    21.694023766350764,
+    24.704509380149815,
+    396.260413517049,
+    205.87607922131625
+  ],
+  "gripper_m": [
+    -0.0014943868187243378,
+    -0.0011448610034634492
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.36677988332806083,
+    "left_hip_roll_joint": 0.05659515699418225,
+    "left_hip_yaw_joint": 0.0753684606593171,
+    "left_knee_joint": 0.505812535293056,
+    "left_ankle_pitch_joint": -0.270709607985262,
+    "left_ankle_roll_joint": -0.004912773274250423,
+    "right_hip_pitch_joint": -0.3994948813502683,
+    "right_hip_roll_joint": 0.04490940726732449,
+    "right_hip_yaw_joint": 0.054036496220114555,
+    "right_knee_joint": 0.4666716737439673,
+    "right_ankle_pitch_joint": -0.19405574932740416,
+    "right_ankle_roll_joint": -0.05900130880936925,
+    "waist_yaw_joint": -0.01197452930874244,
+    "waist_roll_joint": 0.07214404537867422,
+    "waist_pitch_joint": 0.09774866971901183,
+    "left_shoulder_pitch_joint": 0.12050708362018055,
+    "left_shoulder_roll_joint": 0.6588774207074142,
+    "left_shoulder_yaw_joint": -0.0750906938609621,
+    "left_elbow_joint": 0.7267543901805341,
+    "left_wrist_roll_joint": -0.519750226232256,
+    "left_wrist_pitch_joint": -0.7288620954217292,
+    "left_wrist_yaw_joint": -1.573440635814363,
+    "right_shoulder_pitch_joint": 0.19867961003714488,
+    "right_shoulder_roll_joint": -0.7711489482651136,
+    "right_shoulder_yaw_joint": 0.5783328656996395,
+    "right_elbow_joint": 0.5150127485439693,
+    "right_wrist_roll_joint": 0.8006318011694891,
+    "right_wrist_pitch_joint": -1.0064907100604763,
+    "right_wrist_yaw_joint": 1.6092197478984693
+  },
+  "previous_decision": {
+    "observation_id": 16,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "朝向已接近放架方向，仍处于落脚调整中，右脚承重较小；继续完成对齐，保持夹持，不提前下蹲。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

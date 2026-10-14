@@ -1,0 +1,1 @@
+{"observation_id": 49, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "已起身至直立，双脚受力约172N且速度很小；完成站稳末端，再开始后摆双臂和屈膝蓄力。"}

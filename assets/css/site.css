@@ -800,12 +800,9 @@ footer a:hover {
   }
 }
 
-.method-entry {
-  margin-top:-30px;
-  padding-bottom:30px;
-}
+.method-entry {display:flex;justify-content:center;margin:0 0 28px;padding:0}
 @media(max-width:540px) {
-  .method-entry {margin-top:-8px}
+  .method-entry {margin:0 0 22px}
 }
 
 /* Version navigation and paired views share the original visual palette. */

@@ -1,0 +1,70 @@
+{
+  "observation_id": 14,
+  "part": "transport",
+  "proposed_skill": "recover",
+  "sim_time": 53.55800000065441,
+  "image": "ego_014.png",
+  "gravity_body": [
+    -0.04769487020990195,
+    0.014584706110005877,
+    -0.9987554684222504
+  ],
+  "body_velocity": [
+    0.06979933615955039,
+    0.06473645688650485,
+    0.01847854177369823
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    21.541255458754375,
+    18.427272999417365,
+    237.79982525387692,
+    107.75649204267253
+  ],
+  "gripper_m": [
+    -0.0016629540651829351,
+    -0.0015311439638774295
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.29484475603576543,
+    "left_hip_roll_joint": 0.06416262971639629,
+    "left_hip_yaw_joint": 0.059985249370641945,
+    "left_knee_joint": 0.5289469417315957,
+    "left_ankle_pitch_joint": -0.18442086030238156,
+    "left_ankle_roll_joint": -0.018020712122249906,
+    "right_hip_pitch_joint": 0.055508616316317795,
+    "right_hip_roll_joint": -0.13283360800861402,
+    "right_hip_yaw_joint": -0.11805744239447653,
+    "right_knee_joint": 0.3611500713332974,
+    "right_ankle_pitch_joint": -0.33954250619879583,
+    "right_ankle_roll_joint": 0.11121017062009514,
+    "waist_yaw_joint": 0.006488926368243058,
+    "waist_roll_joint": -0.01584018363560824,
+    "waist_pitch_joint": 0.1110770132343024,
+    "left_shoulder_pitch_joint": 0.12213810370504341,
+    "left_shoulder_roll_joint": 0.6603617697814474,
+    "left_shoulder_yaw_joint": -0.07273745010724608,
+    "left_elbow_joint": 0.7325065964126041,
+    "left_wrist_roll_joint": -0.5193034548677645,
+    "left_wrist_pitch_joint": -0.726878913997295,
+    "left_wrist_yaw_joint": -1.5654473242059719,
+    "right_shoulder_pitch_joint": 0.1907219238354055,
+    "right_shoulder_roll_joint": -0.7642332228021682,
+    "right_shoulder_yaw_joint": 0.5792443843402979,
+    "right_elbow_joint": 0.5091368371876039,
+    "right_wrist_roll_joint": 0.8009214707690011,
+    "right_wrist_pitch_joint": -1.0093083115754635,
+    "right_wrist_yaw_joint": 1.6086883275471378
+  },
+  "previous_decision": {
+    "observation_id": 13,
+    "execute": true,
+    "horizon_s": 7.0,
+    "speed_scale": 1.0,
+    "controller": "sonic",
+    "reason": "中心标记已转到前方，画面下方仍能看到两只被握持的支架，双侧夹持力保持；继续SONIC负重走向中心并逐步减速。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

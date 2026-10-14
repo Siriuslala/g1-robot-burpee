@@ -1,0 +1,1 @@
+{"observation_id": 42, "execute": true, "horizon_s": 0.8, "speed_scale": 1.0, "controller": "legacy", "reason": "左腿已向前收回，左脚出现支撑力，右腿仍伸在后方；先让左脚落稳，保持握架。"}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 15,
+  "part": "transport",
+  "proposed_skill": "turn_front",
+  "sim_time": 56.30400000074557,
+  "image": "ego_015.png",
+  "gravity_body": [
+    0.028273179483435155,
+    -0.0037679504911762004,
+    -0.9995931321647793
+  ],
+  "body_velocity": [
+    -0.017922811173671657,
+    0.028434021579737866,
+    -0.0008377563727835783
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    20.07852930568295,
+    19.36803594774006,
+    172.89243782928585,
+    183.90608748614247
+  ],
+  "gripper_m": [
+    -0.0016163789024998198,
+    -0.0015786447387684474
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.1774639531814983,
+    "left_hip_roll_joint": 0.060675579605111045,
+    "left_hip_yaw_joint": -0.010885470251609351,
+    "left_knee_joint": 0.31360129720171637,
+    "left_ankle_pitch_joint": -0.16652523608544537,
+    "left_ankle_roll_joint": -0.0003391566246909859,
+    "right_hip_pitch_joint": -0.13766915775568872,
+    "right_hip_roll_joint": -0.031354461011841375,
+    "right_hip_yaw_joint": 0.017387563271721355,
+    "right_knee_joint": 0.32259122951470837,
+    "right_ankle_pitch_joint": -0.20900579273982128,
+    "right_ankle_roll_joint": 0.012577389486822136,
+    "waist_yaw_joint": -0.0009144981988008498,
+    "waist_roll_joint": -0.0025888996314393487,
+    "waist_pitch_joint": 0.0927374334389641,
+    "left_shoulder_pitch_joint": 0.12253373051514524,
+    "left_shoulder_roll_joint": 0.6551033011942298,
+    "left_shoulder_yaw_joint": -0.07499261740189604,
+    "left_elbow_joint": 0.7310097664949213,
+    "left_wrist_roll_joint": -0.5188444799525431,
+    "left_wrist_pitch_joint": -0.7272203450108072,
+    "left_wrist_yaw_joint": -1.5678799090775721,
+    "right_shoulder_pitch_joint": 0.19431720904644265,
+    "right_shoulder_roll_joint": -0.7686137924919824,
+    "right_shoulder_yaw_joint": 0.5778713829502812,
+    "right_elbow_joint": 0.5115528394460259,
+    "right_wrist_roll_joint": 0.801277197042428,
+    "right_wrist_pitch_joint": -1.0102418080792153,
+    "right_wrist_yaw_joint": 1.6086791074284108
+  },
+  "previous_decision": {
+    "observation_id": 14,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "已接近中心，夹持保持且两脚均有支撑，但仍有小幅水平速度；先恢复稳定站姿，再调整最终放架朝向。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

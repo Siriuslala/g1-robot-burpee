@@ -1,0 +1,70 @@
+{
+  "observation_id": 25,
+  "part": "transport",
+  "proposed_skill": "flex",
+  "sim_time": 96.30000000207329,
+  "image": "ego_025.png",
+  "gravity_body": [
+    -0.00043912330346892016,
+    -0.0007047151291166356,
+    -0.9999996552735964
+  ],
+  "body_velocity": [
+    -0.0012602137572177736,
+    -0.0005271848882796923,
+    -3.45125868310317e-05
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    174.52791086983314,
+    170.31850668778844
+  ],
+  "gripper_m": [
+    0.06031809468298619,
+    0.06031854375837058
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.14238593493510512,
+    "left_hip_roll_joint": 0.013381960697858832,
+    "left_hip_yaw_joint": 0.028148202739200046,
+    "left_knee_joint": 0.3251571120645743,
+    "left_ankle_pitch_joint": -0.18257345505257117,
+    "left_ankle_roll_joint": -0.001125118234156864,
+    "right_hip_pitch_joint": -0.1544557227500641,
+    "right_hip_roll_joint": 0.0037708106041583604,
+    "right_hip_yaw_joint": 0.028471218462061333,
+    "right_knee_joint": 0.32900756570633405,
+    "right_ankle_pitch_joint": -0.17457726408475416,
+    "right_ankle_roll_joint": 0.0031087990698009157,
+    "waist_yaw_joint": -0.000572687918088815,
+    "waist_roll_joint": 0.002154058713096153,
+    "waist_pitch_joint": 0.07434612197815757,
+    "left_shoulder_pitch_joint": -6.354271871098462e-05,
+    "left_shoulder_roll_joint": 0.21999659197438462,
+    "left_shoulder_yaw_joint": -0.0019585328576535387,
+    "left_elbow_joint": 1.3999844569041158,
+    "left_wrist_roll_joint": 0.00010331735711290778,
+    "left_wrist_pitch_joint": 0.019266814873063736,
+    "left_wrist_yaw_joint": -0.0009414081492676106,
+    "right_shoulder_pitch_joint": -6.214751985985762e-05,
+    "right_shoulder_roll_joint": -0.22000506777639958,
+    "right_shoulder_yaw_joint": 0.001972095672460818,
+    "right_elbow_joint": 1.3999849274026714,
+    "right_wrist_roll_joint": -0.00010268816295420783,
+    "right_wrist_pitch_joint": 0.019265811598855574,
+    "right_wrist_yaw_joint": 0.0009478133615533976
+  },
+  "previous_decision": {
+    "observation_id": 24,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "自然站姿已建立，双手空载，支架静置在面前；保持短暂停顿，随后执行第一次秀肌肉动作。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

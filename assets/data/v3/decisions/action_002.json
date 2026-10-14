@@ -1,0 +1,1 @@
+{"observation_id": 2, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "sonic", "reason": "已登上台面，支架仍在前方且双脚承重正常；当前有换步横向速度，保持SONIC导航并用较短窗口观察接近过程。"}

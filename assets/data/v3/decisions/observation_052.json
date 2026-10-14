@@ -1,0 +1,70 @@
+{
+  "observation_id": 52,
+  "part": "burpee",
+  "proposed_skill": "jump",
+  "sim_time": 155.65200000292003,
+  "image": "ego_052.png",
+  "gravity_body": [
+    -0.008346199027218622,
+    0.000573359775655227,
+    -0.9999650054978764
+  ],
+  "body_velocity": [
+    0.03115933401634618,
+    -0.001426935980699587,
+    0.008749908596692293
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    173.8488222872113,
+    168.48670512324472
+  ],
+  "gripper_m": [
+    0.05999579031830751,
+    0.05999580191914499
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.33032935529737206,
+    "left_hip_roll_joint": -0.003253660854382902,
+    "left_hip_yaw_joint": 0.0013288139964663743,
+    "left_knee_joint": 0.6205834374850516,
+    "left_ankle_pitch_joint": -0.2811210815795026,
+    "left_ankle_roll_joint": 0.0017811727455829555,
+    "right_hip_pitch_joint": -0.3302982683729844,
+    "right_hip_roll_joint": 0.0021343368254100404,
+    "right_hip_yaw_joint": -0.001402421553355758,
+    "right_knee_joint": 0.6191203517190255,
+    "right_ankle_pitch_joint": -0.279763924042148,
+    "right_ankle_roll_joint": -0.0011672996610903757,
+    "waist_yaw_joint": 0.0003403857968549875,
+    "waist_roll_joint": -0.0009689119085268198,
+    "waist_pitch_joint": 0.03575574794457296,
+    "left_shoulder_pitch_joint": -1.6323974293735282,
+    "left_shoulder_roll_joint": 0.3892913209966554,
+    "left_shoulder_yaw_joint": -0.0037373165363487394,
+    "left_elbow_joint": 1.4304582098326297,
+    "left_wrist_roll_joint": -0.0006379734227366781,
+    "left_wrist_pitch_joint": 0.06015040690912913,
+    "left_wrist_yaw_joint": -0.007562831972164508,
+    "right_shoulder_pitch_joint": -1.6328390358862557,
+    "right_shoulder_roll_joint": -0.3879738647622495,
+    "right_shoulder_yaw_joint": 0.0038402419716099872,
+    "right_elbow_joint": 1.430324252753627,
+    "right_wrist_roll_joint": 0.0006957819094196805,
+    "right_wrist_pitch_joint": 0.05997873929837852,
+    "right_wrist_yaw_joint": 0.007877833496318109
+  },
+  "previous_decision": {
+    "observation_id": 51,
+    "execute": true,
+    "horizon_s": 0.7,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双脚接触力均为零，身体具有向上速度，已进入腾空阶段；短时继续跳跃控制，准备屈膝缓冲着地并复查支撑。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

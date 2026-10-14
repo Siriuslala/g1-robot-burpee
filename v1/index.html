@@ -8,7 +8,7 @@
   <meta name="description" content="Unitree G1 舞台波比跳仿真：登台、搬运支架、俯卧撑与摆臂跳跃。由 GPT-6-Astra 创建，支持双视角、倍速播放与动作阶段同步。">
   <title>G1 Robot Performance created by GPT-6-Astra</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/site.css?v=077071dcac93">
+  <link rel="stylesheet" href="assets/css/site.css?v=7b3f8abba1b5">
   <script src="assets/js/timeline.js?v=8f3bd76ecab8" defer></script>
   <script src="assets/js/player.js?v=3d4c8793894e" defer></script>
 </head>
@@ -22,7 +22,8 @@
       <div class="tags"><span>登台与搬运</span><i aria-hidden="true">→</i><span>放置与展示</span><i aria-hidden="true">→</i><span>支架俯卧撑</span><i aria-hidden="true">→</i><span>跳跃与谢幕</span></div>
     </section>
 
-    <nav class="version-switch" aria-label="表演版本"><a class="version-button" href="./">v2（GPT 在线控制）</a><a class="version-button" href="v1/" aria-current="page">v1（状态机控制）</a></nav>
+    <nav class="version-switch" aria-label="表演版本"><a class="version-button" href="./">v3（GPT 在线控制 + SONIC）</a><a class="version-button" href="v2/">v2（GPT 在线控制）</a><a class="version-button" href="v1/" aria-current="page">v1（状态机控制）</a></nav>
+    <div class="method-entry"><a class="download-button" href="technical_v1.html">技术方案 <span aria-hidden="true">→</span></a></div>
 
     <section class="showcase" aria-label="机器人表演视频">
       <div class="toolbar">
@@ -37,15 +38,14 @@
       <div class="chapter-progress" id="chapter-progress" aria-label="四阶段播放进度"></div>
       <p id="player-error" class="error" role="alert" hidden></p>
     </section>
-    <div class="player-caption"><p id="view-note">运镜衔接 · 登台与搬运保持全景，俯卧撑前平滑转至近景。</p><a class="download-button" id="download-video" href="assets/media/transition.mp4" download="g1-performance-transition.mp4"><span aria-hidden="true">↓</span><span id="download-label">下载到本地 · 运镜衔接</span></a></div>
+    <div class="player-caption"><p id="view-note">运镜衔接 · 登台与搬运保持全景，俯卧撑前平滑转至近景。</p><a class="download-button" id="download-video" href="assets/media/transition.mp4" download="g1-performance-transition.mp4"><span id="download-label">下载到本地 · 运镜衔接</span></a></div>
 
     <section class="sequence" aria-labelledby="sequence-title">
       <div class="section-heading"><div><p class="eyebrow">THE CHOREOGRAPHY</p><h2 id="sequence-title">一场表演，四个阶段。</h2></div><p><span class="legend-dot"></span> 随播放同步高亮 <span class="hint-separator">·</span> 点击动作跳转</p></div>
       <div class="phase-grid" id="phases"></div>
       <noscript><p class="error">启用 JavaScript 后可切换视角、倍速并显示动作阶段。仍可使用上方原生播放器观看完整视频。</p></noscript>
     </section>
-    <div class="method-entry"><a class="download-button" href="https://siriuslala.github.io/g1-robot-burpee/technical_v1.html">技术方案 <span aria-hidden="true">→</span></a></div>
   </main>
-  <footer><div><span class="footer-mark">G1</span> Unitree G1 <span class="footer-separator">/</span> GPT-6-Astra</div><span>舞台波比跳 · 仿真展示</span><a href="assets/media/transition.mp4" download>下载运镜视频 <span aria-hidden="true">↓</span></a></footer>
+  <footer><div><span class="footer-mark">G1</span> Unitree G1 <span class="footer-separator">/</span> GPT-6-Astra</div><span>舞台波比跳 · 仿真展示</span><a href="assets/media/transition.mp4" download>下载运镜视频 </a></footer>
 </body>
 </html>

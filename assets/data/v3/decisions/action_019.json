@@ -1,0 +1,1 @@
+{"observation_id": 19, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "legacy", "reason": "两只支架已到中心标记前方，机器人蹲姿和夹持稳定；保持当前水平落点，执行缓慢下降与调平，确认底座落稳后才能松手。"}

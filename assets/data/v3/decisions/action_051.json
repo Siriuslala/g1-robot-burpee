@@ -1,0 +1,1 @@
+{"observation_id": 51, "execute": true, "horizon_s": 0.7, "speed_scale": 1.0, "controller": "legacy", "reason": "双脚接触力均为零，身体具有向上速度，已进入腾空阶段；短时继续跳跃控制，准备屈膝缓冲着地并复查支撑。"}

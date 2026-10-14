@@ -1,0 +1,1 @@
+{"observation_id": 34, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "legacy", "reason": "双夹爪已闭合并建立接触，身体速度近乎零；逐渐将部分重量转移到双手，建立伸腿前的支撑姿态。"}

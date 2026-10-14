@@ -1,0 +1,68 @@
+{
+  "mode": "saved_state_sequence_replay",
+  "sources": [
+    "artifacts/stage_transport/sonic_calibration_004",
+    "artifacts/stage_burpee/sonic_calibration_004"
+  ],
+  "source_sha256": {
+    "artifacts/stage_transport/sonic_calibration_004": "8c493c2a9eaf50c141638c7f4ccaf7a7941b9b0eac2d853193db08921188ca7f",
+    "artifacts/stage_burpee/sonic_calibration_004": "3d35bc0912e8eb426f98d56910c7ab3d613110483e0634e5f80b647fc14108fe"
+  },
+  "fps": 15,
+  "frames": 2460,
+  "duration_seconds": 164.0,
+  "resolution": [
+    848,
+    480
+  ],
+  "handoff_time_s": 106.30000000240526,
+  "initial_qpos_max_error": 0.0,
+  "editorial_handoff": false,
+  "crossfade_s": 0.0,
+  "burpee_time_offset_s": 106.30000000240526,
+  "continuous_physics_handoff": true,
+  "source_initial_qpos_exact": true,
+  "source_solver_warmstart_available": true,
+  "camera_start": [
+    1.9,
+    0.0,
+    0.45,
+    6.0,
+    135.0,
+    -30.0
+  ],
+  "camera_end": [
+    2.08,
+    0.12,
+    0.7,
+    2.9,
+    35.0,
+    -20.0
+  ],
+  "camera_vector_fields": [
+    "lookat_x",
+    "lookat_y",
+    "lookat_z",
+    "distance",
+    "azimuth",
+    "elevation"
+  ],
+  "transition_interval_s": [
+    103.30000000230567,
+    106.30000000240526
+  ],
+  "transition_easing": "cosine",
+  "inserted_freeze_frames": 0,
+  "videos": [
+    "fixed.mp4",
+    "transition.mp4"
+  ],
+  "burpee_frames": 865,
+  "burpee_duration_seconds": 57.666666666666664,
+  "playback_speed": 1.0,
+  "appearance_changes": "camera and sky only",
+  "strict_physics_audit_passed": false,
+  "reused_for_online_run": "/home/liyueyan/robot/artifacts/online_hybrid/codex_sonic_003",
+  "cached_render_source": "/home/liyueyan/robot/artifacts/online_hybrid/sonic_calibration_004/render",
+  "trajectory_equivalence_audit": "../render_equivalence.json"
+}

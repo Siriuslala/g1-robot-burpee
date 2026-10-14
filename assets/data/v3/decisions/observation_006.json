@@ -1,0 +1,70 @@
+{
+  "observation_id": 6,
+  "part": "transport",
+  "proposed_skill": "prepare_grasp",
+  "sim_time": 22.65999999996053,
+  "image": "ego_006.png",
+  "gravity_body": [
+    0.028270742868403358,
+    -0.0026035018736579227,
+    -0.9995969121979414
+  ],
+  "body_velocity": [
+    0.007201543102670592,
+    0.0018559214095217422,
+    0.00013938902459780046
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    167.66773310962668,
+    177.46923596694384
+  ],
+  "gripper_m": [
+    0.06031730025230634,
+    0.06032060636418904
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.15923617208002452,
+    "left_hip_roll_joint": 0.13649955076066322,
+    "left_hip_yaw_joint": 0.2390101967353332,
+    "left_knee_joint": 0.3201454510826949,
+    "left_ankle_pitch_joint": -0.1625623808364218,
+    "left_ankle_roll_joint": -0.05130121058620449,
+    "right_hip_pitch_joint": -0.09635427367433506,
+    "right_hip_roll_joint": -0.14296573237530336,
+    "right_hip_yaw_joint": -0.27914898372956787,
+    "right_knee_joint": 0.3128444721412276,
+    "right_ankle_pitch_joint": -0.21322162429363894,
+    "right_ankle_roll_joint": 0.06385993967926587,
+    "waist_yaw_joint": -0.00018436810866364448,
+    "waist_roll_joint": 0.0006912622337008343,
+    "waist_pitch_joint": 0.09401351545378671,
+    "left_shoulder_pitch_joint": -0.001265600648884397,
+    "left_shoulder_roll_joint": 0.21961488533916462,
+    "left_shoulder_yaw_joint": -0.0019894604481211203,
+    "left_elbow_joint": 1.3996856099471138,
+    "left_wrist_roll_joint": 9.763717248536609e-05,
+    "left_wrist_pitch_joint": 0.018979851093083974,
+    "left_wrist_yaw_joint": -0.0009798613152540818,
+    "right_shoulder_pitch_joint": -0.0012157876096865745,
+    "right_shoulder_roll_joint": -0.2204274154230229,
+    "right_shoulder_yaw_joint": 0.0019450816322379805,
+    "right_elbow_joint": 1.3997027504263084,
+    "right_wrist_roll_joint": -0.00010580026779017001,
+    "right_wrist_pitch_joint": 0.0190050730820746,
+    "right_wrist_yaw_joint": 0.0009065792914229213
+  },
+  "previous_decision": {
+    "observation_id": 5,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "已到支架前，仍有轻微后向速度和左右承重差异；切换站立恢复控制，待身体稳定后再取架。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

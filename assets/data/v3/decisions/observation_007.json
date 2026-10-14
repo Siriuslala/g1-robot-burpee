@@ -1,0 +1,70 @@
+{
+  "observation_id": 7,
+  "part": "transport",
+  "proposed_skill": "crouch",
+  "sim_time": 26.661999999951203,
+  "image": "ego_007.png",
+  "gravity_body": [
+    0.008054303159410341,
+    -0.0010840173338437502,
+    -0.9999669760082271
+  ],
+  "body_velocity": [
+    -0.005083572221400732,
+    0.0011755271110786454,
+    -0.0001691150213965833
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    171.26672109910575,
+    173.61342725227885
+  ],
+  "gripper_m": [
+    0.06002047473857428,
+    0.06002106201463172
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.15606095973441123,
+    "left_hip_roll_joint": 0.038888175090207526,
+    "left_hip_yaw_joint": -0.010261554907892106,
+    "left_knee_joint": 0.3211056627616918,
+    "left_ankle_pitch_joint": -0.175061586069741,
+    "left_ankle_roll_joint": -0.007176407033430624,
+    "right_hip_pitch_joint": -0.15061179183986112,
+    "right_hip_roll_joint": -0.023217129076425484,
+    "right_hip_yaw_joint": 0.008140550475428412,
+    "right_knee_joint": 0.3275266820619069,
+    "right_ankle_pitch_joint": -0.1847421041110419,
+    "right_ankle_roll_joint": 0.00774245091916391,
+    "waist_yaw_joint": -0.0006234375648976021,
+    "waist_roll_joint": 0.002012697808808703,
+    "waist_pitch_joint": 0.07632982217401975,
+    "left_shoulder_pitch_joint": 0.13304014781171364,
+    "left_shoulder_roll_joint": 0.9310909804069211,
+    "left_shoulder_yaw_joint": -0.9537247852281225,
+    "left_elbow_joint": 0.61776234219088,
+    "left_wrist_roll_joint": -1.2558454741146516,
+    "left_wrist_pitch_joint": -1.276867472916103,
+    "left_wrist_yaw_joint": -1.609365275398252,
+    "right_shoulder_pitch_joint": 0.20407150573041982,
+    "right_shoulder_roll_joint": -0.7957648026553552,
+    "right_shoulder_yaw_joint": 0.5610170471878659,
+    "right_elbow_joint": 0.5277672086463671,
+    "right_wrist_roll_joint": 0.8883287924391564,
+    "right_wrist_pitch_joint": -1.0266374484038638,
+    "right_wrist_yaw_joint": 1.6093686037198778
+  },
+  "previous_decision": {
+    "observation_id": 6,
+    "execute": true,
+    "horizon_s": 5.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双脚承重接近平衡，身体速度已降至约0.007m/s，近处两只支架可见；批准取架准备姿态，保持夹爪张开。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 28,
+  "part": "burpee",
+  "proposed_skill": "initial_stand",
+  "sim_time": 106.30000000240526,
+  "image": "ego_028.png",
+  "gravity_body": [
+    -0.0046271766470211435,
+    -0.0007683339868398602,
+    -0.9999889993890744
+  ],
+  "body_velocity": [
+    -0.012672141735421681,
+    -0.0002020780225170605,
+    -0.0003489532051612069
+  ],
+  "contact_summary_initialized": false,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "gripper_m": [
+    0.0603180075769629,
+    0.060318441694679883
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.14185841532355964,
+    "left_hip_roll_joint": 0.011789683736179567,
+    "left_hip_yaw_joint": 0.02865854665805664,
+    "left_knee_joint": 0.32649758412882895,
+    "left_ankle_pitch_joint": -0.18056235645285712,
+    "left_ankle_roll_joint": -0.00011824306492679365,
+    "right_hip_pitch_joint": -0.15386037889605783,
+    "right_hip_roll_joint": 0.005266007042806856,
+    "right_hip_yaw_joint": 0.027977546026086295,
+    "right_knee_joint": 0.3303087963916484,
+    "right_ankle_pitch_joint": -0.17250903076640148,
+    "right_ankle_roll_joint": 0.0021726627715960953,
+    "waist_yaw_joint": -0.0005723316260558345,
+    "waist_roll_joint": 0.002145730157892733,
+    "waist_pitch_joint": 0.07332677013854876,
+    "left_shoulder_pitch_joint": 0.00013133261466691492,
+    "left_shoulder_roll_joint": 0.21999654743838568,
+    "left_shoulder_yaw_joint": -0.0019579532149445926,
+    "left_elbow_joint": 1.40003178768038,
+    "left_wrist_roll_joint": 0.00010352532775806291,
+    "left_wrist_pitch_joint": 0.019281513973698972,
+    "left_wrist_yaw_joint": -0.0009412792000990755,
+    "right_shoulder_pitch_joint": 0.00013161077339719814,
+    "right_shoulder_roll_joint": -0.2200010040572558,
+    "right_shoulder_yaw_joint": 0.001971833241213396,
+    "right_elbow_joint": 1.4000318859775909,
+    "right_wrist_roll_joint": -0.00010285436291449727,
+    "right_wrist_pitch_joint": 0.019280332385223514,
+    "right_wrist_yaw_joint": 0.0009479585223052705
+  },
+  "previous_decision": {
+    "observation_id": 27,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "已恢复自然站姿，双手空载、支架在前，脚部受力均衡；保持站稳并将当前状态连续交给波比跳控制。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

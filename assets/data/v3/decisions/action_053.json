@@ -1,0 +1,1 @@
+{"observation_id": 53, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "legacy", "reason": "落地恢复完成，双脚受力均衡，身体接近静止且已自然站立；执行最后一次秀肌肉，并在定姿中继续检查稳定性。"}

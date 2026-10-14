@@ -1,0 +1,70 @@
+{
+  "observation_id": 21,
+  "part": "transport",
+  "proposed_skill": "escape",
+  "sim_time": 82.00000000159858,
+  "image": "ego_021.png",
+  "gravity_body": [
+    0.8439369683429971,
+    0.00532076175117191,
+    -0.5364159607603244
+  ],
+  "body_velocity": [
+    0.0002003696677911739,
+    1.9767694291604063e-05,
+    0.00016020970226373523
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    1.0670780958796369,
+    170.11659799830898,
+    173.91217160557744
+  ],
+  "gripper_m": [
+    0.060115982892467286,
+    0.06005573630596453
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4842023241000817,
+    "left_hip_roll_joint": 0.0869938348197501,
+    "left_hip_yaw_joint": 0.028924884113318818,
+    "left_knee_joint": 2.259974878411774,
+    "left_ankle_pitch_joint": -0.7741542213668966,
+    "left_ankle_roll_joint": 0.04014481316512178,
+    "right_hip_pitch_joint": -2.48152998527098,
+    "right_hip_roll_joint": -0.07741045897081071,
+    "right_hip_yaw_joint": -0.011853720224904869,
+    "right_knee_joint": 2.257095699188994,
+    "right_ankle_pitch_joint": -0.7706032074131756,
+    "right_ankle_roll_joint": -0.033086729727105045,
+    "waist_yaw_joint": -0.0013047655645376482,
+    "waist_roll_joint": -0.015406399654743485,
+    "waist_pitch_joint": 0.2954504793473019,
+    "left_shoulder_pitch_joint": -0.8977822452335191,
+    "left_shoulder_roll_joint": 0.909746240092389,
+    "left_shoulder_yaw_joint": -0.5993757783913451,
+    "left_elbow_joint": 1.0945475258712434,
+    "left_wrist_roll_joint": -1.0803738677954426,
+    "left_wrist_pitch_joint": -1.4625104032517717,
+    "left_wrist_yaw_joint": -1.5725957525394583,
+    "right_shoulder_pitch_joint": -1.1976179918854257,
+    "right_shoulder_roll_joint": -0.9486335357600415,
+    "right_shoulder_yaw_joint": 1.140031912794849,
+    "right_elbow_joint": 0.9882393599524867,
+    "right_wrist_roll_joint": 1.5207272319591816,
+    "right_wrist_pitch_joint": -1.4233294462063704,
+    "right_wrist_yaw_joint": 1.60941455705171
+  },
+  "previous_decision": {
+    "observation_id": 20,
+    "execute": true,
+    "horizon_s": 2.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "支架位置已稳定，身体几乎静止，落地门控已允许释放；缓慢张开双夹爪，保持蹲姿和双脚支撑。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

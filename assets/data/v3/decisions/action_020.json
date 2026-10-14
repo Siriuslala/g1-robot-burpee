@@ -1,0 +1,1 @@
+{"observation_id": 20, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "支架位置已稳定，身体几乎静止，落地门控已允许释放；缓慢张开双夹爪，保持蹲姿和双脚支撑。"}

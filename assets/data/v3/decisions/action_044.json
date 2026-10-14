@@ -1,0 +1,1 @@
+{"observation_id": 44, "execute": true, "horizon_s": 0.8, "speed_scale": 1.0, "controller": "legacy", "reason": "右腿已收至蹲姿位置但右脚尚未承重，左脚和双手仍在支撑；完成右脚落地后再逐渐卸去手部负载。"}

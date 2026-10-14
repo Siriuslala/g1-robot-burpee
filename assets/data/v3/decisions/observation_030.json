@@ -1,0 +1,70 @@
+{
+  "observation_id": 30,
+  "part": "burpee",
+  "proposed_skill": "crouch",
+  "sim_time": 115.50400000239715,
+  "image": "ego_030.png",
+  "gravity_body": [
+    0.8466392275633238,
+    0.0022430054114605524,
+    -0.5321625571925404
+  ],
+  "body_velocity": [
+    0.00044282086650463326,
+    -0.007154054604656271,
+    0.0011000028267490571
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    175.96984256155687,
+    168.79452829102416
+  ],
+  "gripper_m": [
+    0.06011745978605905,
+    0.06005429241859766
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4827499001153317,
+    "left_hip_roll_joint": 0.08718452833214053,
+    "left_hip_yaw_joint": 0.0313214108408299,
+    "left_knee_joint": 2.2584632005292744,
+    "left_ankle_pitch_joint": -0.7788742383857845,
+    "left_ankle_roll_joint": 0.040392987415856556,
+    "right_hip_pitch_joint": -2.4826485677122814,
+    "right_hip_roll_joint": -0.07871086741764663,
+    "right_hip_yaw_joint": -0.015440483151850856,
+    "right_knee_joint": 2.256994936313327,
+    "right_ankle_pitch_joint": -0.7765332733416908,
+    "right_ankle_roll_joint": -0.02420608844404067,
+    "waist_yaw_joint": -0.0002991276623116218,
+    "waist_roll_joint": -0.015131809120472225,
+    "waist_pitch_joint": 0.29454219544296417,
+    "left_shoulder_pitch_joint": 0.19850879166485652,
+    "left_shoulder_roll_joint": 1.1204372801287676,
+    "left_shoulder_yaw_joint": 0.49027837959154374,
+    "left_elbow_joint": -0.15110264070571264,
+    "left_wrist_roll_joint": -0.7108495949661298,
+    "left_wrist_pitch_joint": -0.9387444833786309,
+    "left_wrist_yaw_joint": -1.1967785195512284,
+    "right_shoulder_pitch_joint": -1.0468220590538488,
+    "right_shoulder_roll_joint": -1.8850625243325627,
+    "right_shoulder_yaw_joint": 1.2309835942001097,
+    "right_elbow_joint": -0.04215211035882078,
+    "right_wrist_roll_joint": 0.8152551080003124,
+    "right_wrist_pitch_joint": -1.4367693067783212,
+    "right_wrist_yaw_joint": 0.5445938323367184
+  },
+  "previous_decision": {
+    "observation_id": 29,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "站姿完全稳定，双脚支撑对称，支架仍位于面前；批准下蹲并向支架伸手，先保持双脚承重。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 50,
+  "part": "burpee",
+  "proposed_skill": "jump",
+  "sim_time": 151.9520000027972,
+  "image": "ego_050.png",
+  "gravity_body": [
+    -0.001437973306108938,
+    -0.00043897403273329954,
+    -0.9999988697666455
+  ],
+  "body_velocity": [
+    0.033837271447350124,
+    -0.0034408461315213715,
+    0.05894728320120676
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    418.6417208225425,
+    372.99028765225904
+  ],
+  "gripper_m": [
+    0.060428946789570524,
+    0.06043380698152692
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.14613330172959643,
+    "left_hip_roll_joint": 0.05774735308457253,
+    "left_hip_yaw_joint": 0.1866341228424248,
+    "left_knee_joint": 0.3547817747796828,
+    "left_ankle_pitch_joint": -0.20312535610389615,
+    "left_ankle_roll_joint": 0.004539238432881378,
+    "right_hip_pitch_joint": -0.14254140401600165,
+    "right_hip_roll_joint": -0.04048649586070291,
+    "right_hip_yaw_joint": -0.14734323218193932,
+    "right_knee_joint": 0.35244627989053773,
+    "right_ankle_pitch_joint": -0.20643436318728278,
+    "right_ankle_roll_joint": -0.007091748129118476,
+    "waist_yaw_joint": -0.0010865651267795821,
+    "waist_roll_joint": 0.0018941435683578465,
+    "waist_pitch_joint": 0.07091972149359373,
+    "left_shoulder_pitch_joint": 0.0006117062970653663,
+    "left_shoulder_roll_joint": 0.2198337606000442,
+    "left_shoulder_yaw_joint": -0.0019438014618131975,
+    "left_elbow_joint": 1.4002885222959345,
+    "left_wrist_roll_joint": 0.0002651700423597806,
+    "left_wrist_pitch_joint": 0.019509522065821464,
+    "left_wrist_yaw_joint": -0.0006563587441202594,
+    "right_shoulder_pitch_joint": 0.0008852090940994003,
+    "right_shoulder_roll_joint": -0.21973364474210197,
+    "right_shoulder_yaw_joint": 0.0019084827970689132,
+    "right_elbow_joint": 1.4001693187009914,
+    "right_wrist_roll_joint": -0.00017258829748132876,
+    "right_wrist_pitch_joint": 0.019386716009019065,
+    "right_wrist_yaw_joint": 0.0006111842569464182
+  },
+  "previous_decision": {
+    "observation_id": 49,
+    "execute": true,
+    "horizon_s": 2.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "已起身至直立，双脚受力约172N且速度很小；完成站稳末端，再开始后摆双臂和屈膝蓄力。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

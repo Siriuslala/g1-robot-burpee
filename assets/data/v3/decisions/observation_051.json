@@ -1,0 +1,70 @@
+{
+  "observation_id": 51,
+  "part": "burpee",
+  "proposed_skill": "jump",
+  "sim_time": 154.9520000028968,
+  "image": "ego_051.png",
+  "gravity_body": [
+    -0.10401120990441062,
+    -0.00025151140893924645,
+    -0.9945760930950597
+  ],
+  "body_velocity": [
+    -0.6621616388307172,
+    -0.0038323551773561887,
+    0.45297151477291275
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "gripper_m": [
+    0.06104602120723049,
+    0.060987428244106225
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.07857234705715739,
+    "left_hip_roll_joint": 0.00043481764809473824,
+    "left_hip_yaw_joint": -0.0011691673757637648,
+    "left_knee_joint": 0.13756178105876815,
+    "left_ankle_pitch_joint": 0.10428525664337342,
+    "left_ankle_roll_joint": 0.0332426555604713,
+    "right_hip_pitch_joint": -0.09751079774264522,
+    "right_hip_roll_joint": -0.0013967349243221316,
+    "right_hip_yaw_joint": 0.0010907389745716581,
+    "right_knee_joint": 0.13023008651241494,
+    "right_ankle_pitch_joint": 0.10440093896151101,
+    "right_ankle_roll_joint": -0.038163553959584026,
+    "waist_yaw_joint": -0.002410496249946205,
+    "waist_roll_joint": 0.00021172780188605944,
+    "waist_pitch_joint": 0.025388596729106976,
+    "left_shoulder_pitch_joint": -0.5012036580363758,
+    "left_shoulder_roll_joint": 0.3650195162885617,
+    "left_shoulder_yaw_joint": -0.0028743252631818184,
+    "left_elbow_joint": 1.4499961111903636,
+    "left_wrist_roll_joint": 0.0008655685508239084,
+    "left_wrist_pitch_joint": 0.10329192501089642,
+    "left_wrist_yaw_joint": -0.006271218541788644,
+    "right_shoulder_pitch_joint": -0.4964935088900198,
+    "right_shoulder_roll_joint": -0.36701471993442586,
+    "right_shoulder_yaw_joint": 0.002675947660822185,
+    "right_elbow_joint": 1.4506955289554446,
+    "right_wrist_roll_joint": -0.0006990929144842605,
+    "right_wrist_pitch_joint": 0.10278034760653681,
+    "right_wrist_yaw_joint": 0.006018298015651577
+  },
+  "previous_decision": {
+    "observation_id": 50,
+    "execute": true,
+    "horizon_s": 3.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "双手已经空载，身体保持直立，双脚仍在台面承重；执行双臂后摆与屈膝蓄力，再协调前摆和伸腿起跳。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

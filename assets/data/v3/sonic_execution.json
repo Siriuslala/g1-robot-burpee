@@ -1,0 +1,11 @@
+{
+  "policy_hz": 50,
+  "physics_dt": 0.0001,
+  "policy_steps": 1313,
+  "planner_calls": 69,
+  "executed_joints": "12 leg joints; existing task PD for waist, arms and grippers",
+  "planner_reference_hz": 30,
+  "planner_interval_s": 0.4,
+  "reference_blend_s": 0.16,
+  "turn_centering_reference": "artifacts/stage_transport/sequence_065_low/events.json"
+}

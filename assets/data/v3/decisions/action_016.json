@@ -1,0 +1,1 @@
+{"observation_id": 16, "execute": true, "horizon_s": 4.0, "speed_scale": 1.0, "controller": "legacy", "reason": "朝向已接近放架方向，仍处于落脚调整中，右脚承重较小；继续完成对齐，保持夹持，不提前下蹲。"}

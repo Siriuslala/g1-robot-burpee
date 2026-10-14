@@ -1,0 +1,70 @@
+{
+  "observation_id": 27,
+  "part": "transport",
+  "proposed_skill": "final_hold",
+  "sim_time": 103.30000000230567,
+  "image": "ego_027.png",
+  "gravity_body": [
+    -0.007690403809541935,
+    -0.0008286613803462251,
+    -0.9999700850573305
+  ],
+  "body_velocity": [
+    0.03008366154910547,
+    0.0005822369851364594,
+    0.0008224833336623502
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    174.6668821574697,
+    170.12101981389827
+  ],
+  "gripper_m": [
+    0.06031785522297294,
+    0.06031829876883134
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.14147184402952775,
+    "left_hip_roll_joint": 0.012035301482623868,
+    "left_hip_yaw_joint": 0.028605262609768933,
+    "left_knee_joint": 0.32745094115313605,
+    "left_ankle_pitch_joint": -0.1790586919241459,
+    "left_ankle_roll_joint": -0.00021717392244159376,
+    "right_hip_pitch_joint": -0.15345995940894244,
+    "right_hip_roll_joint": 0.004997164012707203,
+    "right_hip_yaw_joint": 0.028039781923915635,
+    "right_knee_joint": 0.3312551078931244,
+    "right_ankle_pitch_joint": -0.17101381384344236,
+    "right_ankle_roll_joint": 0.002316305526439693,
+    "waist_yaw_joint": -0.0005716654640433111,
+    "waist_roll_joint": 0.0021537350233883637,
+    "waist_pitch_joint": 0.07272631246665297,
+    "left_shoulder_pitch_joint": 0.00026756201643651865,
+    "left_shoulder_roll_joint": 0.21999581786175063,
+    "left_shoulder_yaw_joint": -0.001957622020035581,
+    "left_elbow_joint": 1.4000675683958768,
+    "left_wrist_roll_joint": 0.0001037955051627291,
+    "left_wrist_pitch_joint": 0.019291644369001215,
+    "left_wrist_yaw_joint": -0.0009412245627230929,
+    "right_shoulder_pitch_joint": 0.0002658493539303725,
+    "right_shoulder_roll_joint": -0.22000068230830383,
+    "right_shoulder_yaw_joint": 0.001971509536381692,
+    "right_elbow_joint": 1.4000670386434286,
+    "right_wrist_roll_joint": -0.00010314544320864017,
+    "right_wrist_pitch_joint": 0.019290221095831735,
+    "right_wrist_yaw_joint": 0.000947989548986069
+  },
+  "previous_decision": {
+    "observation_id": 26,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "第一次展示动作已完成，躯干与双脚保持稳定；放下双臂，恢复自然站姿，为俯卧撑准备。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

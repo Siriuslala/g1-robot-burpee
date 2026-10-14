@@ -1,0 +1,70 @@
+{
+  "observation_id": 5,
+  "part": "transport",
+  "proposed_skill": "recover",
+  "sim_time": 19.455999999967997,
+  "image": "ego_005.png",
+  "gravity_body": [
+    -0.07350258631302299,
+    -0.06084520407368819,
+    -0.9954372059283939
+  ],
+  "body_velocity": [
+    -0.10012372933654747,
+    -0.03891784848519639,
+    -0.00950117156538344
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    99.92519545887222,
+    422.46143429774037
+  ],
+  "gripper_m": [
+    0.060653724992627375,
+    0.06053139550585464
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.13769456059837054,
+    "left_hip_roll_joint": 0.08522997121855927,
+    "left_hip_yaw_joint": 0.25112037060581777,
+    "left_knee_joint": 0.3695520204037463,
+    "left_ankle_pitch_joint": -0.1838441075567352,
+    "left_ankle_roll_joint": -0.06014174954517044,
+    "right_hip_pitch_joint": -0.14879921774550964,
+    "right_hip_roll_joint": -0.23004775199653546,
+    "right_hip_yaw_joint": -0.24141887481971055,
+    "right_knee_joint": 0.5172174442134837,
+    "right_ankle_pitch_joint": -0.28370887017909974,
+    "right_ankle_roll_joint": 0.08299390186867617,
+    "waist_yaw_joint": 0.02642694183164358,
+    "waist_roll_joint": -0.03650911172776431,
+    "waist_pitch_joint": 0.04615096499938506,
+    "left_shoulder_pitch_joint": 0.0059422669503216684,
+    "left_shoulder_roll_joint": 0.21212571955715726,
+    "left_shoulder_yaw_joint": -0.0024103851392551882,
+    "left_elbow_joint": 1.4009688587569449,
+    "left_wrist_roll_joint": -0.00024173809179372675,
+    "left_wrist_pitch_joint": 0.019198475055962515,
+    "left_wrist_yaw_joint": -0.0021262831599765638,
+    "right_shoulder_pitch_joint": -0.0196635647421956,
+    "right_shoulder_roll_joint": -0.2336064480996713,
+    "right_shoulder_yaw_joint": 0.0009640772665969715,
+    "right_elbow_joint": 1.3930258568022467,
+    "right_wrist_roll_joint": -0.0005265074625618233,
+    "right_wrist_pitch_joint": 0.012654386455518092,
+    "right_wrist_yaw_joint": -0.0020328022246105725
+  },
+  "previous_decision": {
+    "observation_id": 4,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "sonic",
+    "reason": "支架已进入近处视野下方，前向速度接近零且双脚开始共同承重；继续SONIC完成末端对位和停步，暂不弯腰取架。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

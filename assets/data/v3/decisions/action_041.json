@@ -1,0 +1,1 @@
+{"observation_id": 41, "execute": true, "horizon_s": 2.0, "speed_scale": 1.0, "controller": "legacy", "reason": "身体已回到俯撑高度且速度接近零，双手和双脚均有接触；先收回左腿，保持右脚和双手支撑。"}

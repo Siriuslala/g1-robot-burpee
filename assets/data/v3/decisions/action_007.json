@@ -1,0 +1,1 @@
+{"observation_id": 7, "execute": true, "horizon_s": 8.0, "speed_scale": 1.0, "controller": "legacy", "reason": "已停稳，双膝和双脚支撑正常，两只支架位于身前；执行缓慢下蹲与伸手，用既有IK保持足底支撑。"}

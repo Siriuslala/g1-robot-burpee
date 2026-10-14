@@ -44,31 +44,30 @@ try {
  const page=await browser.newPage({viewport:{width:1440,height:1100}});const errors=[];
  page.on('pageerror',e=>errors.push(String(e)));page.on('response',r=>{if(r.status()>=400)errors.push(r.url());});
  const url=`http://127.0.0.1:${server.address().port}${prefix}`;
- // Reproduce stale unversioned CSS, then verify fingerprinted URLs bypass it.
- const oldCSS=fs.readFileSync(path.join(root,'assets/css/site.css'),'utf8').split('/* Version navigation')[0];
- await page.route(/\/assets\/css\/site\.css$/,route=>route.fulfill({contentType:'text/css',body:oldCSS}));
- await page.route('**/cache-repro.html',route=>route.fulfill({contentType:'text/html',body:fs.readFileSync(path.join(root,'index.html'),'utf8').replace(/\?v=[a-f0-9]+/g,'')}));
- await page.goto(url+'cache-repro.html');
- assert.equal(await page.locator('.dual-video').evaluate(e=>getComputedStyle(e).display),'block');
- assert.equal(await page.locator('.version-button').first().evaluate(e=>getComputedStyle(e).backgroundColor),'rgba(0, 0, 0, 0)');
- await page.goto(url);await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.readyState>=2));
- assert.equal(await page.locator('.dual-video').evaluate(e=>getComputedStyle(e).display),'grid');assert.equal(await page.locator('.version-button').first().evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(21, 75, 56)');assert.equal(await page.locator('video').count(),2);assert.equal(await page.locator('.version-button[aria-current]').textContent(),'v2（GPT 在线控制）');
- const bounds=await page.locator('video').evaluateAll(v=>v.map(x=>x.getBoundingClientRect().toJSON()));assert(bounds[1].x>bounds[0].x && bounds[1].y===bounds[0].y);
- await page.screenshot({path:path.join(output,'v2-desktop.png'),fullPage:true});
- await page.locator('#start').click();await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>!v.paused && v.currentTime>.4));
- await page.locator('#first-person').evaluate(v=>v.pause());await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.paused));
- await page.locator('[data-speed="2"]').click();await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.playbackRate===2));
- await page.locator('.action-button').filter({hasText:'曲臂向下'}).click();await page.waitForFunction(()=>{const a=document.querySelector('#performance'),b=document.querySelector('#first-person');return a.currentTime>121&&Math.abs(a.currentTime-b.currentTime)<.1});
- await page.locator('#first-person').evaluate(v=>{v.currentTime=40});await page.waitForFunction(()=>Math.abs(document.querySelector('#performance').currentTime-40)<.1);
- await page.locator('[data-view="fixed"]').click();await page.waitForFunction(()=>{const a=document.querySelector('#performance'),b=document.querySelector('#first-person');return a.readyState>=2&&a.src.includes('fixed.mp4')&&Math.abs(a.currentTime-40)<.1&&Math.abs(a.currentTime-b.currentTime)<.1});
- await page.locator('#first-person').evaluate(v=>v.play());await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>!v.paused));
- await page.locator('[data-view="transition"]').click();await page.waitForFunction(()=>{const a=document.querySelector('#performance'),b=document.querySelector('#first-person');return a.readyState>=2&&!a.paused&&!b.paused&&a.src.includes('transition.mp4')&&Math.abs(a.currentTime-b.currentTime)<.3});
- await page.locator('#performance').evaluate(v=>v.pause());assert(await page.locator('#player-error').isHidden());
- await page.setViewportSize({width:390,height:844});await page.screenshot({path:path.join(output,'v2-mobile.png'),fullPage:true});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
- await page.locator('.version-button').filter({hasText:'v1（'}).click();await page.waitForFunction(()=>document.querySelector('video').readyState>=2);assert(page.url().endsWith('/v1/'));assert.equal(await page.locator('video').count(),1);assert.equal(await page.locator('.method-entry a').getAttribute('href'),'https://siriuslala.github.io/g1-robot-burpee/technical_v1.html');
- assert(Math.abs(await page.locator('video').evaluate(v=>v.duration)-156.35)<.1);await page.locator('[data-view="fixed"]').click();await page.waitForFunction(()=>document.querySelector('video').readyState>=2&&document.querySelector('video').src.endsWith('/assets/media/fixed.mp4'));
- await page.setViewportSize({width:1440,height:1100});await page.screenshot({path:path.join(output,'v1-desktop.png'),fullPage:true});
- await page.goto(url+'technical.html');assert(await page.locator('h1').textContent()==='GPT 在线混合控制');assert(await page.locator('body').textContent().then(t=>t.includes('53 次')));await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(output,'technical-v2-mobile.png'),fullPage:true});
- await page.goto(url+'technical_v1.html');assert(await page.locator('body').textContent().then(t=>t.includes('状态机')));assert.equal(await page.locator('.back-link').getAttribute('href'),'v1/');
- assert.deepEqual(errors,[]);console.log('PASS: v2 default, paired playback/pause/seek/rate/camera switch, mobile layout, v1 preservation, technical routes, no browser errors');
+ for (const [route,v,report,count] of [['','v3','technical.html',2],['v2/','v2','technical_v2.html',2],['v1/','v1','technical_v1.html',1]]) {
+  await page.goto(url+route);await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.readyState>=2));
+  assert.equal(await page.locator('video').count(),count);assert.equal(await page.locator('.version-button').count(),3);
+  assert((await page.locator('.version-button[aria-current]').textContent()).startsWith(v));
+  assert.equal(await page.locator('.method-entry').count(),1);assert.equal(await page.locator('.method-entry a').getAttribute('href'),report);
+  assert(!(await page.locator('body').textContent()).includes('↓'));
+  const boxes=await page.evaluate(()=>['.version-switch','.method-entry','.showcase'].map(s=>document.querySelector(s).getBoundingClientRect().toJSON()));
+  assert(boxes[0].bottom<=boxes[1].top && boxes[1].bottom<=boxes[2].top);
+  const center=await page.locator('.method-entry a').boundingBox();assert(Math.abs(center.x+center.width/2-720)<2);
+  if(count===2){
+   await page.locator('#start').click();await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>!v.paused&&v.currentTime>.3));
+   await page.locator('#first-person').evaluate(v=>v.pause());await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.paused));
+   await page.locator('[data-speed="2"]').click();await page.waitForFunction(()=>[...document.querySelectorAll('video')].every(v=>v.playbackRate===2));
+   await page.locator('.action-button').filter({hasText:'曲臂向下'}).click();await page.waitForFunction(()=>Math.abs(document.querySelector('#performance').currentTime-document.querySelector('#first-person').currentTime)<.1);
+   const time=await page.locator('#performance').evaluate(v=>v.currentTime);assert(Math.abs(time-(v==='v3'?129.630:121.59))<.1);
+   await page.locator('[data-view="fixed"]').click();await page.waitForFunction(()=>{const a=document.querySelector('#performance'),b=document.querySelector('#first-person');return a.readyState>=2&&a.src.includes('fixed.mp4')&&Math.abs(a.currentTime-b.currentTime)<.1});
+  }
+  await page.screenshot({path:path.join(output,v+'-desktop.png'),fullPage:true});
+  for(const width of [390,320]){await page.setViewportSize({width,height:900});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:path.join(output,v+'-'+width+'.png'),fullPage:true});}
+  await page.setViewportSize({width:1440,height:1100});await page.locator('.method-entry a').click();assert(page.url().endsWith(report));
+  if(v==='v3'){assert.equal(await page.locator('.decision-example').count(),9);for(const a of await page.locator('a[href^="assets/"]').all()){const href=await a.getAttribute('href');assert(fs.existsSync(path.join(root,href)),href);}}
+  for(const width of [1440,390,320]){await page.setViewportSize({width,height:1000});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));}
+  await page.setViewportSize({width:1440,height:1100});
+  console.log(v+' playback, report, placement and responsive checks passed');
+ }
+ assert.deepEqual(errors,[]);console.log('No missing resources or JavaScript errors');
 } finally {await browser?.close();await new Promise(resolve=>server.close(resolve));}

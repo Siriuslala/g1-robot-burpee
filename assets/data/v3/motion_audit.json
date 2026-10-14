@@ -1,0 +1,59 @@
+{
+  "success": false,
+  "checks": {
+    "source_scene_identical": true,
+    "source_initial_qpos_exact": true,
+    "all_leg_transitions": false,
+    "actual_pushup": false,
+    "actual_jump": true,
+    "final_flex": true,
+    "grip_geometry": false,
+    "final_stable": true
+  },
+  "legs": {
+    "left_extend": {
+      "reached": true,
+      "passed": false,
+      "forward_or_backward_travel_m": 0.4652047230763052,
+      "lateral_excursion_m": 0.05764134797796494,
+      "peak_sole_clearance_m": 0.07732297473326107,
+      "airborne_recorded": true,
+      "final_knee_rad": 0.21121686010665458,
+      "landing_completed": true
+    },
+    "left_return": {
+      "reached": true,
+      "passed": true,
+      "forward_or_backward_travel_m": 0.5427202853893146,
+      "lateral_excursion_m": 0.04169520028107021,
+      "peak_sole_clearance_m": 0.05709712845349044,
+      "airborne_recorded": true,
+      "final_knee_rad": 1.6923328307942376,
+      "landing_completed": true
+    },
+    "right_extend": {
+      "reached": true,
+      "passed": true,
+      "forward_or_backward_travel_m": 0.5615532308962301,
+      "lateral_excursion_m": 0.04372082811799016,
+      "peak_sole_clearance_m": 0.14440709604471597,
+      "airborne_recorded": true,
+      "final_knee_rad": 0.16655986737002182,
+      "landing_completed": true
+    },
+    "right_return": {
+      "reached": true,
+      "passed": false,
+      "forward_or_backward_travel_m": 0.5182297458969799,
+      "lateral_excursion_m": 0.08145285413817915,
+      "peak_sole_clearance_m": 0.048992823789763565,
+      "airborne_recorded": true,
+      "final_knee_rad": 2.2787608148033325,
+      "landing_completed": true
+    }
+  },
+  "flight_duration_lower_bound_s": 0.12000000000398359,
+  "max_double_sole_clearance_m": 0.02757749655064707,
+  "grip_geometry_valid_fraction": 0.5527522935779816,
+  "scope": "Recorded-state audit at 50 Hz; flight duration is a lower bound; geometric grip does not alone establish opposed contact forces"
+}

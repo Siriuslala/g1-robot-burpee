@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "checks": {
+    "stage_transport_scene_identical": true,
+    "stage_transport_same_array_keys": true,
+    "stage_transport_time_exact": true,
+    "stage_transport_qpos_exact": true,
+    "stage_transport_qvel_exact": true,
+    "stage_transport_ctrl_exact": true,
+    "stage_transport_target_exact": true,
+    "stage_transport_initial_qpos_exact": true,
+    "stage_transport_integration_exact": true,
+    "stage_burpee_scene_identical": true,
+    "stage_burpee_same_array_keys": true,
+    "stage_burpee_time_exact": true,
+    "stage_burpee_qpos_exact": true,
+    "stage_burpee_qvel_exact": true,
+    "stage_burpee_ctrl_exact": true,
+    "stage_burpee_target_exact": true,
+    "stage_burpee_initial_qpos_exact": true,
+    "stage_burpee_integration_exact": true
+  },
+  "sources": {
+    "stage_transport": {
+      "cache_source": "/home/liyueyan/robot/artifacts/stage_transport/sonic_calibration_004",
+      "online_source": "/home/liyueyan/robot/artifacts/stage_transport/codex_sonic_003",
+      "cache_sha256": "8c493c2a9eaf50c141638c7f4ccaf7a7941b9b0eac2d853193db08921188ca7f",
+      "online_sha256": "8c493c2a9eaf50c141638c7f4ccaf7a7941b9b0eac2d853193db08921188ca7f"
+    },
+    "stage_burpee": {
+      "cache_source": "/home/liyueyan/robot/artifacts/stage_burpee/sonic_calibration_004",
+      "online_source": "/home/liyueyan/robot/artifacts/stage_burpee/codex_sonic_003",
+      "cache_sha256": "3d35bc0912e8eb426f98d56910c7ab3d613110483e0634e5f80b647fc14108fe",
+      "online_sha256": "3d35bc0912e8eb426f98d56910c7ab3d613110483e0634e5f80b647fc14108fe"
+    }
+  },
+  "scope": "Rendered frames are reused only after exact equality of every saved trajectory array, scene, and handoff integration state. Online decisions and live observation images belong exclusively to codex_sonic_003.",
+  "video_sha256": {
+    "render/transition.mp4": "566b39c3fde5e90cbdc6e005c93e760c5b0ad383a1af9f5fca904aec39bf949f",
+    "ego_video/first_person.mp4": "2cfd774d13df915fe1fb4dae992d35832939ce7d0269153a0ba083bc63ae7c3a"
+  }
+}

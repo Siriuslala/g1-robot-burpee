@@ -1,0 +1,1 @@
+{"observation_id": 3, "execute": true, "horizon_s": 6.0, "speed_scale": 1.0, "controller": "sonic", "reason": "支架已明显接近，处于右脚支撑的换步阶段，身体倾斜仍有限；继续SONIC接近，并由距离反馈减速到停步位置。"}

@@ -1,0 +1,70 @@
+{
+  "observation_id": 11,
+  "part": "transport",
+  "proposed_skill": "pickup",
+  "sim_time": 45.260000000378945,
+  "image": "ego_011.png",
+  "gravity_body": [
+    0.010047962808627242,
+    -0.00039767949952853183,
+    -0.9999494388689937
+  ],
+  "body_velocity": [
+    -0.0012994082437690598,
+    0.00015102021561823762,
+    0.000965479034291944
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    17.90571837049934,
+    19.012981914293512,
+    182.64258366446396,
+    173.89639383047773
+  ],
+  "gripper_m": [
+    -0.001658312362469212,
+    -0.0015836762271859265
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.15600526064847253,
+    "left_hip_roll_joint": 0.011494220445342979,
+    "left_hip_yaw_joint": -0.001963070514449418,
+    "left_knee_joint": 0.3241216462283523,
+    "left_ankle_pitch_joint": -0.17838331829467374,
+    "left_ankle_roll_joint": -0.0008718623468365255,
+    "right_hip_pitch_joint": -0.15626365442440832,
+    "right_hip_roll_joint": -0.0014927607266447607,
+    "right_hip_yaw_joint": -0.0006582486783385265,
+    "right_knee_joint": 0.3279630443854273,
+    "right_ankle_pitch_joint": -0.18171666393751432,
+    "right_ankle_roll_joint": -0.004275774877963686,
+    "waist_yaw_joint": -0.0006178069781164832,
+    "waist_roll_joint": -0.001964884796051463,
+    "waist_pitch_joint": 0.0877679795270497,
+    "left_shoulder_pitch_joint": 0.12262053080443905,
+    "left_shoulder_roll_joint": 0.6539630529170665,
+    "left_shoulder_yaw_joint": -0.07042530473949092,
+    "left_elbow_joint": 0.7305166928890633,
+    "left_wrist_roll_joint": -0.51609952875766,
+    "left_wrist_pitch_joint": -0.7308019416599562,
+    "left_wrist_yaw_joint": -1.568298889508801,
+    "right_shoulder_pitch_joint": 0.19547025282147165,
+    "right_shoulder_roll_joint": -0.768312705329589,
+    "right_shoulder_yaw_joint": 0.5785763938233442,
+    "right_elbow_joint": 0.5121805846657286,
+    "right_wrist_roll_joint": 0.8009445040779682,
+    "right_wrist_pitch_joint": -1.0083377280599206,
+    "right_wrist_yaw_joint": 1.6091842629234412
+  },
+  "previous_decision": {
+    "observation_id": 10,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "两只夹爪已闭合并产生约24N和15N接触力，图像中横杆位于夹持区域；身体静止，批准保持夹持并缓慢起身提架。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

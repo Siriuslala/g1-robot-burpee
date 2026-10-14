@@ -1,0 +1,1 @@
+{"observation_id": 6, "execute": true, "horizon_s": 5.0, "speed_scale": 1.0, "controller": "legacy", "reason": "双脚承重接近平衡，身体速度已降至约0.007m/s，近处两只支架可见；批准取架准备姿态，保持夹爪张开。"}

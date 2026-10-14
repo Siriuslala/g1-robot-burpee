@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f8f5">
-  <meta name="description" content="Unitree G1 舞台波比跳仿真：登台、搬运支架、俯卧撑与摆臂跳跃。由 GPT-6-Astra 创建，GPT 在线监督，第三人称与第一人称同步播放。">
+  <meta name="description" content="Unitree G1 舞台波比跳仿真：登台、搬运支架、俯卧撑与摆臂跳跃。由 GPT-6-Astra 创建，GPT 在线控制 + SONIC，第三人称与第一人称同步播放。">
   <title>G1 Robot Performance created by GPT-6-Astra</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/site.css?v=077071dcac93">
-  <script src="assets/js/timeline-v2.js?v=b094b49a514c" defer></script>
-  <script src="assets/js/player-v2.js?v=f6ca5867998d" defer></script>
+  <link rel="stylesheet" href="assets/css/site.css?v=7b3f8abba1b5">
+  <script src="assets/js/timeline-v3.js?v=802e9909de44" defer></script>
+  <script src="assets/js/player-v3.js?v=6e75ce34ce17" defer></script>
   <script src="assets/js/sync-v2.js?v=d7e5d1daf5c4" defer></script>
 </head>
 <body>
@@ -18,11 +18,12 @@
     <section class="intro" aria-labelledby="title">
       <p class="eyebrow"><span class="status-dot"></span> UNITREE G1 <span class="divider">/</span> SIMULATION SHOWCASE</p>
       <h1 id="title">G1 Robot Performance <span>created by <strong>GPT-6-Astra</strong></span></h1>
-      <p class="intro-copy">GPT-6-Astra 在 Codex 中实时接收机器人第一视角与本体状态，逐次决定动作执行窗口；底层结合已有行走策略、IK 与接触控制，驱动 Unitree G1 完成舞台表演。本轮共 53 次在线决策，连续仿真约 156 秒；任务顺序由阶段程序辅助，模型决策期间暂停物理时间。</p>
+      <p class="intro-copy">GPT-6-Astra 在 Codex 中持续接收机器人当前第一视角与本体状态，在线选择控制后端与执行窗口；SONIC 负责登台、接近支架及持架转向行走，IK 与接触控制完成精细操作和波比跳。本轮共 55 次在线决策，连续仿真约 164 秒；任务顺序由阶段程序辅助，模型决策期间暂停物理时间。</p>
       <div class="tags"><span>登台与搬运</span><i aria-hidden="true">→</i><span>放置与展示</span><i aria-hidden="true">→</i><span>支架俯卧撑</span><i aria-hidden="true">→</i><span>跳跃与谢幕</span></div>
     </section>
 
-    <nav class="version-switch" aria-label="表演版本"><a class="version-button" href="./" aria-current="page">v2（GPT 在线控制）</a><a class="version-button" href="v1/">v1（状态机控制）</a></nav>
+    <nav class="version-switch" aria-label="表演版本"><a class="version-button" href="./" aria-current="page">v3（GPT 在线控制 + SONIC）</a><a class="version-button" href="v2/">v2（GPT 在线控制）</a><a class="version-button" href="v1/">v1（状态机控制）</a></nav>
+    <div class="method-entry"><a class="download-button" href="technical.html">技术方案 <span aria-hidden="true">→</span></a></div>
 
     <section class="showcase" aria-label="机器人表演视频">
       <div class="toolbar">
@@ -30,23 +31,22 @@
         <div class="control-group"><span class="control-label" id="speed-label">速度</span><div class="segmented speeds" role="group" aria-labelledby="speed-label"><button type="button" data-speed="0.5" aria-pressed="false" aria-label="0.5 倍速">0.5×</button><button type="button" data-speed="1" aria-pressed="true" aria-label="1 倍速">1×</button><button type="button" data-speed="1.5" aria-pressed="false" aria-label="1.5 倍速">1.5×</button><button type="button" data-speed="2" aria-pressed="false" aria-label="2 倍速">2×</button></div></div>
       </div>
       <div class="dual-video"><div class="video-pane"><h2 class="video-heading">第三人称视角</h2>      <div class="video-wrap">
-        <video id="performance" controls playsinline preload="metadata" poster="assets/media/v2/transition_poster.png" src="assets/media/v2/transition.mp4" aria-label="Unitree G1 完整舞台波比跳仿真视频" aria-describedby="view-note"></video>
+        <video id="performance" controls playsinline preload="metadata" poster="assets/media/v3/transition_poster.png" src="assets/media/v3/transition.mp4" aria-label="Unitree G1 完整舞台波比跳仿真视频" aria-describedby="view-note"></video>
         <button class="start-button" id="start" type="button" aria-label="播放完整表演"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 4.5v15l12-7.5z"/></svg></button>
       </div>
-</div><div class="video-pane"><h2 class="video-heading">第一人称视角</h2><div class="video-wrap"><video id="first-person" controls playsinline preload="metadata" poster="assets/media/v2/first_person_poster.png" src="assets/media/v2/first_person.mp4" aria-label="Unitree G1 第一人称视角"></video></div></div></div>
-      <div class="playback-info"><div class="current-action"><span class="status-dot"></span><span id="playback-state">准备就绪</span><span class="info-divider">/</span><strong id="current-action">自然站立</strong></div><span class="time-display"><span id="current-time">00:00</span><span class="time-total"> / <span id="duration">02:36</span></span></span></div>
+</div><div class="video-pane"><h2 class="video-heading">第一人称视角</h2><div class="video-wrap"><video id="first-person" controls playsinline preload="metadata" poster="assets/media/v3/first_person_poster.png" src="assets/media/v3/first_person.mp4" aria-label="Unitree G1 第一人称视角"></video></div></div></div>
+      <div class="playback-info"><div class="current-action"><span class="status-dot"></span><span id="playback-state">准备就绪</span><span class="info-divider">/</span><strong id="current-action">自然站立</strong></div><span class="time-display"><span id="current-time">00:00</span><span class="time-total"> / <span id="duration">02:44</span></span></span></div>
       <div class="chapter-progress" id="chapter-progress" aria-label="四阶段播放进度"></div>
       <p id="player-error" class="error" role="alert" hidden></p>
     </section>
-    <div class="player-caption"><p id="view-note">运镜衔接 · 登台与搬运保持全景，俯卧撑前平滑转至近景。</p><div class="download-actions"><a class="download-button" id="download-video" href="assets/media/v2/transition.mp4" download="g1-performance-transition.mp4"><span id="download-label">下载第三人称视频</span></a><a class="download-button" href="assets/media/v2/first_person.mp4" download>下载第一人称视频</a></div></div>
+    <div class="player-caption"><p id="view-note">运镜衔接 · 登台与搬运保持全景，俯卧撑前平滑转至近景。</p><div class="download-actions"><a class="download-button" id="download-video" href="assets/media/v3/transition.mp4" download="g1-performance-transition.mp4"><span id="download-label">下载第三人称视频</span></a><a class="download-button" href="assets/media/v3/first_person.mp4" download>下载第一人称视频</a></div></div>
 
     <section class="sequence" aria-labelledby="sequence-title">
       <div class="section-heading"><div><p class="eyebrow">THE CHOREOGRAPHY</p><h2 id="sequence-title">一场表演，四个阶段。</h2></div><p><span class="legend-dot"></span> 随播放同步高亮 <span class="hint-separator">·</span> 点击动作跳转</p></div>
       <div class="phase-grid" id="phases"></div>
       <noscript><p class="error">启用 JavaScript 后可切换视角、倍速并显示动作阶段。仍可使用上方原生播放器观看完整视频。</p></noscript>
     </section>
-    <div class="method-entry"><a class="download-button" href="https://siriuslala.github.io/g1-robot-burpee/technical.html">技术方案 <span aria-hidden="true">→</span></a></div>
   </main>
-  <footer><div><span class="footer-mark">G1</span> Unitree G1 <span class="footer-separator">/</span> GPT-6-Astra</div><span>舞台波比跳 · 仿真展示</span><a href="assets/media/v2/transition.mp4" download>下载运镜视频 <span aria-hidden="true">↓</span></a></footer>
+  <footer><div><span class="footer-mark">G1</span> Unitree G1 <span class="footer-separator">/</span> GPT-6-Astra</div><span>舞台波比跳 · 仿真展示</span><a href="assets/media/v3/transition.mp4" download>下载运镜视频 </a></footer>
 </body>
 </html>

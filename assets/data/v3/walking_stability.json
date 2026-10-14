@@ -1,0 +1,46 @@
+{
+  "run": "/home/liyueyan/robot/artifacts/stage_transport/codex_sonic_003",
+  "groups": {
+    "approach": {
+      "reached": true,
+      "sampled_seconds": 17.96,
+      "roll_rms_deg": 2.9566040879609727,
+      "roll_peak_deg": 9.417191703133204,
+      "pitch_std_deg": 2.683293879041138,
+      "roll_pitch_rate_rms_deg_s": 29.59171526745197,
+      "lateral_speed_rms_m_s": 0.18414941766114118,
+      "vertical_speed_rms_m_s": 0.08789202085175925
+    },
+    "loaded_carry": {
+      "reached": true,
+      "sampled_seconds": 18.68,
+      "roll_rms_deg": 5.436752081029456,
+      "roll_peak_deg": 11.590437773122288,
+      "pitch_std_deg": 6.298731775108551,
+      "roll_pitch_rate_rms_deg_s": 45.45857429670007,
+      "lateral_speed_rms_m_s": 0.18477604177534318,
+      "vertical_speed_rms_m_s": 0.06101976428576677
+    },
+    "loaded_navigation": {
+      "reached": true,
+      "sampled_seconds": 8.3,
+      "roll_rms_deg": 2.785836116937372,
+      "roll_peak_deg": 6.926014831352649,
+      "pitch_std_deg": 3.117966320413937,
+      "roll_pitch_rate_rms_deg_s": 26.828232594278525,
+      "lateral_speed_rms_m_s": 0.14067754789463083,
+      "vertical_speed_rms_m_s": 0.04993859349905908
+    },
+    "placement_alignment": {
+      "reached": true,
+      "sampled_seconds": 10.38,
+      "roll_rms_deg": 6.854763721795123,
+      "roll_peak_deg": 11.590437773122288,
+      "pitch_std_deg": 1.8203575024161223,
+      "roll_pitch_rate_rms_deg_s": 56.065545009027645,
+      "lateral_speed_rms_m_s": 0.21358432873054684,
+      "vertical_speed_rms_m_s": 0.0686044942354052
+    }
+  },
+  "scope": "Physical torso orientation and velocity at saved 50 Hz states; no camera stabilization. Stage masks include acceleration and stopping; different paths/durations must be considered."
+}

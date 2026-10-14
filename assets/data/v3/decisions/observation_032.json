@@ -1,0 +1,70 @@
+{
+  "observation_id": 32,
+  "part": "burpee",
+  "proposed_skill": "reach_bars",
+  "sim_time": 117.91200000239154,
+  "image": "ego_032.png",
+  "gravity_body": [
+    0.6961633297552077,
+    -0.0004421856224176013,
+    -0.7178832932838171
+  ],
+  "body_velocity": [
+    0.0031509619355020884,
+    -0.0037396968924609192,
+    0.006719374796175054
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    0.0,
+    0.0,
+    207.25391021589655,
+    138.4398886113459
+  ],
+  "gripper_m": [
+    0.06004647945131626,
+    0.060042739864661854
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.359897334962494,
+    "left_hip_roll_joint": 0.19654287896802142,
+    "left_hip_yaw_joint": 0.19463681716864162,
+    "left_knee_joint": 2.271251227678613,
+    "left_ankle_pitch_joint": -0.6769215043237005,
+    "left_ankle_roll_joint": 0.22798278694298849,
+    "right_hip_pitch_joint": -2.402851971648031,
+    "right_hip_roll_joint": -0.2012138002605031,
+    "right_hip_yaw_joint": 0.03372083866638339,
+    "right_knee_joint": 2.2773576430901405,
+    "right_ankle_pitch_joint": -0.6471443322363613,
+    "right_ankle_roll_joint": -0.018148943339620468,
+    "waist_yaw_joint": -0.011540847009812205,
+    "waist_roll_joint": 0.023125512406362514,
+    "waist_pitch_joint": 0.1459381768338988,
+    "left_shoulder_pitch_joint": -1.0503723020670936,
+    "left_shoulder_roll_joint": 1.0667806756366058,
+    "left_shoulder_yaw_joint": -0.8979295935974082,
+    "left_elbow_joint": 0.8674903914152847,
+    "left_wrist_roll_joint": -1.4555443302673334,
+    "left_wrist_pitch_joint": -0.9561016677485031,
+    "left_wrist_yaw_joint": -1.5793841159244077,
+    "right_shoulder_pitch_joint": -1.147138038018268,
+    "right_shoulder_roll_joint": -1.0877113155100464,
+    "right_shoulder_yaw_joint": 1.0442341140297484,
+    "right_elbow_joint": 0.8713726004021127,
+    "right_wrist_roll_joint": 1.5078065125978408,
+    "right_wrist_pitch_joint": -0.9610830556579597,
+    "right_wrist_yaw_joint": 1.5793967467653074
+  },
+  "previous_decision": {
+    "observation_id": 31,
+    "execute": true,
+    "horizon_s": 3.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "蹲姿稳定且双手尚未接触支架；调整张开的夹爪朝向，使其适合再次握杆承重。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

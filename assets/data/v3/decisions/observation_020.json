@@ -1,0 +1,70 @@
+{
+  "observation_id": 20,
+  "part": "transport",
+  "proposed_skill": "open",
+  "sim_time": 80.50000000154878,
+  "image": "ego_020.png",
+  "gravity_body": [
+    0.8427122798021955,
+    0.0045939060852914215,
+    -0.5383446010665152
+  ],
+  "body_velocity": [
+    -0.00031346985983451894,
+    -0.0010566934365355502,
+    -0.0007141008636028317
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    17.478218166356026,
+    17.498341012030366,
+    170.2776236914879,
+    174.5842852469496
+  ],
+  "gripper_m": [
+    -0.0015923764909322243,
+    -0.0017612222334233946
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -2.4792636923262488,
+    "left_hip_roll_joint": 0.08720155979606568,
+    "left_hip_yaw_joint": 0.028404259506901952,
+    "left_knee_joint": 2.254756448204119,
+    "left_ankle_pitch_joint": -0.7718493792459067,
+    "left_ankle_roll_joint": 0.04007065947541458,
+    "right_hip_pitch_joint": -2.4756167806919263,
+    "right_hip_roll_joint": -0.07677084879148756,
+    "right_hip_yaw_joint": -0.012569230498012155,
+    "right_knee_joint": 2.2532981940414967,
+    "right_ankle_pitch_joint": -0.7705400701969869,
+    "right_ankle_roll_joint": -0.03314286734205221,
+    "waist_yaw_joint": -0.00223411783110147,
+    "waist_roll_joint": -0.01955323640022375,
+    "waist_pitch_joint": 0.30508401078396735,
+    "left_shoulder_pitch_joint": -0.8902663645441401,
+    "left_shoulder_roll_joint": 0.9011478939951211,
+    "left_shoulder_yaw_joint": -0.6048352364201598,
+    "left_elbow_joint": 1.0926472675608634,
+    "left_wrist_roll_joint": -1.066923328053628,
+    "left_wrist_pitch_joint": -1.461725855517151,
+    "left_wrist_yaw_joint": -1.5750319555781134,
+    "right_shoulder_pitch_joint": -1.1979812342403013,
+    "right_shoulder_roll_joint": -0.9468844024292618,
+    "right_shoulder_yaw_joint": 1.1399378545533294,
+    "right_elbow_joint": 0.9875738987937482,
+    "right_wrist_roll_joint": 1.5231225352635456,
+    "right_wrist_pitch_joint": -1.422272354366102,
+    "right_wrist_yaw_joint": 1.6083381155735785
+  },
+  "previous_decision": {
+    "observation_id": 19,
+    "execute": true,
+    "horizon_s": 4.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "两只支架已到中心标记前方，机器人蹲姿和夹持稳定；保持当前水平落点，执行缓慢下降与调平，确认底座落稳后才能松手。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}

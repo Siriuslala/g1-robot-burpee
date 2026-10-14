@@ -1,0 +1,70 @@
+{
+  "observation_id": 16,
+  "part": "transport",
+  "proposed_skill": "turn_front",
+  "sim_time": 64.30400000101113,
+  "image": "ego_016.png",
+  "gravity_body": [
+    0.12797806092526787,
+    0.025567600435805006,
+    -0.9914473832381452
+  ],
+  "body_velocity": [
+    -0.10405884094189043,
+    0.0012198460754660884,
+    0.044636918144178465
+  ],
+  "contact_summary_initialized": true,
+  "contact_force_n": [
+    22.46681883417149,
+    19.033168891164546,
+    383.66670096893455,
+    18.030749245501884
+  ],
+  "gripper_m": [
+    -0.0018119661203839323,
+    -0.0010659812565406233
+  ],
+  "joint_positions": {
+    "left_hip_pitch_joint": -0.3728684589425539,
+    "left_hip_roll_joint": 0.05180588647751685,
+    "left_hip_yaw_joint": 0.0767709763584322,
+    "left_knee_joint": 0.5442628546334903,
+    "left_ankle_pitch_joint": -0.29079296667770904,
+    "left_ankle_roll_joint": -0.01430386056578567,
+    "right_hip_pitch_joint": -0.4432022922626927,
+    "right_hip_roll_joint": 0.016421382309886504,
+    "right_hip_yaw_joint": 0.06382322801876199,
+    "right_knee_joint": 0.5326518293971783,
+    "right_ankle_pitch_joint": -0.23575260237284726,
+    "right_ankle_roll_joint": -0.08606159514402022,
+    "waist_yaw_joint": -0.012872579191588088,
+    "waist_roll_joint": 0.031867081372270775,
+    "waist_pitch_joint": 0.07251886817794118,
+    "left_shoulder_pitch_joint": 0.11557054256226026,
+    "left_shoulder_roll_joint": 0.6718886609356578,
+    "left_shoulder_yaw_joint": -0.06877916584482964,
+    "left_elbow_joint": 0.7289514539571317,
+    "left_wrist_roll_joint": -0.5183679037504392,
+    "left_wrist_pitch_joint": -0.7352335620780386,
+    "left_wrist_yaw_joint": -1.5693230772243567,
+    "right_shoulder_pitch_joint": 0.20119948577043123,
+    "right_shoulder_roll_joint": -0.7528698416798535,
+    "right_shoulder_yaw_joint": 0.5834175063467902,
+    "right_elbow_joint": 0.5138932267388968,
+    "right_wrist_roll_joint": 0.8003344736094905,
+    "right_wrist_pitch_joint": -1.0055356086645162,
+    "right_wrist_yaw_joint": 1.6070090137622448
+  },
+  "previous_decision": {
+    "observation_id": 15,
+    "execute": true,
+    "horizon_s": 8.0,
+    "speed_scale": 1.0,
+    "controller": "legacy",
+    "reason": "已在中心附近站稳并保持双手夹持；使用原有足端IK和落脚控制调整面向及站距，为稳定放架做准备。"
+  },
+  "available_controllers": [
+    "legacy"
+  ]
+}
